@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Tiare</title>
+    
+    <!--Material css-->
+    <link rel="stylesheet" href="/stylesheets/styleIndex.css">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <!--Fontawesome-->
+    <script src="https://kit.fontawesome.com/0cb7eac916.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <div class="cabeza-footer"></div>
+        <!--imagen, logo de la empresa-->
+        
+        <div class="logo-principal">
+            <a href="/"><img src="/images/logo-letra-negra.png" alt="Logo de Tiare" width="50%" class="logo-ppal-image">
+            </a>
+        </div> 
+            <!--barra de navegacion que enlaza a diferentes paginas-->
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">INICIO</a>
+                </li>
+                <li>
+                    <a href="#">
+                    COLECCIÓN 
+                    <i class="fas fa-arrow-down"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">NEW IN</a>
+                </li>
+                <li>    
+                    <a href="#">
+                        CONTACTO
+                    </a>
+                </li>
+            
+            
+                <li>
+                    <a href="">
+                    <i class="fas fa-search"></i></a>
+                
+                </li>
+                <li>
+                    <a href="/productCart">
+                    <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/login">
+                    <i class="far fa-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>     
+    
+    </header>
+    <main>
+        <form action="/" method="GET" class="register-form">
+            <fieldset>
+                <legend>¡REGISTRATE!</legend>
+
+                    <div class="datos-registro">
+                        <label for="nombre"class="label-nombre">Nombre:</label> 
+                        <input type="text" name="nombre" id="nombre" required>
+                    </div>
+
+                    <div class="datos-registro">
+                        <label for="apellido">Apellido:</label> 
+                        <input type="text" name="apellido" id="apellido" required>
+                    </div>
+
+                    <div class="datos-registro">
+                        <label for="direccion">Dirección:</label> 
+                        <input type="text" name="direccion" id="calle" placeholder="Calle" required>
+                        <input type="number" name="numero" id="numero-puerta" placeholder="Número">
+                    </div>
+
+                    <div class="datos-registro">
+                        <label for="ciudad">Ciudad:</label> 
+                        <input type="text" name="ciudad" id="ciudad" required>
+                    </div>
+
+                    <div class="datos-registro">
+                        <label for="provincia">Provincia:</label> 
+                        <select name="provincia" id="provincia">
+                            <option value="blanco">Elija una opción</option>
+                            <option value="Capital Federal">Ciudad Autónoma de BsAs</option>
+                            <option value="Buenos Aires">Bs. As.</option>
+                            <option value="Catamarca">Catamarca</option>
+                            <option value="Chaco">Chaco</option>
+                            <option value="Chubut">Chubut</option>
+                            <option value="Cordoba">Cordoba</option>
+                            <option value="Corrientes">Corrientes</option>
+                            <option value="Entre Rios">Entre Rios</option>
+                            <option value="Formosa">Formosa</option>
+                            <option value="Jujuy">Jujuy</option>
+                            <option value="La Pampa">La Pampa</option>
+                            <option value="La Rioja">La Rioja</option>
+                            <option value="Mendoza">Mendoza</option>
+                            <option value="Misiones">Misiones</option>
+                            <option value="Neuquen">Neuquen</option>
+                            <option value="Rio Negro">Rio Negro</option>
+                            <option value="Salta">Salta</option>
+                            <option value="San Juan">San Juan</option>
+                            <option value="San Luis">San Luis</option>
+                            <option value="Santa Cruz">Santa Cruz</option>
+                            <option value="Santa Fe">Santa Fe</option>
+                            <option value="Sgo. del Estero">Sgo. del Estero</option>
+                            <option value="Tierra del Fuego">Tierra del Fuego</option>
+                            <option value="Tucuman">Tucuman</option>
+                        </select>
+                    </div>
+
+                    <div class="datos-registro">
+                        <label for="codigo-postal">Código Postal:</label> 
+                        <input type="number" name="codigo-postal" id="codigo-postal" required>
+                    </div>
+
+                    <div class="datos-registro">
+                        <label for="telefono">Teléfono:</label> 
+                        <input type="number" name="telefono" id="telefono" required>
+                    </div>
+
+                    <div class="datos-registro">
+                        <label for="email">Email:</label> 
+                        <input type="email" name="email" id="email" required>
+                    </div>
+
+                    <div class="datos-registro">
+                        <label for="email-confirm">Confirmar Email:</label> 
+                        <input type="email" name="email-confirm" id="email-confirm" required>
+                    </div>
+
+                    <div class="acepto-newsletter">
+                        <input type="radio" name="acepto-terminos" id="" required>
+                        <label for="acepto-terminos">Acepto terminos y condiciones</label>
+                    </div>
+                    <div class="acepto-newsletter">
+                        <input type="radio" name="newsletter">
+                        <label for="newsletter">Quiero recibir ofertas y descuentos especiales </label>
+                        
+                    </div>
+
+                    <div class="enviar-registro">
+                        <button type="submit" class="enviar">ENVIAR</button>
+                    </div>
+
+            </fieldset>
+        </form>
+            <!--BOTON DE WHATSAPP-->
+            <button class="button-whatsapp" >
+                <a href="https://api.whatsapp.com/send?phone=+54 353 481 3541">
+                    <img src="/images/whatsapp.png" alt="whatsapp" class="whatsapp">
+                </a>
+            </button>
+                        
+    </main>
+    <footer> 
+        <div class="caja-footer">
+        <section class="iconos-footer">
+            
+                <div class="ico-countain">
+                    <i class="fas fa-truck-moving"></i>
+                </div>    
+                <h4>ENVÍOS</h4> 
+                        <p> Envios a todo el pais</p>
+                
+        </section>
+    
+        <section class="iconos-footer">
+    
+                <div class="ico-countain">
+                    <i class="fas fa-shopping-basket"></i>
+                </div> 
+                        <h4>COMPRA MÍNIMA</h4> 
+                        <p> $3000</p>
+                
+        </section>
+    
+        <section class="iconos-footer"> 
+    
+                <div class="ico-countain">
+                    <i class="fas fa-book"></i>
+                </div> 
+                        <h4>CÓMO COMPRAR</h4> 
+                        <p>Lee nuestras preguntas mas frecuentes</p>
+                
+        </section>
+    
+        <section class="iconos-footer"> 
+    
+                <div class="ico-countain">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                        <h4>CAMBIOS</h4> 
+                        <p>Dentro de los 30 dias de tu COMPRA</p>
+                
+        </section>
+    </div>
+    <div class="caja-contactos-redes-preguntas">
+        <section class="cajas-base-footer">
+            <h2><a href="#">CONTACTO</a> </h2>
+            <p class="email"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">hola@tiare.com.ar </a></p>
+            <p>0353-4813541</p>
+        </section>
+        <section class="cajas-base-footer">
+        <h2 class="titulos-contactos-redes-preguntas">SEGUINOS</h2>
+        
+            <a href="https://www.facebook.com/"><img src="/images/facebook.png" alt="facebook" class="imagenes-redes-sociales"></a>
+            <a href="https://www.instagram.com/?hl=es"><img src="/images/instagram.png" alt="instagram" class="imagenes-redes-sociales"></a>
+            <a href="https://twitter.com/"><img src="/images/twitter.png" alt="twitter" class="imagenes-redes-sociales"></a>
+        </section>
+        <section class="cajas-base-footer">
+            <h2><a href="/">INICIO</a></h2>
+            <p>Preguntas frecuentes</p>
+            <p>Políticas de devolucíon</p>
+            <p><a href="#">Productos</a></p>
+        </section>
+    </div>
+    
+    <div class="cabeza-footer">
+        <p class="derechos-reservados">Todos los derechos reservados, desarrollado por Grupo_2_Tiare</p>
+    </div>
+    </footer>
+</body>
+</html>
