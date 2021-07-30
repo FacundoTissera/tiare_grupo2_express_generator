@@ -16,6 +16,10 @@ const productsController = {
     nuevo:(req,res) =>{
         res.render('products/new', {title: 'Agregar productos'})
     },
+
+    administrador:(req, res) =>{
+        res.render('products/productsAdmin',{title: 'pagina administrador' })
+    }
     
 
 };

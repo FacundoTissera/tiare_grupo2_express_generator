@@ -6,12 +6,14 @@ const { render } = require("../../app");
 const loginController = {
 
     ingreso:(req, res)=>{
-        res.render('login/login',{title: 'logueate',user:true,});
+        res.render('login/login',{title: 'logueate',});
     },
     registrarse:(req,res)=>{
         res.render('login/register',{title: 'registrete'});
     },
-    
+    admin: (req, res) =>{
+        res.render('login/admin', {title: 'administrador'})
+    },
     
     
 };
