@@ -81,13 +81,24 @@ fieldset{
 }
 .titulo-formulario-producto{
     font-size: 14px;
-    margin-top: 20px;
+    margin-top: 15px;
     display:block;
 }
 input{
     width:30%;
+    padding:1%;
+}
+#descripcion{
+    width:100%;
 }
 
+#talle{
+    font-size: larger;
+}
+#stock, #talle, #color{
+    margin-top: 6px;
+    font-size: 16px;
+}
 /*FOOTER*/
 
 .cabeza-footer {
