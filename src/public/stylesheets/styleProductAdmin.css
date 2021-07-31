@@ -17,78 +17,12 @@ Typold Extended . Thin
     padding: 0%;
 }
 /*HEADER*/
+
 header{
     background-color:rgb(236, 218, 218) ;
-    font-size: 10px;
-    
+    font-size: 10px;    
 }
-/*BODY*/
-body{
-    background-color:#f9efed ;
-    font-family: 'Montserrat', sans-serif;
-    margin: 0 auto;
-    font-size: 11px;
-    color:#5E5236;
-}
-.main-formulario{
-    margin:2%;
-}
-
-fieldset{
-    background-color: white ;
-    color: #5E5236;
-    border-color: #9D766F;
-    border: 9px groove (internal value) ;
-    border-radius: 7px;
-    margin-top: 50px;
-}
-/*BODY*/
-
-
-/* nav{
-    padding-bottom: 1px;
-}
-ul {
-    list-style:  none;
-}
-/* ul.menu-nav-admin li a{ */
-    /* display: block;
-    justify-content: space-around;
-    list-style: none;
-    padding: 10px;
-    margin-top: 0px;
-    text-decoration: none; */
-/* 
-ul.menu-nav-admin li a:hover{
-    color: #000;
-    background-color: #aeaeae;
-}
-
-ul.menu-nav-admin li {
-    float: left;
-    text-align: center;
-}
-
-ul.menu-nav-admin li ul{
-    display: none;
-}
-
-ul.menu-nav-admin li:hover ul{
-    display: block;
-}
-
-a{
-    text-align: center;
-    text-decoration: none;
-    color:#5E5236;
-    font-weight:bold;
-}
-.logo-principal{
-    display:flex;
-    justify-content: center;
-} */ 
-/*HEADER*/
-
+/*BARRA NAVEGACION ADMIN*/
 ul{
     list-style: none;
   }
@@ -115,69 +49,50 @@ ul{
   #menu>li:hover>ul {
     display:block;
   }
+
+/*BODY*/
+body{
+    background-color:#f9efed ;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+    font-size: 11px;
+    color:#5E5236;
+}
+.main-formulario{
+    margin:5%;
+}
+
+fieldset{
+    background-color: white ;
+    color: #5E5236;
+    border-color: #9D766F;
+    border: 9px groove (internal value) ;
+    border-radius: 7px;
+    margin-top: 50px;
+}
+.titulo-fieldset{
+    font-size: 14px;
+    font-weight:800;
+}
+.formulario-nuevo-producto{
+    display:flex;
+    flex-direction: column;
+    padding: 25px 15px;
+}
+.titulo-formulario-producto{
+    font-size: 14px;
+    margin-top: 20px;
+    display:block;
+}
+input{
+    width:30%;
+}
+
 /*FOOTER*/
 
 .cabeza-footer {
     height: 15px;
-    background-color: #9D766F;
-}
-/*HEADER*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Formulario nuevo producto. */
-
-
-.producto-agregado{
-    border: solid black 3px;
-
+    background-color: grey;
 }
 
 .fotos-producto{
@@ -185,8 +100,6 @@ ul{
     display: flex;
     flex-direction: row;
     justify-content: left;
-
-
 }
 .foto1{
     border: dashed gray 3px;
@@ -211,9 +124,6 @@ ul{
     margin: 30px;
 }
 
-.precio{
-    border: solid gray 3px;
-}
 .derechos-reservados{
     margin: 0px;
     color: #FFFFFF;
@@ -221,38 +131,5 @@ ul{
 
 .caja-footer{
     margin-top: 57px;
-}
-
-.iconos-footer{
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-.ico-countain{
-    font-size: 48px;
-}
-.ico-countain:hover{
-    color: lightseagreen;
-}
-h4{
-    font-size: 15px;
-}
-.imagenes-redes-sociales{
-    width: 25px;
-    border-radius: 7px;
-    margin-right: 5px;
-}
-.caja-contactos-redes-preguntas{
-    background-color: #fbf6ee;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-.titulos-contactos-redes-preguntas{
-    text-align: center ;
-}
-.cajas-base-footer{
-    padding:5px;
-    text-align: center;
 }
 

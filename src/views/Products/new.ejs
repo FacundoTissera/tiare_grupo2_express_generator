@@ -21,20 +21,16 @@
   <%- include('./productsAdmin') %>
   </header>
   <main class="main-formulario">
-    <form action="/" method="POST"  class="nuevo-producto">
-      <fieldset>
-      <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO!</legend>
-
-        <div class="nombre-producto">
-          <h2>Nombre y Descripción del producto.</h2>
-        </div>
+    <fieldset>
+    <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO</legend>
       
-        <div class="producto-agregado">
-          <label for="producto">Nombre</label>
+      <form action="/" method="POST"  class="formulario-nuevo-producto">
+        <div class="nombre-producto">
+          <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label><br>
           <input type="text" name="nuevo" id="producto" placeholder="Ej: REMERA MILÁN">
         </div>
       
-        <h2> Fotos del producto:</h2> <br>
+        <p class= titulo-formulario-producto>IMÁGENES DEL PRODUCTO:</p> <br>
         <div class="fotos-producto">
           <div class="foto1">
             <i class="fas fa-camera" style="
@@ -77,17 +73,17 @@
         </div>
 
         <div class="descripcion-producto">
-          <label for="descripcion">Descripción del producto</label>
-          <input type="textarea" name="descripcion" id="descripcion">
+          <label for="descripcion" class="titulo-formulario-producto">DESCRIPCIÓN</label><br>
+          <textarea rows="8" name="descripcion" id="descripcion"></textarea>
         </div>
 
         <div class="precio">
-          <label for="precio">Precio Original</label>
+          <label for="precio" class="titulo-formulario-producto">PRECIO</label>
           <input type="tel" name="precio" id="precio">
         </div>
 
         <div class="stock">
-          <label for="stock">Cantidad disponible:</label>
+          <label for="stock" class="titulo-formulario-producto">Cantidad disponible:</label>
           <select name="stock" id="stock">
             <option value="0">0</option>
             <option value="1">1</option>
@@ -102,7 +98,7 @@
         </div>
 
         <div class="talles">
-          <label for="talles">Talle</label>
+          <label for="talles" class="titulo-formulario-producto">Talle</label>
           <select name="talle" id="talles">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -112,7 +108,7 @@
         </div>
 
         <div class="color">
-          <label for="color">Color:</label>
+          <label for="color" class="titulo-formulario-producto">Color:</label>
           <select name="color" id="color">
             <option value="Blanco">Blanco</option>
             <option value="Negro">Negro</option>
@@ -127,8 +123,13 @@
             <option value="Otro">Otro</option>
           </select> 
         </div>
-      </fieldset>
-    </form>
-  </main>  
+      </form>
+    </fieldset> 
+  </main> 
+  <footer>
+    <div class="cabeza-footer">
+    <p class="derechos-reservados">Todos los derechos reservados, desarrollado por Grupo_2_Tiare</p>
+    </div>
+</footer> 
 </body>
 </html>
