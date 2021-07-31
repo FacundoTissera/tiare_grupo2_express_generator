@@ -20,7 +20,7 @@ Typold Extended . Thin
 
 header{
     background-color:rgb(236, 218, 218) ;
-    font-size: 10px;    
+    font-size: 8px;    
 }
 /*BARRA NAVEGACION ADMIN*/
 ul{
@@ -29,10 +29,10 @@ ul{
   #menu li>a{
     background-color: grey;
     color: white;
-    padding: 10px;
+    padding: 5px 0px;
     display: block;
     text-decoration: none;
-    min-width: 100px;
+    min-width: 60px;
   }
   #menu li>a:hover{
     color: #000;
@@ -55,7 +55,7 @@ body{
     background-color:#f9efed ;
     font-family: 'Montserrat', sans-serif;
     margin: 0 auto;
-    font-size: 11px;
+    font-size: 10x;
     color:#5E5236;
 }
 .main-formulario{
@@ -71,7 +71,7 @@ fieldset{
     margin-top: 50px;
 }
 .titulo-fieldset{
-    font-size: 14px;
+    font-size: 11px;
     font-weight:800;
 }
 .formulario-nuevo-producto{
@@ -80,67 +80,60 @@ fieldset{
     padding: 25px 15px;
 }
 .titulo-formulario-producto{
-    font-size: 14px;
-    margin-top: 15px;
+    font-size: 11px;
     display:block;
 }
+ form div{
+    margin-bottom: 10px;
+}
 input{
-    width:30%;
+    width:70%;
     padding:1%;
+    font-size: 10px;
 }
 #descripcion{
     width:100%;
 }
 
-#talle{
-    font-size: larger;
-}
-#stock, #talle, #color{
+#stock, #talles, #color{
     margin-top: 6px;
-    font-size: 16px;
+    font-size: 11px;
+    padding:1%;
 }
-/*FOOTER*/
-
-.cabeza-footer {
-    height: 15px;
-    background-color: grey;
-}
-
 .fotos-producto{
     border: solid gray 1px;
     display: flex;
     flex-direction: row;
     justify-content: left;
 }
-.foto1{
-    border: dashed gray 3px;
-    width: 200px;
-    height: 200px;
+.foto{
+    border: dashed gray 2px;
+    width: 100%;
     display: flex;
-    margin: 30px;
+    margin: 3%;
+}
+.foto .fa-camera{
+    font-size: 30px;
+    width: 100%;
+    height:60px;
+    display: flex;
+    text-align: center; 
+                /* float: left; */
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
+/*FOOTER*/
 
-}
-.foto2{
-    border: dashed gray 3px;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    margin: 30px;
-}
-.foto3{
-    border: dashed gray 3px;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    margin: 30px;
+.cabeza-footer {
+    height: 15px;
+    background-color: grey;
+    font-size: 10px;
 }
 
 .derechos-reservados{
-    margin: 0px;
+    margin: 1px;
     color: #FFFFFF;
 }
 
-.caja-footer{
-    margin-top: 57px;
-}
 
