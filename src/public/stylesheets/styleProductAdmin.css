@@ -25,6 +25,7 @@ header{
 /*BARRA NAVEGACION ADMIN*/
 ul{
     list-style: none;
+    font-size:8px;
   }
   #menu li>a{
     background-color: grey;
@@ -118,11 +119,11 @@ input{
     height:60px;
     display: flex;
     text-align: center; 
-                /* float: left; */
     justify-content: center;
     align-items: center;
     color: gray;
 }
+/*MAIN END*/
 /*FOOTER*/
 
 .cabeza-footer {

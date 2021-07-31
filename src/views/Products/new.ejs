@@ -1,25 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/styleProductAdmin.css">
-    <!-- <link rel="stylesheet" href="/stylesheets/styleIndex.css"> -->
-    <!--Fonts-->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;1,400&display=swap" rel="stylesheet">
-    
-    <!--Fontawesome-->
-    <script src="https://kit.fontawesome.com/0cb7eac916.js" crossorigin="anonymous"></script>
-
-    <title>Tiare</title>
-</head>
-
+ <!--parcial del head del Admin-->
+ <%- include('../parciales/adminHead') %>
 <body>
-  <header>
   <!--parcial de la barra de ADMIN -->
-  <%- include('./productsAdmin') %>
-  </header>
+  <%- include('../parciales/adminHeader') %>
+
   <main class="main-formulario">
     <fieldset>
     <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO</legend>
