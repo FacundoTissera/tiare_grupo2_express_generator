@@ -67,3 +67,95 @@ a{
     justify-content: center;
 }
 /*HEADER*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Formulario nuevo producto. */
+
+
+.producto-agregado{
+    border: solid black 3px;
+
+}
+
+.fotos-producto{
+    border: solid gray 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+
+}
+.foto1{
+    border: dashed gray 3px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    margin: 30px;
+
+}
+.foto2{
+    border: dashed gray 3px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    margin: 30px;
+}
+.foto3{
+    border: dashed gray 3px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    margin: 30px;
+}
+
+.precio{
+    border: solid gray 3px;
+}
