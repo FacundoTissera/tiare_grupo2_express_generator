@@ -8,6 +8,76 @@
 <!--header del partial -->
 <%- include('../parciales/header') %>
 
+
+<form action="/" method="POST"  class="nuevo-producto">
+  <fieldset>
+    <legend>AGREGAR UN NUEVO PRODUCTO!</legend>
+
+    <div class="nombre-producto">
+      <h2>Nombre y Descripción del producto.</h2>
+
+      <label for="producto" class="producto-agregado">Nombre</label>
+      <input type="text" name="nuevo" id="producto" placeholder="Ej: REMERA MILÁN">
+    </div>
+
+    <div class="fotos-producto">
+      <label for="fotos">Fotos del producto:</label>
+      <div class="foto">
+        <input type="file" name="archivo">
+       
+      </div>
+      <div class="foto">
+        <input type="file" name="archivo">
+
+      </div>
+      <div class="foto">
+        <input type="file" name="archivo">
+
+      </div>
+     </div>
+
+    <div class="descripcion-producto">
+      <label for="descripcion">Descripción del producto</label>
+      <input type="textarea" name="descripcion" id="descripcion">
+    </div>
+
+    <div class="precio">
+      <label for="precio">Precio Original</label>
+      <input type="tel" name="precio" id="precio">
+    </div>
+
+    <div class="stock">
+      <label for="stock">Cantidad disponible:</label>
+      <select name="stock" id="stock">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+    </div>
+
+    <div class="talles">
+      <label for="talles">Talle</label>
+      <select name="talle" id="talles">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    </div>
+
+  
+  
+  </fieldset>
+</form>
+
+
+
 <!--footer del partial-->
 <%- include('../parciales/footer') %>
   
