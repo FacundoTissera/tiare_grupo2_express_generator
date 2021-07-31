@@ -16,39 +16,28 @@
 </head>
 
 <body>
+  <header>
   <!--parcial de la barra de ADMIN -->
   <%- include('./productsAdmin') %>
+  </header>
+  <main class="main-formulario">
+    <form action="/" method="POST"  class="nuevo-producto">
+      <fieldset>
+      <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO!</legend>
 
-  <form action="/" method="POST"  class="nuevo-producto">
-    <fieldset>
-    <legend>AGREGAR UN NUEVO PRODUCTO!</legend>
-
-      <div class="nombre-producto">
-        <h2>Nombre y Descripción del producto.</h2>
-      </div>
-    
-      <div class="producto-agregado">
-        <label for="producto">Nombre</label>
-        <input type="text" name="nuevo" id="producto" placeholder="Ej: REMERA MILÁN">
-      </div>
-    
-      <h2> Fotos del producto:</h2> <br>
-      <div class="fotos-producto">
-        <div class="foto1">
-          <i class="fas fa-camera" style="
-              font-size: 100px;
-              width: 100%;
-              display: flex;
-              /* text-align: center; */
-              /* float: left; */
-              justify-content: center;
-              align-items: center;
-              color: gray;
-              "></i>
-            </div>
-
-        <div class="foto2"> 
-          <i class="fas fa-camera" style="
+        <div class="nombre-producto">
+          <h2>Nombre y Descripción del producto.</h2>
+        </div>
+      
+        <div class="producto-agregado">
+          <label for="producto">Nombre</label>
+          <input type="text" name="nuevo" id="producto" placeholder="Ej: REMERA MILÁN">
+        </div>
+      
+        <h2> Fotos del producto:</h2> <br>
+        <div class="fotos-producto">
+          <div class="foto1">
+            <i class="fas fa-camera" style="
                 font-size: 100px;
                 width: 100%;
                 display: flex;
@@ -58,74 +47,88 @@
                 align-items: center;
                 color: gray;
                 "></i>
+              </div>
+
+          <div class="foto2"> 
+            <i class="fas fa-camera" style="
+                  font-size: 100px;
+                  width: 100%;
+                  display: flex;
+                  /* text-align: center; */
+                  /* float: left; */
+                  justify-content: center;
+                  align-items: center;
+                  color: gray;
+                  "></i>
+            </div>
+
+          <div class="foto3">
+            <i class="fas fa-camera" style="
+                  font-size: 100px;
+                      width: 100%;
+                      display: flex;
+                      /* text-align: center; */
+                      /* float: left; */
+                      justify-content: center;
+                      align-items: center;
+                      color: gray;
+                "></i>
           </div>
-
-        <div class="foto3">
-          <i class="fas fa-camera" style="
-                font-size: 100px;
-                    width: 100%;
-                    display: flex;
-                    /* text-align: center; */
-                    /* float: left; */
-                    justify-content: center;
-                    align-items: center;
-                    color: gray;
-              "></i>
         </div>
-      </div>
 
-      <div class="descripcion-producto">
-        <label for="descripcion">Descripción del producto</label>
-        <input type="textarea" name="descripcion" id="descripcion">
-      </div>
+        <div class="descripcion-producto">
+          <label for="descripcion">Descripción del producto</label>
+          <input type="textarea" name="descripcion" id="descripcion">
+        </div>
 
-      <div class="precio">
-        <label for="precio">Precio Original</label>
-        <input type="tel" name="precio" id="precio">
-      </div>
+        <div class="precio">
+          <label for="precio">Precio Original</label>
+          <input type="tel" name="precio" id="precio">
+        </div>
 
-      <div class="stock">
-        <label for="stock">Cantidad disponible:</label>
-        <select name="stock" id="stock">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-        </select>
-      </div>
+        <div class="stock">
+          <label for="stock">Cantidad disponible:</label>
+          <select name="stock" id="stock">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+          </select>
+        </div>
 
-      <div class="talles">
-        <label for="talles">Talle</label>
-        <select name="talle" id="talles">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-      </div>
+        <div class="talles">
+          <label for="talles">Talle</label>
+          <select name="talle" id="talles">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
 
-      <div class="color">
-        <label for="color">Color:</label>
-        <select name="color" id="color">
-          <option value="Blanco">Blanco</option>
-          <option value="Negro">Negro</option>
-          <option value="Rojo">Rojo</option>
-          <option value="Tostado">Tostado</option>
-          <option value="Rosa">Rosa</option>
-          <option value="Gris">Gris</option>
-          <option value="Celeste">Celeste</option>
-          <option value="Azul">Azul</option>
-          <option value="Verde">Verde</option>
-          <option value="Lila">Lila</option>
-          <option value="Otro">Otro</option>
-        </select> 
-      </div>
-    </fieldset>
-  </form>  
+        <div class="color">
+          <label for="color">Color:</label>
+          <select name="color" id="color">
+            <option value="Blanco">Blanco</option>
+            <option value="Negro">Negro</option>
+            <option value="Rojo">Rojo</option>
+            <option value="Tostado">Tostado</option>
+            <option value="Rosa">Rosa</option>
+            <option value="Gris">Gris</option>
+            <option value="Celeste">Celeste</option>
+            <option value="Azul">Azul</option>
+            <option value="Verde">Verde</option>
+            <option value="Lila">Lila</option>
+            <option value="Otro">Otro</option>
+          </select> 
+        </div>
+      </fieldset>
+    </form>
+  </main>  
 </body>
 </html>
