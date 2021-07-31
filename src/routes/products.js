@@ -8,7 +8,7 @@ router.get('/',productsController.total );
 
 router.get('/detalle/:id',productsController.detalle);
 
-router.get('/nuevoProducto',productsController.nuevo );
+router.get('/new',productsController.nuevo );
 
 router.get('/productsAdmin',productsController.administrador)
 
