@@ -123,7 +123,14 @@ input{
     align-items: center;
     color: gray;
 }
-/*MAIN END*/
+
+.boton-producto{
+    display: flex;
+    justify-content: center;
+
+}
+
+/*BODY END*/
 /*FOOTER*/
 
 .cabeza-footer {
@@ -138,3 +145,20 @@ input{
 }
 
 
+/*FOOTER END*/
+
+/*MEDIAS*/
+@media (min-width:700px){
+    .titulo-formulario-producto{
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .foto .fa-camera{
+        height: 100px;
+        font-size: 50px;
+    }
+    #precio{
+        width: 20%;
+    }
+
+}
