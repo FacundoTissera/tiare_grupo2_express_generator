@@ -127,8 +127,11 @@ input{
 .boton-producto{
     display: flex;
     justify-content: center;
+    }
 
-}
+    .agregar{
+        padding: 2%;
+    }
 
 /*BODY END*/
 /*FOOTER*/
@@ -148,7 +151,7 @@ input{
 /*FOOTER END*/
 
 /*MEDIAS*/
-@media (min-width:700px){
+@media (min-width:768px){
     .titulo-formulario-producto{
         font-size: 20px;
         margin-bottom: 5px;
@@ -159,6 +162,57 @@ input{
     }
     #precio{
         width: 20%;
+        height: 25px;
+        margin-top: 1px;
+        
+    }
+    #stock, #talles, #color{
+        font-size: 20px;
+
     }
 
+    .titulo-fieldset{
+        font-size: 20px;
+    }
+
+}
+
+@media (min-width:1080px){
+    .titulo-fieldset{
+        font-size: 30px;
+    }
+    
+    #producto{
+        margin-top: 1px;
+        font-size: 14px;
+    }
+    .foto .fa-camera{
+        height: 160px;
+        font-size: 60px;
+    }
+    .titulo-formulario-producto{
+        font-size: 25px;
+        margin-bottom: 10px;
+
+    }
+    #precio{
+        height: 45px;
+    }
+    #color{
+        margin-top: 10px;
+        font-size: 25px;
+    }
+    #stock{
+        margin-top: 15px;
+        font-size: 25px;
+    }
+    #talles{
+        margin-top: 15px;
+        font-size: 25px;
+    }
+    .agregar{
+        font-size: 20px;
+        padding: 4%;
+
+    }
 }
