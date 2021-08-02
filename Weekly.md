@@ -1,4 +1,4 @@
-## 1er WEEKLY STAND-UP##
+## 1er WEEKLY STAND-UP: VIERNES 20/7##
 
 - ¿Qué se hizo? 
 Se debatio de que manera poder comenzar el tercer Sprint dividiendo las distintas etapas entre nosotros para poder ir avanzando de a poco.
@@ -9,7 +9,7 @@ Por el momento lo unico que tuvimos fueron a lo mejor problemas con respecto a n
 - ¿Qué se va a hacer hoy?
 Vamos avanzar un poco en conjunto hasta donde podamos y luego cada uno comenzara por su parte.
 
-## 2do WEEKLY STAND-UP##
+## 2do WEEKLY STAND-UP: VIERNES 27/7##
 En la 2da reunion semanal comentamos los avances en las diferentes tareas del Sprint 3.
 
 Facu: rutas terminadas, archivos controller terminados
