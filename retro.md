@@ -1,4 +1,52 @@
-## RETROSPECTIVA GENERAL
+## Retro SPRING 3:
+## RETROSPECTIVA GENERAL:
+El tercer spring se logró cumplir en tiempo y forma aunque estuvimos bastante más ajustados con los tiempos.
+Durante la primer semana de trabajo las disponibilidades  de algunos miembros del equipo disminuyó y durante la primer semana no avanzamos mucho. Sin embargo los últimos días compensamos esta falta y pudimos hacer la siguiente entrega sin mayores inconvenientes.
+La comunicación se mantuvo correcta, y no se generó ningún problema en pisarnos tareas.
+Surgieron algunas diferencias de criterio, pero se resolvieron rápidamente mediante el diálogo y priorizando el proyecto.
+
+## START DOING
+En este momento no sentimos que podamos incorporar más metodologías de trabajo, sino que nos enfocaremos a mejorar las herramientas con las que contamos.
+
+## MORE OFF
+Continuamos con el objetivo de utilizar más el Trello y sobretodo poder estar al día con los contenidos de las clases para poderlos implementar y ayudarnos entre todos.
+También consideramos importante ir avanzando si o si cada semana y no dejar las cosas para los últimos días.
+
+## KEEP DOING
+Hay una buena comunicación y seguimos trabajando en ayudarnos entre todos para que nadie se quede atrás. Todos logramos aportar al proyecto y es importante seguir así.
+
+## LESS OFF
+En este aspecto no encontramos nada aún relevante que tener en cuenta.
+
+
+## STOP DOING
+En el sprint anterior por falta de tiempo de algunos miembros se generó un desafasaje en los conocimientos necesarios para avanzar con el proyecto recargando a uno de nosotros. La idea es intentar evitar que esto no vuelva a suceder. 
+
+
+
+## RETRO SPRING 2:
+## RETROSPECTIVA GENERAL:
+El sprint 2 se realizó en tiempo y forma sumando herramientas que nos iban proporcionando en clase y aplicándolas a medida que se necesitaron. 
+Estamos muy conformes con el resultado así como con el funcionamiento del equipo en cuanto a organización, apoyo mutuo y resultados.
+No se presentaron conflictos y en caso de haber alguna diferencia de criterio, se resolvió rápidamente.
+Las tareas se divieron en forma clara y logramos trabajar en la misma rama sin llegar a pisarnos gracias a una constante y buena comunicación a través de Whatsapp y múltiples instancias de Discord.
+
+## START DOING
+Vamos a comenzar a implementar reuniones cortas de puesta a punto, o daily/weekly standup y en principio decidimos hacerlas semanales. Veremos si este ritmo es el correcto para este tipo de encuentros. La realidad es que estamos en comunicación bastante permanente, pero sentimos que probablemente este chequeo nos ayude a mantenernos un poco más enfocados. 
+
+## MORE OFF
+Aún no utilizamos el Trello en forma de herramienta y nos costaba actualizar el estado de las tareas en el mismo. Recurrir a él en forma más natural una vez que sentimos que el proyecto avanza en las tareas es algo que sentimos que podríamos hacer más.
+
+## KEEP DOING
+En nuestro proyecto además de los conocimientos que traemos de las clases, tuvimos que buscar apoyo en Google para desarrollar aspectos de la maqueta que queríamos lograr como linkear algunos íconos o generar una tabla de talles. Lo mismo sucedió para casos en los que sentimos que no conseguíamos llevar a cabo alguna de las consignas solo con el material visto en clase. Esta búsqueda de información y nuevas herramientas debemos continuar haciéndola para enriquecer el proyecto.
+
+## LESS OFF
+Por el momento no encontramos nada que debamos ir suprimiendo ya que sentimos que la forma en la que trabajamos viene siendo bastante eficiente.
+
+## STOP DOING
+Nada que comentar por acá.
+
+## RETROSPECTIVA GENERAL 1.
 Nuestro equipo realizó el primer sprint de forma rápida, ágil y sin mayores inconvenientes. 
 En un principio pensamos en trabajar con Wireframe.cc pero descubrimos que no se podía trabajar en equipo en el mismo archivo. Por eso optamos por FIGMA que sí tenía esa funcionalidad. Si bien era más complejo, luego de ver un par de tutoriales pusimos manos a la obra. 
 Luego de trabajar la home page entre todos, nos dividimos el resto de las páginas. 
