@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "nombre": "Camisa Suiza",
+        "nombre": "Camisa SUIZA",
         "precio-base": 2500,
         "categoria": "remeras-y-camisas",
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
@@ -11,7 +11,7 @@
     },
     {
         "id": 2,
-        "nombre": "Sweater Paris",
+        "nombre": "Sweater PARIS",
         "precio-base": 3500,
         "categoria": "abrigos",
         "descripcion": "Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.",
@@ -21,12 +21,43 @@
     },
     {
         "id": 3,
-        "nombre": "Buzo Francia",
+        "nombre": "Buzo FRANCIA",
         "precio-base": 3800,
         "categoria": "abrigos",
         "descripcion": "Buzo en morley, mangas largas oversize. 100% polyester",
         "imagen": "#",
         "descuento":"#",
         "sale":"true"
+    },
+    {
+        "id": 4,
+        "nombre": "Blusa ESPAÑA",
+        "precio-base": 2900,
+        "categoria": "remeras-y-camisas",
+        "descripcion": "Camisa clásica, mangas anchas. Súper larga, puede usarse como vestido camisero y llevarla con toda la onda.",
+        "imagen": "#",
+        "descuento":"#",
+        "sale":"false"
+    },
+    {
+        "id": 5,
+        "nombre": "Sweater MADRID",
+        "precio-base": 4500,
+        "categoria": "abrigos",
+        "descripcion": "Sweater en escote V, tejido buclé, talle único oversize",
+        "imagen": "#",
+        "descuento":"#",
+        "sale":"true"
+    },
+    {
+        "id": 6,
+        "nombre": "Pantalón VIENA",
+        "precio-base": 4000,
+        "categoria": "pantalones-y-shorts",
+        "descripcion": "Pantalón palazzo en lanilla, con pinzas y contura elastizada.",
+        "imagen": "#",
+        "descuento":"#",
+        "sale":"true"
     }
+
 ]
