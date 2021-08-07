@@ -7,6 +7,26 @@
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
         "imagen": "#",
         "descuento":"#",
+        "sale":"false"
+    },
+    {
+        "id": 2,
+        "nombre": "Sweater Paris",
+        "precio-base": 3500,
+        "categoria": "abrigos",
+        "descripcion": "Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.",
+        "imagen": "#",
+        "descuento":"#",
+        "sale":"true"
+    },
+    {
+        "id": 3,
+        "nombre": "Buzo Francia",
+        "precio-base": 3800,
+        "categoria": "abrigos",
+        "descripcion": "Buzo en morley, mangas largas oversize. 100% polyester",
+        "imagen": "#",
+        "descuento":"#",
         "sale":"true"
     }
 ]
