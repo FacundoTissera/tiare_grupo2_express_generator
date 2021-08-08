@@ -39,7 +39,7 @@ const productsController = {
         prendas.push (nuevoProductoStore)
 
         //mando el array modificado con el producto nuevo a data
-        fs.writeFileSync(productsDatos, JSON.stringify (prendas), 'utf-8') 
+        fs.writeFileSync(productsDatos, JSON.stringify(prendas, null, 4), 'utf-8') 
 
         //mando el click del formulario al detalle del producto subido
         res.redirect ("/products/detalle/"+nuevoProductoStore.id);

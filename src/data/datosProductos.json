@@ -4,64 +4,69 @@
         "nombre": "Camisa SUIZA",
         "precio": 2500,
         "categoria": "remeras-y-camisas",
-        "color":"Blanco",
+        "color": "Blanco",
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
         "imagen": "/images/camisa1_1.jpeg",
-        "descuento":"#",
-        "sale":"true"
-
+        "descuento": "#",
+        "sale": "true"
     },
     {
         "id": 2,
         "nombre": "Sweater PARIS",
         "precio": 3500,
         "categoria": "abrigos",
-        "color":"Verde",
+        "color": "Verde",
         "descripcion": "Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.",
         "imagen": "/images/sweater1_1.jpeg",
-        "sale":"true"
+        "sale": "true"
     },
     {
         "id": 3,
         "nombre": "Buzo FRANCIA",
         "precio": 3800,
         "categoria": "abrigos",
-        "color":"Celeste",
+        "color": "Celeste",
         "descripcion": "Buzo en morley, mangas largas oversize. 100% polyester",
         "imagen": "/images/buzo1_1.jpeg",
-        "sale":"true"
+        "sale": "true"
     },
     {
         "id": 4,
         "nombre": "Blusa ESPAÑA",
         "precio": 2900,
         "categoria": "remeras-y-camisas",
-        "color":"Blanco",
+        "color": "Blanco",
         "descripcion": "Camisa clásica, mangas anchas. Súper larga, puede usarse como vestido camisero y llevarla con toda la onda.",
         "imagen": "/images/blusa1_1.jpeg",
-        "descuento":"#",
-        "sale":"true"
-
+        "descuento": "#",
+        "sale": "true"
     },
     {
         "id": 5,
         "nombre": "Sweater MADRID",
         "precio": 4500,
         "categoria": "abrigos",
-        "color":"Tostado",
+        "color": "Tostado",
         "descripcion": "Sweater en escote V, tejido buclé, talle único oversize",
         "imagen": "/images/sweater2_1.jpeg",
-        "sale":"true"
+        "sale": "true"
     },
     {
         "id": 6,
         "nombre": "Pantalón VIENA",
         "precio": 4000,
         "categoria": "pantalones-y-shorts",
-        "color":"Blanco",
+        "color": "Blanco",
         "descripcion": "Pantalón palazzo en lanilla, con pinzas y contura elastizada.",
         "imagen": "/images/pantalon1_1.jpeg",
-        "sale":"true"
+        "sale": "true"
+    },
+    {
+        "id": 7,
+        "nombre": "asdf",
+        "precio": "1",
+        "categoria": "pantalones-y-shorts",
+        "color": "Blanco",
+        "descripcion": "asdf"
     }
-
 ]
