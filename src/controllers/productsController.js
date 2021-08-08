@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const productsController = {
 
     total:(req,res) =>{
@@ -15,7 +18,28 @@ const productsController = {
     },
 
     store:(req, res) =>{
-    res.send ('hola');
+        //variable con la ruta al archivo JSON
+        const productsFilePath = path.join(__dirname, '../data/datosProductos.json');
+
+        //traduccion a array del JSON
+        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+       
+        //pongo datos al nuevo producto
+        let nuevoProductoStore ={
+            id:products.length+1,  
+            nombre: req.body.nombre,
+            precio: req.body.precio,
+            categoria: req.body.categoria,
+            color: req.body.color,
+            descripcion: req.body.descripcion,          
+        }
+        products.push (nuevoProductoStore)
+
+        //mando el array modificado con el producto nuevo a data
+        fs.writeFileSync(productsFilePath,JSON.stringify (products), 'utf-8') 
+
+        //mando el click del formulario al detalle del producto subido
+        res.redirect ("/products/detail/"+nuevoProductoStore.id);
     },
 
     administrador:(req, res) =>{
