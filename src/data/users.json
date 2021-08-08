@@ -1,0 +1,64 @@
+[
+    {
+        "id": 1,
+        "nombre": "Facundo" ,
+        "apellido": "Tissera",
+        "email": "facundotisserasorribas@gmail.com",
+        "contraseña": "asado123",
+        "categoria": "Admin"
+
+    },
+    {
+        "id": 2,
+        "nombre": "Beatriz",
+        "apellido": "Hambeck",
+        "email": "bhambeck@gmail.com",
+        "contraseña": "vino123",
+        "categoria": "Admin"
+
+    },
+    {
+        "id": 3,
+        "nombre": "Lucas",
+        "apellido": "Rivero",
+        "email": "lucas.rivero1993@gmaIl.com",
+        "contraseña": "cs123",
+        "categoria": "Admin"
+
+    },
+    {
+        "id": 4,
+        "nombre": "Lio",
+        "apellido": "Messi",
+        "email": "liomessi10@gmail.com",
+        "contraseña": "barza123",
+        "categoria": "user"
+
+    },
+    {
+        "id": 5,
+        "nombre": "Nicolas",
+        "apellido": "Leta",
+        "email": "nicoleta@hotmail.com",
+        "contraseña": "roman10",
+        "categoria": "user"
+
+    },
+    {
+        "id": 6,
+        "nombre": "Miriam",
+        "apellido": "Rodriguez",
+        "email": "miriam-rodriguez70@gmail.com",
+        "contraseña": "miriam1970",
+        "categoria": "user"
+    },
+    {
+        "id": 7,
+        "nombre": "Pepe",
+        "apellido": "Argento",
+        "email": "pepezapatos@gmail.com",
+        "contraseña": "monikokipaola",
+        "categoria": "user"
+    }
+
+]

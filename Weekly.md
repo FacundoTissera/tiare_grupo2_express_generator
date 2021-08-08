@@ -24,3 +24,14 @@ Bea: Armado de parcials: head, header y footer
 Inconvenientes encontrados: error en tipear la línea poniendo un espacio de más.
 Siguiente etapa: paso 7 del sprint: colaborar en los estilos finales y media query de las nuevas vistas
 
+
+## 3er WEEKLY STAND-UP: VIERNES 6/8##
+
+- ¿Qué se hizo? 
+En este oportunidad conversamos para ver como poder comenzar con el cuarto sprint en una llamada de Discord e ir dividiendo los distintos puntos para poder comenzar.
+
+- ¿Se encontró con algun problema?
+Ninguno por el momento.
+
+- ¿Qué se va a hacer hoy?
+Cada uno va a comenzar con lo que le toco para luego hacer una puesta en comun del material con el que se fue avanzando.
