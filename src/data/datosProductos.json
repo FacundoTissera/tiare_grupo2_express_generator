@@ -7,12 +7,9 @@
         "color":"Blanco",
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
         "imagen": "/images/camisa1_1.jpeg",
-<<<<<<< HEAD
         "descuento":"#",
         "sale":"true"
-=======
-        "sale":"false"
->>>>>>> 51120ebe2cfce6ba713fdd3119e017b342311d65
+
     },
     {
         "id": 2,
@@ -42,12 +39,9 @@
         "color":"Blanco",
         "descripcion": "Camisa clásica, mangas anchas. Súper larga, puede usarse como vestido camisero y llevarla con toda la onda.",
         "imagen": "/images/blusa1_1.jpeg",
-<<<<<<< HEAD
         "descuento":"#",
         "sale":"true"
-=======
-        "sale":"false"
->>>>>>> 51120ebe2cfce6ba713fdd3119e017b342311d65
+
     },
     {
         "id": 5,
