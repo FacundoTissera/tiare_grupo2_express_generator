@@ -2,61 +2,61 @@
     {
         "id": 1,
         "nombre": "Camisa SUIZA",
-        "precio-base": 2500,
+        "precio": 2500,
         "categoria": "remeras-y-camisas",
+        "color":"Blanco",
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
         "imagen": "/images/camisa1_1.jpeg",
-        "descuento":"#",
         "sale":"false"
     },
     {
         "id": 2,
         "nombre": "Sweater PARIS",
-        "precio-base": 3500,
+        "precio": 3500,
         "categoria": "abrigos",
+        "color":"Verde",
         "descripcion": "Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.",
         "imagen": "/images/sweater1_1.jpeg",
-        "descuento":"#",
         "sale":"true"
     },
     {
         "id": 3,
         "nombre": "Buzo FRANCIA",
-        "precio-base": 3800,
+        "precio": 3800,
         "categoria": "abrigos",
+        "color":"Celeste",
         "descripcion": "Buzo en morley, mangas largas oversize. 100% polyester",
         "imagen": "/images/buzo1_1.jpeg",
-        "descuento":"#",
         "sale":"true"
     },
     {
         "id": 4,
         "nombre": "Blusa ESPAÑA",
-        "precio-base": 2900,
+        "precio": 2900,
         "categoria": "remeras-y-camisas",
+        "color":"Blanco",
         "descripcion": "Camisa clásica, mangas anchas. Súper larga, puede usarse como vestido camisero y llevarla con toda la onda.",
         "imagen": "/images/blusa1_1.jpeg",
-        "descuento":"#",
         "sale":"false"
     },
     {
         "id": 5,
         "nombre": "Sweater MADRID",
-        "precio-base": 4500,
+        "precio": 4500,
         "categoria": "abrigos",
+        "color":"Tostado",
         "descripcion": "Sweater en escote V, tejido buclé, talle único oversize",
         "imagen": "/images/sweater2_1.jpeg",
-        "descuento":"#",
         "sale":"true"
     },
     {
         "id": 6,
         "nombre": "Pantalón VIENA",
-        "precio-base": 4000,
+        "precio": 4000,
         "categoria": "pantalones-y-shorts",
+        "color":"Blanco",
         "descripcion": "Pantalón palazzo en lanilla, con pinzas y contura elastizada.",
         "imagen": "/images/pantalon1_1.jpeg",
-        "descuento":"#",
         "sale":"true"
     }
 

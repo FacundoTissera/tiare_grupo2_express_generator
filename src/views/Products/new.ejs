@@ -10,10 +10,23 @@
     <fieldset>
     <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO</legend>
       
-      <form action="/" method="POST"  class="formulario-nuevo-producto">
+      <form action="/products/new" method="POST"  class="formulario-nuevo-producto">
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
           <input type="text" name="nuevo" id="producto" placeholder="Ej: REMERA MILÁN" required>
+        </div>
+
+        <div class="categoria-producto">
+          <label for="categoria" class="titulo-formulario-producto">CATEGORIA DEL PRODUCTO:</label>
+          <select name="categoria" id="categoria" required>
+          
+            <option value="pantalones-y-shorts">Pantalones y Shorts</option>
+            <option value="remeras-y-camisas">Remeras y Camisas</option>
+            <option value="abrigos">Abrigos</option>
+            <option value="faldas-y-vestidos">Faldas y Vestidos</option>
+            <option value="accesorios">Accesorios</option>
+           
+          </select>
         </div>
       
         <p class= titulo-formulario-producto>IMÁGENES DEL PRODUCTO:</p>
@@ -41,7 +54,7 @@
           <input type="tel" name="precio" id="precio" required>
         </div>
 
-        <div class="stock">
+        <!--<div class="stock">
           <label for="stock" class="titulo-formulario-producto">Cantidad disponible:</label>
           <select name="stock" id="stock">
             <option value="0">0</option>
@@ -64,7 +77,7 @@
             <option value="3">3</option>
             <option value="4">4</option>
           </select>
-        </div>
+        </div> -->
 
         <div class="color">
           <label for="color" class="titulo-formulario-producto">Color:</label>

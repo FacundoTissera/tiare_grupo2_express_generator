@@ -1,7 +1,3 @@
-const { render } = require("../../app");
-
-
-
 const productsController = {
 
     total:(req,res) =>{
@@ -14,7 +10,12 @@ const productsController = {
         
 
     nuevo:(req,res) =>{
+        
         res.render('products/new', {title: 'Agregar productos'})
+    },
+
+    store:(req, res) =>{
+    res.send ('hola');
     },
 
     administrador:(req, res) =>{
