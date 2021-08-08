@@ -11,6 +11,7 @@ router.get('/',productsController.total );
 router.get('/detalle/:id',productsController.detalle);
 
 router.get('/new',productsController.nuevo );
+router.post('/new', productsController.store);
 
 router.get('/productsAdmin',productsController.administrador)
 

@@ -1,7 +1,3 @@
-const { render } = require("../../app");
-
-
-
 const cartController = {
 
     carro: (req, res) =>{

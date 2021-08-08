@@ -19,8 +19,8 @@ const productsController = {
         let unProducto= prendas.find(element => element.id == id);
 
         res.render('products/detail', {
-            product: unProducto,
             
+            product: unProducto,
         });
     },
 

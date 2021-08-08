@@ -1,8 +1,3 @@
-const { render } = require("../../app");
-
-
-// el que envia las vistas a login.js 
-
 const loginController = {
 
     ingreso:(req, res)=>{
