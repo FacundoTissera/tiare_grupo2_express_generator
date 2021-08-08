@@ -13,8 +13,8 @@
         <section class="imagenes-y-eleccion">
             <div class="imagenes-producto">
                 <div class="imagen-producto-principal">
-                    <h2>CAMISA SUIZA</h2>
-                    <img src="/images/camisa1_1.jpeg" alt="camisa blanca" width="80%">
+                    <h2></h2>
+                    <img src="<%= product.imagen %>  " alt="camisa blanca" width="80%">
                 </div>
                 <div class="imagenes-chicas">
                     <div>
@@ -33,7 +33,9 @@
             </div>
             <div class="div-eleccion-producto">
                 <form action="/cart/productCart/8" method="GET" class="eleccion-producto">
-                    <p>CAMISA SUIZA<br><br>$ 2.500</p>
+
+                    <p><%= product.nombre %> <br><br>$ <%= product.precio %>  </p>
+
                     <fieldset>
                         <legend>Elige un color</legend>
                         <label>
@@ -64,8 +66,7 @@
                     
                     <div class="descripcion-del-producto">
                         <p>Descripción:</p>
-                        <p>Camisa manga larga.<br>
-                            Tela: Mezcla, 70% Rayón, 30% poliéster.
+                        <p><%= product.descripcion %> 
                         </p>
                     </div>
                     

@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+
+//requiere el controlador
 const productsController = require('../controllers/productsController');
 
 /* ruta de productos */
