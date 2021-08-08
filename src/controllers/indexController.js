@@ -1,4 +1,3 @@
-const { render } = require("../../app");
 const fs = require('fs');
 const path = require('path');
 
