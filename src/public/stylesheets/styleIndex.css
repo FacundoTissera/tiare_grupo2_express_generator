@@ -373,6 +373,17 @@ div .eleccion-producto{
     font-size: 1.6em;
     margin:1% 12.5%;
 }
+
+.editar-producto{
+    display:flex;
+    font-size: 14px;
+    background-color: #5E5236;
+    color: #ebc6be;
+    width:110px;
+    border-radius: 2px;
+    justify-content: center;
+    padding:2px;
+}
 .medidas{
     display: flex;
     justify-content: center;

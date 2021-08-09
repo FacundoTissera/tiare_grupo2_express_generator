@@ -61,18 +61,16 @@
                         </label>
                     </fieldset>
                     <div class="agregar-carrito">
-                        <a href="views/productCart"> <button type="submit" class="agregar-carrito" > Agregar al carrito</button></a>
+                        <button type="submit" class="agregar-carrito" > Agregar al carrito</button></a>
                     </div>
-                    
                     <div class="descripcion-del-producto">
                         <p>Descripción:</p>
                         <p><%= product.descripcion %> 
                         </p>
                     </div>
-                    
+                    <a href="/products/edit/<%=product.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
                 </form>
             </div>
-            
         </section>
         <section class="medidas">
             <table  name="tabla-de-medidas">

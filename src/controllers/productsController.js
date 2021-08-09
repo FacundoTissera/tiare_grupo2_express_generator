@@ -44,6 +44,12 @@ const productsController = {
         //mando el click del formulario al detalle del producto subido
         res.redirect ("/products/detalle/"+nuevoProductoStore.id);
     },
+    editar:(req, res) =>{
+        res.send('aca voy a editar')
+    },
+    cambio: (req,res) =>{
+        res.send ('datos de edicion producto')
+    },
 
     administrador:(req, res) =>{
         res.render('products/productsAdmin',{title: 'pagina administrador' })
