@@ -9,7 +9,13 @@ let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
 const productsController = {
 
     total:(req,res) =>{
-        res.render('products/productsAll', {title: 'todos los productos'})
+
+        let id = req.params.id;
+        let todosLosProductos = prendas.filter(element => element.sale == "true");
+
+        res.render('products/productsAll', {
+            todosLosProductos: todosLosProductos
+        })
     },
 
     detalle:(req,res) =>{

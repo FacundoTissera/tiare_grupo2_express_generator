@@ -10,42 +10,51 @@
 
 <h2 class="titulo-productos">NUESTROS PRODUCTOS</h2>
 <section class="secciones-articulos">
-    <article class="articulos-linea1">
-        <div class="articulos-index">
-            <div class="foto-producto">
-                <a href= "/products/detalle/8"> 
-                    <img src="/images/camisa1_1.jpeg" alt="Foto-Producto" class="foto-producto">
-                </a>
-            </div>
-            <div class="descripciones">
-                <p>CAMISA SUIZA</p>
-            </div>
-            <div class="precios">
-                <p>$2.500</p>
-            </div>
-            <div class="loQuiero">
-                <a href="/products/detalle/8">LO QUIERO!</a>
-            </div>
-        </div>
     
-        <div class="articulos-index">
-            <div class="foto-producto">
-                <a href="/products/detalle/9">
-                    <img src="/images/sweater1_1.jpeg" alt="Foto-Producto" class="foto-producto" >
-                </a>
+    
+        <article class="articulos-linea1">
+            <% for( let i = 0; i < todosLosProductos.length; i++ ) { %>
+            
+            <div class="articulos-index">
+                <div class="foto-producto">
+                    <a href= "/products/detalle/<%= todosLosProductos[i].id %>"> 
+                        <img src="<%= todosLosProductos[i].imagen %>" alt="Foto-Producto" class="foto-producto">
+                    </a>
+                </div>
+                <div class="descripciones">
+                    <p><%= todosLosProductos[i].nombre %></p>
+                </div>
+                <div class="precios">
+                    <p>$<%= todosLosProductos[i].precio %></p>
+                </div>
+                <div class="loQuiero">
+                    <a href="/products/detalle/<%= todosLosProductos[i].id %>">LO QUIERO!</a>
+                </div>
             </div>
-            <div class="descripciones">
-                <p>SWEATER PARIS</p>
+            <% } %>
+        </article>
+            
+            <!-- <div class="articulos-index">
+                <div class="foto-producto">
+                    <a href="/products/detalle/">
+                        <img src="/images/" alt="Foto-Producto" class="foto-producto" >
+                    </a>
+                </div>
+                <div class="descripciones">
+                    <p></p>
+                </div>
+                <div class="precios">
+                    <p>$0</p>
+                </div>
+                <div class="loQuiero">
+                    <a href="/products/detalle/">LO QUIERO!</a>
+                </div>
             </div>
-            <div class="precios">
-                <p>$3.500</p>
-            </div>
-            <div class="loQuiero">
-                <a href="/products/detalle/9">LO QUIERO!</a>
-            </div>
-        </div>
-    </article>
-    <article class="articulos-linea2">
+        
+
+        
+        
+        <article class="articulos-linea2">
             <div class="articulos-index">
                 <div class="foto-producto">
                     <a href="/productDetail">
@@ -115,9 +124,9 @@
                 </div>
             </div>
         </article>
-
+    -->
 <!--footer del partial-->
 <%- include('../parciales/footer') %>
 
   </body>
-</html>
+</html> -->
