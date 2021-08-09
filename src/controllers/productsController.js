@@ -56,7 +56,8 @@ const productsController = {
                 element.nombre=req.body.nombre;
                 element.categoria=req.body.categoria;
                 element.color=req.body.color;
-                element.descripcion=req.body.color;
+                element.descripcion=req.body.descripcion;
+                element.precio=req.body.precio;
             }   
         })
         res.redirect ("/products/detalle/"+id)

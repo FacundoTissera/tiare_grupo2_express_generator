@@ -10,7 +10,7 @@
     <fieldset>
     <legend class="titulo-fieldset">Estás editando: <%=productoAEditar.nombre %></legend>
       
-      <form action="/products/editar/<%productoAEditar.id%>?_method=PUT" method="POST"  class="formulario-nuevo-producto">
+      <form action="/products/editar/<%=productoAEditar.id%>?_method=PUT" method="POST"  class="formulario-nuevo-producto">
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
           <input type="text" name="nombre" id="producto" value= "<%=productoAEditar.nombre%>" required>
