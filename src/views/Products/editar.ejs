@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!--parcial del head del Admin-->
+ <%- include('../parciales/adminHead') %>
+<body>
+  <!--parcial de la barra de ADMIN -->
+  <%- include('../parciales/adminHeader') %>
+
+  <main class="main-formulario">
+    <fieldset>
+    <legend class="titulo-fieldset">Estás editando: <%=productoAEditar.nombre %></legend>
+      
+      <form action="/products/editar/<%productoAEditar.id%>?_method=PUT" method="POST"  class="formulario-nuevo-producto">
+        <div class="nombre-producto">
+          <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
+          <input type="text" name="nombre" id="producto" value= "<%=productoAEditar.nombre%>" required>
+        </div>
+
+        <div class="categoria-producto">
+          <label for="categoria" class="titulo-formulario-producto">CATEGORIA DEL PRODUCTO:</label>
+          <select name="categoria" id="categoria"required>
+          
+            <option value="pantalones-y-shorts" <% if (productoAEditar.categoria == "pantalones-y-shorts"){ %>
+            selected <% } %> >Pantalones y Shorts </option>
+            <option value="remeras-y-camisas"<% if (productoAEditar.categoria == "remeras-y-camisas"){ %>
+                selected <% } %>>Remeras y Camisas</option>
+            <option value="abrigos" <% if (productoAEditar.categoria == "abrigos"){ %> 
+                selected <% } %> >Abrigos</option>
+            <option value="faldas-y-vestidos"<% if (productoAEditar.categoria == "faldas-y-vestidos"){ %> 
+                selected <% } %>>Faldas y Vestidos</option>
+            <option value="accesorios"<% if (productoAEditar.categoria == "accesorios"){ %> 
+                selected <% } %>>Accesorios</option>
+           
+          </select>
+        </div>
+      
+        <p class= titulo-formulario-producto>IMÁGENES DEL PRODUCTO:</p>
+        <div class="fotos-producto">
+          <div class="foto">
+            <i class="fas fa-camera"></i>
+              </div>
+
+          <div class="foto"> 
+            <i class="fas fa-camera"></i>
+            </div>
+
+          <div class="foto">
+            <i class="fas fa-camera"></i>
+          </div>
+        </div>
+
+        <div class="descripcion-producto">
+          <label for="descripcion" class="titulo-formulario-producto" >DESCRIPCIÓN</label>
+          <textarea rows="8" name="descripcion" id="descripcion"><%= productoAEditar.descripcion%></textarea>
+        </div>
+
+        <div class="precio">
+          <label for="precio" class="titulo-formulario-producto">PRECIO</label>
+          <input type="tel" name="precio" id="precio" value="<%= productoAEditar.precio%> " required>
+        </div>
+
+        <!--<div class="stock">
+          <label for="stock" class="titulo-formulario-producto">Cantidad disponible:</label>
+          <select name="stock" id="stock">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+
+        <div class="talles">
+          <label for="talles" class="titulo-formulario-producto">Talle:</label>
+          <select name="talle" id="talles">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div> -->
+
+        <div class="color">
+          <label for="color" class="titulo-formulario-producto">Color:</label>
+          <select name="color" id="color">
+            <option value="Blanco"<% if (productoAEditar.color == "Blanco"){ %> 
+                selected <% } %>>Blanco</option>
+            <option value="Negro"<% if (productoAEditar.color == "Negro"){ %> 
+                selected <% } %>>Negro</option>
+            <option value="Rojo"<% if (productoAEditar.color == "Rojo"){ %> 
+                selected <% } %>>Rojo</option>
+            <option value="Tostado"<% if (productoAEditar.color == "Tostado"){ %> 
+                selected <% } %>>Tostado</option>
+            <option value="Rosa"<% if (productoAEditar.color == "Rosa"){ %> 
+                selected <% } %>>Rosa</option>
+            <option value="Gris"<% if (productoAEditar.color == "Gris"){ %> 
+                selected <% } %>>Gris</option>
+            <option value="Celeste"<% if (productoAEditar.color == "Celeste"){ %> 
+                selected <% } %>>Celeste</option>
+            <option value="Azul"<% if (productoAEditar.color == "Azul"){ %> 
+                selected <% } %>>Azul</option>
+            <option value="Verde<% if (productoAEditar.color == "Verde"){ %> 
+                selected <% } %>">Verde</option>
+          </select>
+          <div class="boton-producto">
+            <button class="agregar" type="submit">MODIFICAR PRODUCTO</button>
+          </div>
+        </div>
+      </form>
+    </fieldset> 
+  </main> 
+  <footer>
+    <div class="cabeza-footer">
+    <p class="derechos-reservados">Todos los derechos reservados, desarrollado por Grupo_2_Tiare</p>
+    </div>
+</footer> 
+</body>
+</html>

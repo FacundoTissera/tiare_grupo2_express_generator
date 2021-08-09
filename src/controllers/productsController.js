@@ -45,10 +45,21 @@ const productsController = {
         res.redirect ("/products/detalle/"+nuevoProductoStore.id);
     },
     editar:(req, res) =>{
-        res.send('aca voy a editar')
+        let id= req.params.id;
+        let productoAEditar = prendas.find (element => element.id ==id);
+        res.render('products/editar', {productoAEditar:productoAEditar})
     },
     cambio: (req,res) =>{
-        res.send ('datos de edicion producto')
+        let id= req.params.id;
+        prendas.forEach(element => {
+            if (element.id== id){
+                element.nombre=req.body.nombre;
+                element.categoria=req.body.categoria;
+                element.color=req.body.color;
+                element.descripcion=req.body.color;
+            }   
+        })
+        res.redirect ("/products/detalle/"+id)
     },
 
     administrador:(req, res) =>{

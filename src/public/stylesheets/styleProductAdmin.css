@@ -95,6 +95,11 @@ input{
     padding:1%;
     font-size: 12px;
 }
+textarea{
+    font-size: 16px;
+    padding: 1%;
+    font-family: 'Montserrat', sans-serif;
+}
 .precio input{
     width:35%;
 }

@@ -17,7 +17,7 @@ router.post('/new', productsController.store);
 
 /* edicion producto, formulario y put */
 router.get('/editar/:id', productsController.editar);
-router.put ('/editar/:id',productsController.cambio)
+router.put ('/editar/:id',productsController.cambio);
 
 router.get('/productsAdmin',productsController.administrador)
 

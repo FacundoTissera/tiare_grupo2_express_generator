@@ -60,13 +60,6 @@
         "descripcion": "Pantalón palazzo en lanilla, con pinzas y contura elastizada.",
         "imagen": "/images/pantalon1_1.jpeg",
         "sale": "true"
-    },
-    {
-        "id": 7,
-        "nombre": "asdf",
-        "precio": "1",
-        "categoria": "pantalones-y-shorts",
-        "color": "Blanco",
-        "descripcion": "asdf"
     }
+    
 ]
