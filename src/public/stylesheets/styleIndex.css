@@ -617,13 +617,16 @@ header{
 
     }
     .articulos-index{
-    width: 37%;
-    }
+    width: 36%;
+    padding: 15px;
+}
     .articulos-linea1{
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
+
+    
     .articulos-linea2{
         display: flex;
         flex-direction: row;
@@ -743,7 +746,8 @@ header{
     }
 /*index*/
 .articulos-index{
-    width: 25%;
+    width: 21%;
+    padding: 15px;
 }
 
 .imagenes-redes-sociales {

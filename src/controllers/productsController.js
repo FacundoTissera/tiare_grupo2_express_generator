@@ -9,6 +9,7 @@ let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
 const productsController = {
 
     total:(req,res) =>{
+        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
 
         let id = req.params.id;
         let todosLosProductos = prendas.filter(element => element.sale == "true");
@@ -19,6 +20,7 @@ const productsController = {
     },
 
     detalle:(req,res) =>{
+        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
         let id = req.params.id;
         let unProducto= prendas.find(element => element.id == id);
 
@@ -29,10 +31,12 @@ const productsController = {
     },
 
     nuevo:(req,res) =>{
+        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
         res.render('products/new', {title: 'Agregar productos'})
     },
 
     store:(req, res) =>{
+        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
         //pongo datos al nuevo producto
         let nuevoProductoStore ={
             id:prendas.length+1,  
@@ -51,11 +55,15 @@ const productsController = {
         res.redirect ("/products/detalle/"+nuevoProductoStore.id);
     },
     editar:(req, res) =>{
+        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
         let id= req.params.id;
         let productoAEditar = prendas.find (element => element.id ==id);
         res.render('products/editar', {productoAEditar:productoAEditar})
     },
+
+    //modifica el producto
     cambio: (req,res) =>{
+        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
         let id= req.params.id;
         prendas.forEach(element => {
             if (element.id== id){
@@ -64,14 +72,30 @@ const productsController = {
                 element.color=req.body.color;
                 element.descripcion=req.body.descripcion;
                 element.precio=req.body.precio;
-            }   
-        })
+            }  
+            fs.writeFileSync(productsDatos, JSON.stringify(prendas, null, 4), 'utf-8')
+        }) 
         res.redirect ("/products/detalle/"+id)
     },
 
     administrador:(req, res) =>{
         res.render('products/productsAdmin',{title: 'pagina administrador' })
     },
+
+    delete: (req, res) =>{
+        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+
+        let id = req.params.id;
+        let productosActualizados = prendas.filter(element => element.id != id);
+            
+        // busca los que sean diferentes al id
+        
+        fs.writeFileSync(productsDatos, JSON.stringify(productosActualizados, null, 4), 'utf-8')
+
+
+        res.redirect("/products")
+
+    }
 
 };
 

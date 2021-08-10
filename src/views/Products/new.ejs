@@ -31,9 +31,13 @@
       
         <p class= titulo-formulario-producto>IMÁGENES DEL PRODUCTO:</p>
         <div class="fotos-producto">
-          <div class="foto">
+          <form name="subida-imagenes" type="POST" enctype="multipart/formdata" > 
+            <input type="file" name="imagen" />
+                <div class="foto">
             <i class="fas fa-camera"></i>
-              </div>
+          </div>
+               
+              </form>
 
           <div class="foto"> 
             <i class="fas fa-camera"></i>

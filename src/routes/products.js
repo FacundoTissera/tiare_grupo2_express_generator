@@ -15,6 +15,9 @@ router.get('/detalle/:id',productsController.detalle);
 router.get('/new',productsController.nuevo );
 router.post('/new', productsController.store);
 
+//Borrar producto
+router.delete('/borrar/:id', productsController.delete);
+
 /* edicion producto, formulario y put */
 router.get('/editar/:id', productsController.editar);
 router.put ('/editar/:id',productsController.cambio);

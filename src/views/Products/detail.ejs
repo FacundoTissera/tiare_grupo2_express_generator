@@ -33,7 +33,7 @@
             </div>
             <div class="div-eleccion-producto">
                 <form action="/cart/productCart/8" method="GET" class="eleccion-producto">
-
+                    
                     <p><%= product.nombre %> <br><br>$ <%= product.precio %>  </p>
 
                     <fieldset>
@@ -68,8 +68,19 @@
                         <p><%= product.descripcion %> 
                         </p>
                     </div>
-                    <a href="/products/editar/<%=product.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
+                    
                 </form>
+                
+                    <a href="/products/editar/<%=product.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
+                    
+                    
+                    
+                    <form action="/products/borrar/<%= product.id %>?_method=DELETE " method="POST">
+                        <button  type="submit">BORRAR</button> 
+                    </form>
+                        
+                    
+                
             </div>
         </section>
         <section class="medidas">

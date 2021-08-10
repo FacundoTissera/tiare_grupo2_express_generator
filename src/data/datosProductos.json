@@ -60,22 +60,5 @@
         "descripcion": "Pantalón palazzo en lanilla, con pinzas y contura elastizada.",
         "imagen": "/images/pantalon1_1.jpeg",
         "sale": "true"
-    },
-    {
-        "id": 7,
-        "nombre": "arroz",
-        "precio": "2344",
-        "categoria": "remeras-y-camisas",
-        "color": "Celeste",
-        "descripcion": "adfadasda"
-    },
-    {
-        "id": 8,
-        "nombre": "arroz",
-        "precio": "2344",
-        "categoria": "remeras-y-camisas",
-        "color": "Celeste",
-        "descripcion": "adfadasda",
-        "sale": "true"
     }
 ]
