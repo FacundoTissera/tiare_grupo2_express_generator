@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+//requiere multer
+const multer = require ('multer');
+
 //requiere el controlador
 const productsController = require('../controllers/productsController');
 

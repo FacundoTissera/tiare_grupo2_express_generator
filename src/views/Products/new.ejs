@@ -10,7 +10,7 @@
     <fieldset>
     <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO</legend>
       
-      <form action="/products/new" method="POST"  class="formulario-nuevo-producto">
+      <form action="/products/new" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data">
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
           <input type="text" name="nombre" id="producto" placeholder="Ej: REMERA MILÁN" required>
