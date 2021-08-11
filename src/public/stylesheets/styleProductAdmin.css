@@ -91,7 +91,6 @@ fieldset{
     margin-bottom: 10px;
 }
 input{
-    width:70%;
     padding:1%;
     font-size: 12px;
 }
@@ -100,8 +99,11 @@ textarea{
     padding: 1%;
     font-family: 'Montserrat', sans-serif;
 }
-.precio input{
+#precio input{
     width:35%;
+}
+#producto {
+    width:70%
 }
 #descripcion{
     width:100%;
@@ -143,6 +145,7 @@ textarea{
 
 .titulo-imagen{
     padding: 1%;
+    font-size: 11px;
 }
 
 .boton-producto{
@@ -203,7 +206,7 @@ textarea{
         font-size: 18px;
     }
 
-    .titulo-fieldset{
+    .titulo-fieldset, .titulo-imagen{
         font-size: 18px;
     }
     input{
