@@ -120,9 +120,12 @@ textarea{
 }
 .foto{
     border: dashed gray 2px;
-    width: 100%;
+    width: 25%;
     display: flex;
     margin: 3%;
+}
+.input-foto{
+    margin-top: 5%;
 }
 .foto .fa-camera{
     font-size: 30px;
@@ -133,6 +136,13 @@ textarea{
     justify-content: center;
     align-items: center;
     color: gray;
+}
+.descripcion-producto, .color, .precio{
+    margin:2%;
+}
+
+.titulo-imagen{
+    padding: 1%;
 }
 
 .boton-producto{

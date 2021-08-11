@@ -31,21 +31,24 @@
       
         <p class= titulo-formulario-producto>IMÁGENES DEL PRODUCTO:</p>
         <div class="fotos-producto">
+
           <form name="subida-imagenes" type="POST" enctype="multipart/formdata" > 
-            <input type="file" name="imagen" />
-                <div class="foto">
+
+            <div class="foto"> 
+              <i class="fas fa-camera"></i>
+            </div>
+              <div class="input-foto">
+              <label for="foto-principal" name="foto-principal"class="titulo-imagen">IMAGEN PRINCIPAL</label>
+              <input type="file" class="foto-principal" name= "foto-principal" multiple> </div>
+            </div>
+          </form>
+
+          <!--<div class="foto">
             <i class="fas fa-camera"></i>
           </div>
-              
-              </form>
-
-          <div class="foto"> 
-            <i class="fas fa-camera"></i>
-            </div>
-
           <div class="foto">
             <i class="fas fa-camera"></i>
-          </div>
+          </div> -->
         </div>
 
         <div class="descripcion-producto">
