@@ -39,8 +39,9 @@ const productsController = {
     store:(req, res) =>{
         let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
         //pongo datos al nuevo producto
+        let nuevoId= prendas[prendas.length-1].id+1
         let nuevoProductoStore ={
-            id:prendas.length+1,  
+            id:nuevoId,  
             nombre: req.body.nombre,
             precio: req.body.precio,
             categoria: req.body.categoria,
