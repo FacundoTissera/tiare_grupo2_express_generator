@@ -46,15 +46,16 @@ const productsController = {
             precio: req.body.precio,
             categoria: req.body.categoria,
             color: req.body.color,
-            descripcion: req.body.descripcion,          
+            descripcion: req.body.descripcion,  
+            imagen: req.file.originalname,        
         }
-        prendas.push (nuevoProductoStore)
+        prendas.push(nuevoProductoStore);
 
         //mando el array modificado con el producto nuevo a data
-        fs.writeFileSync(productsDatos, JSON.stringify(prendas, null, 4), 'utf-8') 
+        fs.writeFileSync(productsDatos, JSON.stringify(prendas, null, 4), 'utf-8');
 
         //mando el click del formulario al detalle del producto subido
-        res.redirect ("/products/detalle/"+nuevoProductoStore.id);
+        res.redirect ("/products/detalle/" + nuevoProductoStore.id);
     },
     editar:(req, res) =>{
         let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));

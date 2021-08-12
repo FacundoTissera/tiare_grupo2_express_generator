@@ -10,7 +10,7 @@
     <fieldset>
     <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO</legend>
       
-      <form action="/products/new" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data">
+      <form action="/products/new" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data" >
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
           <input type="text" name="nombre" id="producto" placeholder="Ej: REMERA MILÁN" required>
@@ -32,16 +32,18 @@
         <p class= titulo-formulario-producto>IMÁGENES DEL PRODUCTO:</p>
         <div class="fotos-producto">
 
-          <form name="subida-imagenes" type="POST" enctype="multipart/formdata" > 
+
+
 
             <div class="foto"> 
               <i class="fas fa-camera"></i>
             </div>
               <div class="input-foto">
-              <label for="foto-principal" name="foto-principal"class="titulo-imagen">IMAGEN PRINCIPAL</label>
-              <input type="file" class="foto-principal" name= "foto-principal" multiple> </div>
+                <label for="foto-principal" name="foto-principal"class="titulo-imagen">IMAGEN PRINCIPAL</label>
+                <input type="file" class="foto-principal" name= "foto-principal" id="foto-principal">
+              </div>
             </div>
-          </form>
+
 
           <!--<div class="foto">
             <i class="fas fa-camera"></i>
@@ -108,7 +110,7 @@
   </main> 
   <footer>
     <div class="cabeza-footer">
-    <p class="derechos-reservados">Todos los derechos reservados, desarrollado por Grupo_2_Tiare</p>
+      <p class="derechos-reservados">Todos los derechos reservados, desarrollado por Grupo_2_Tiare</p>
     </div>
 </footer> 
 </body>
