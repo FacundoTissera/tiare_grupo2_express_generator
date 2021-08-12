@@ -8,7 +8,7 @@
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
         "imagen": "camisa1_1.jpeg",
         "descuento": "#",
-        "sale": "true"
+        "sale": "si"
     },
     {
         "id": 2,
@@ -18,7 +18,7 @@
         "color": "Verde",
         "descripcion": "Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.",
         "imagen": "sweater1_1.jpeg",
-        "sale": "true"
+        "sale": "si"
     },
     {
         "id": 3,
@@ -28,7 +28,7 @@
         "color": "Celeste",
         "descripcion": "Buzo en morley, mangas largas oversize. 100% polyester",
         "imagen": "buzo1_1.jpeg",
-        "sale": "true"
+        "sale": "si"
     },
     {
         "id": 4,
@@ -39,7 +39,7 @@
         "descripcion": "Camisa clásica, mangas anchas. Súper larga, puede usarse como vestido camisero y llevarla con toda la onda.",
         "imagen": "blusa1_1.jpeg",
         "descuento": "#",
-        "sale": "true"
+        "sale": "si"
     },
     {
         "id": 5,
@@ -49,7 +49,7 @@
         "color": "Tostado",
         "descripcion": "Sweater en escote V, tejido buclé, talle único oversize",
         "imagen": "sweater2_1.jpeg",
-        "sale": "true"
+        "sale": "si"
     },
     {
         "id": 6,
@@ -59,7 +59,7 @@
         "color": "Blanco",
         "descripcion": "Pantalón palazzo en lanilla, con pinzas y contura elastizada.",
         "imagen": "pantalon1_1.jpeg",
-        "sale": "true"
+        "sale": "si"
     },
     {
         "id": 7,
@@ -77,7 +77,7 @@
         "color": "Blanco",
         "descripcion": "4365346",
         "imagen": "fotoCurriculum.jpeg",
-        "sale": "true"
+        "sale": "si"
     },
     {
         "id": 9,
@@ -87,6 +87,6 @@
         "color": "Blanco",
         "descripcion": "ddd",
         "imagen": "CamperaBerlin1.jpeg",
-        "sale":"true"
+        "sale":"si"
     }
 ]
