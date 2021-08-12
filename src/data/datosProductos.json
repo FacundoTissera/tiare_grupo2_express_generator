@@ -108,5 +108,25 @@
         "descripcion": "5345",
         "imagen": "PantalonBarsovia.jpeg",
         "sale": "no"
+    },
+    {
+        "id": 12,
+        "nombre": "bea",
+        "precio": "20000  ",
+        "categoria": "faldas-y-vestidos",
+        "color": "Negro",
+        "descripcion": "vestido",
+        "imagen": "pantalonVarsovia4.jpg",
+        "sale": "no"
+    },
+    {
+        "id": 13,
+        "nombre": "bea",
+        "precio": "20000",
+        "categoria": "faldas-y-vestidos",
+        "color": "Negro",
+        "descripcion": "vestido",
+        "imagen": "vestidoVietnam2.jpg",
+        "sale": "si"
     }
 ]
