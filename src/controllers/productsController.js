@@ -13,7 +13,7 @@ const productsController = {
         let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
 
         let id = req.params.id;
-        let todosLosProductos = prendas.filter(element => element.sale == "true");
+        let todosLosProductos = prendas.filter(element => element.sale == "si");
 
         res.render('products/productsAll', {
             todosLosProductos: todosLosProductos
@@ -47,7 +47,8 @@ const productsController = {
             categoria: req.body.categoria,
             color: req.body.color,
             descripcion: req.body.descripcion,  
-            imagen: req.file.originalname,        
+            imagen: req.file.originalname,
+            sale: req.body.sale,        
         }
         prendas.push(nuevoProductoStore);
 
@@ -75,6 +76,7 @@ const productsController = {
                 element.color=req.body.color;
                 element.descripcion=req.body.descripcion;
                 element.precio=req.body.precio;
+                element.sale=req.body.sale;
             }  
             fs.writeFileSync(productsDatos, JSON.stringify(prendas, null, 4), 'utf-8')
         }) 

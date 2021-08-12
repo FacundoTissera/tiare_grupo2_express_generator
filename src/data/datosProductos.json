@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "nombre": "Camisa SUIZA",
-        "precio": 2500,
+        "nombre": "Camisa SUIZAff",
+        "precio": "2500 ",
         "categoria": "remeras-y-camisas",
         "color": "Blanco",
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
@@ -87,6 +87,26 @@
         "color": "Blanco",
         "descripcion": "ddd",
         "imagen": "CamperaBerlin1.jpeg",
-        "sale":"si"
+        "sale": "si"
+    },
+    {
+        "id": 10,
+        "nombre": "arroz",
+        "precio": "123123",
+        "categoria": "pantalones-y-shorts",
+        "color": "Blanco",
+        "descripcion": "wqedqda",
+        "imagen": "VestidoVietnam.jpeg",
+        "sale": "si"
+    },
+    {
+        "id": 11,
+        "nombre": "Camisa Mexico",
+        "precio": "43545",
+        "categoria": "pantalones-y-shorts",
+        "color": "Blanco",
+        "descripcion": "5345",
+        "imagen": "PantalonBarsovia.jpeg",
+        "sale": "no"
     }
 ]

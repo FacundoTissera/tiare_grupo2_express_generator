@@ -8,7 +8,7 @@ let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
 const indexController ={
     home:(req, res) =>{
 
-        let sale = prendas.filter(element => element.sale == 'true');
+        let sale = prendas.filter(element => element.sale == 'si');
         
         res.render('home/',{sale: sale});
     },

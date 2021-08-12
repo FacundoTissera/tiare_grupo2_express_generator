@@ -106,6 +106,18 @@
             <option value="Verde<% if (productoAEditar.color == "Verde"){ %> 
                 selected <% } %>">Verde</option>
           </select>
+
+          <div>
+            <label for="sale">PUBLICAR</label> <br>
+            <select name="sale" id="sale">
+              <option value="si"<% if (productoAEditar.sale== 'si') { %>
+              
+              selected<% } %>>Si</option>
+              <option value="no"<% if (productoAEditar.sale== 'no') { %>
+              
+              selected<% } %>>No</option>
+            </select>
+          </div>
           <div class="boton-producto">
             <button class="agregar" type="submit">MODIFICAR PRODUCTO</button>
           </div>
