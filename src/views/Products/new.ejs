@@ -13,7 +13,12 @@
       <form action="/products/new" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data" >
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
-          <input type="text" name="nombre" id="producto" placeholder="Ej: REMERA MILÁN" required>
+          <input type="text" name="nombre" id="producto" placeholder="Ej: REMERA MILÁN"class="input-nombre <%=locals.errors && errors.nombre ? "is-invalid" :null %> ">
+          <%if (locals.errors && errors.nombre){%>
+            <div class="text-danger">
+              <%=errors.nombre.msg%>
+            </div>
+          <%}%>
         </div>
 
         <div class="categoria-producto">
@@ -60,7 +65,7 @@
 
         <div class="precio">
           <label for="precio" class="titulo-formulario-producto">PRECIO</label>
-          <input type="tel" name="precio" id="precio" required>
+          <input type="tel" name="precio" id="precio">
         </div>
 
         <!--<div class="stock">

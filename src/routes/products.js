@@ -4,6 +4,8 @@ const path = require('path')
 //requiere multer
 const multer = require ('multer');
 
+//requiere express validator
+const {body} = require ('express-validator');
 
 
 
@@ -19,6 +21,15 @@ let upload = multer({ storage: storage })
 //const upload = require('../middleware/multer')
 /* ruta de productos */
 
+//constante con la validaciones
+const validations=[
+   body('nombre').notEmpty().withMessage('Debes completar este campo'),
+   body('precio').notEmpty().withMessage('Debes completar este campo'),
+   body('color').notEmpty().withMessage('Debes completar este campo'),
+  body('categoria').notEmpty().withMessage('Debes completar este campo'),
+ body('sale').notEmpty().withMessage('Debes completar este campo'),
+]
+
 //requiere el controlador
 const productsController = require('../controllers/productsController');
 
@@ -29,7 +40,7 @@ router.get('/detalle/:id',productsController.detalle);
 /*nuevo producto, formulario y post */
 
 router.get('/new',productsController.nuevo );
-router.post('/new',upload.single('foto-principal'), productsController.store);
+router.post('/new',upload.single('foto-principal'),validations, productsController.store);
 
 //Borrar producto
 router.delete('/borrar/:id', productsController.delete);
