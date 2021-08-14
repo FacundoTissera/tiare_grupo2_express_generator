@@ -374,19 +374,34 @@ div .eleccion-producto{
     margin:1% 12.5%;
 }
 
+.botones-editar-borrar{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
 .editar-producto{
     display:flex;
     font-size: 14px;
     background-color: #5E5236;
-    color: #ebc6be;
-    width:110px;
-    border-radius: 2px;
-    justify-content: center;
-    padding:2px;
+    color: white;
+    width:150px;
+    border-radius: 5px;
+    padding:2%;
+    margin-right: 8%;
+    border: solid 2px white;
+}
+.borrar-producto{
+    font-size: 14px;
+    background-color: white;
+    padding: 8%;
+    border-radius: 5px;
+    width:150px;
 }
 .medidas{
     display: flex;
     justify-content: center;
+    margin-top: 15px;
 }
 table{
     table-layout: fixed;
@@ -704,6 +719,12 @@ header{
     .medidas-producto{
         margin-top: 0;
         padding-right: 40px;
+    }
+
+    .botones-editar-borrar{
+        margin-left: 50%;
+        margin-top: 20px;
+
     }
     .productos-sugeridos article {
         width:25%;

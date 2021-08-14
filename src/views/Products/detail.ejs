@@ -70,19 +70,18 @@
                     </div>
                     
                 </form>
-                
-                    <a href="/products/editar/<%=product.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
-                    
-                    
-                    
-                    <form action="/products/borrar/<%= product.id %>?_method=DELETE " method="POST">
-                        <button  type="submit">BORRAR</button> 
-                    </form>
-                        
-                    
-                
             </div>
         </section>
+        <section class="botones-editar-borrar">
+
+                    <a href="/products/editar/<%=product.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
+                    
+                    <form action="/products/borrar/<%= product.id %>?_method=DELETE " method="POST">
+                        <button type="submit"class="borrar-producto">ELIMINAR</button> 
+                    </form>
+                        
+        </section>          
+                
         <section class="medidas">
             <table  name="tabla-de-medidas">
                 <tr>

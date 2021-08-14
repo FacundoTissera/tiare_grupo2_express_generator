@@ -13,7 +13,7 @@
       <form action="/products/new" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data" >
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
-          <input type="text" name="nombre" id="producto" placeholder="Ej: REMERA MILÁN"class="input-nombre <%=locals.errors && errors.nombre ? "is-invalid" :null %> ">
+          <input type="text" name="nombre" id="producto" placeholder="Ej: REMERA MILÁN" class="input-nombre <%=locals.errors && errors.nombre ? "is-invalid" :null %> ">
           <%if (locals.errors && errors.nombre){%>
             <div class="text-danger">
               <%=errors.nombre.msg%>
@@ -108,7 +108,7 @@
           </select>
 
             <div>
-              <label for="sale">PUBLICAR</label> <br>
+              <label for="sale" class= "titulo-formulario-producto">PUBLICAR:</label>
               <select name="sale" id="sale">
                 <option value="si">si</option>
                 <option value="no">no</option>

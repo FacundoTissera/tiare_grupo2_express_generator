@@ -87,6 +87,12 @@ fieldset{
     font-size: 11px;
     display:block;
 }
+.text-danger{
+    color:red;
+}
+.is-invalid{
+    border-color: red;
+}
  form div{
     margin-bottom: 10px;
 }
@@ -109,7 +115,7 @@ textarea{
     width:100%;
 }
 
-#stock, #talles, #color, #categoria{
+#stock, #talles, #color, #categoria, #sale{
     margin-top: 6px;
     font-size: 11px;
     padding:1%;
@@ -202,7 +208,7 @@ textarea{
     #precio{
         width: 20%;   
     }
-    #stock, #talles, #color, #categoria{
+    #stock, #talles, #color, #categoria, #sale{
         font-size: 18px;
     }
 
