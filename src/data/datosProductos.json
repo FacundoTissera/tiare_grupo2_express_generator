@@ -128,5 +128,25 @@
         "descripcion": "vestido",
         "imagen": "vestidoVietnam2.jpg",
         "sale": "si"
+    },
+    {
+        "id": 14,
+        "nombre": "un saquito muy lindo",
+        "precio": "30000",
+        "categoria": "abrigos",
+        "color": "Rojo",
+        "descripcion": "lalala",
+        "imagen": "camperaBerlin4.jpg",
+        "sale": "si"
+    },
+    {
+        "id": 15,
+        "nombre": "vestido lindo",
+        "precio": "10000",
+        "categoria": "faldas-y-vestidos",
+        "color": "Blanco",
+        "descripcion": "lksdnlks",
+        "imagen": "vestidoVietnam2.jpg",
+        "sale": "si"
     }
 ]

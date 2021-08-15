@@ -24,7 +24,8 @@ let upload = multer({ storage: storage })
 //constante con la validaciones
 const validations=[
    body('nombre').notEmpty().withMessage('Debes completar este campo'),
-   body('precio').notEmpty().withMessage('Debes completar este campo'),
+   body('precio').notEmpty().withMessage('Debes completar este campo').bail() 
+   .isInt() .withMessage ('Debes poner un numero entero'),
    body('color').notEmpty().withMessage('Debes completar este campo'),
   body('categoria').notEmpty().withMessage('Debes completar este campo'),
  body('sale').notEmpty().withMessage('Debes completar este campo'),

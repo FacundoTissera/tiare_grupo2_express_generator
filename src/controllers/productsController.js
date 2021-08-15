@@ -38,10 +38,12 @@ const productsController = {
 
     store:(req, res) =>{
         let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+        //validaciones
         const resultadosValidacion= validationResult(req)
         if(resultadosValidacion.errors.length >0){
             return res.render('products/new',
-                {errors:resultadosValidacion.mapped()}
+                {errors:resultadosValidacion.mapped(),
+                oldData:req.body}
             );
         }
         //pongo datos al nuevo producto

@@ -11,9 +11,16 @@
     <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO</legend>
       
       <form action="/products/new" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data" >
+        
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
-          <input type="text" name="nombre" id="producto" placeholder="Ej: REMERA MILÁN" class="input-nombre <%=locals.errors && errors.nombre ? "is-invalid" :null %> ">
+          <input type="text" 
+            name="nombre" 
+            id="producto" 
+            placeholder="Ej: REMERA MILÁN" 
+            class="input-nombre <%=locals.errors && errors.nombre ? "is-invalid" :null %> "
+            value="<%= locals.oldData ? oldData.nombre :null%>">
+
           <%if (locals.errors && errors.nombre){%>
             <div class="text-danger">
               <%=errors.nombre.msg%>
@@ -23,32 +30,45 @@
 
         <div class="categoria-producto">
           <label for="categoria" class="titulo-formulario-producto">CATEGORIA DEL PRODUCTO:</label>
-          <select name="categoria" id="categoria" required>
-          
-            <option value="pantalones-y-shorts">Pantalones y Shorts</option>
-            <option value="remeras-y-camisas">Remeras y Camisas</option>
-            <option value="abrigos">Abrigos</option>
-            <option value="faldas-y-vestidos">Faldas y Vestidos</option>
-            <option value="accesorios">Accesorios</option>
-          
+          <select 
+            name="categoria" 
+            id="categoria"
+            class="eleccion-opciones <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
+
+            <option value="">Elegí una categoría</option>
+
+            <option <% if(locals.oldData && locals.oldData.categoria =="pantalones-y-shorts"){%>  selected <%}%> 
+            value="pantalones-y-shorts">Pantalones y Shorts</option>
+
+            <option <% if(locals.oldData && locals.oldData.categoria =="remeras-y-camisas"){%>  selected <%}%>
+            value="remeras-y-camisas">Remeras y Camisas</option>
+
+            <option <% if(locals.oldData && locals.oldData.categoria =="abrigos"){%>  selected <%}%>
+            value="abrigos">Abrigos</option>
+
+            <option <% if(locals.oldData && locals.oldData.categoria =="faldas-y-vestidos"){%>  selected <%}%>
+            value="faldas-y-vestidos">Faldas y Vestidos</option>
+
+            <option <% if(locals.oldData && locals.oldData.categoria =="accesorios"){%>  selected <%}%>
+            value="accesorios">Accesorios</option>
           </select>
+          <%if (locals.errors && errors.categoria){%>
+            <div class="text-danger">
+              <%=errors.categoria.msg%>
+            </div>
+          <%}%>
         </div>
       
-        <p class= titulo-formulario-producto>IMÁGENES DEL PRODUCTO:</p>
+        <p class= titulo-formulario-producto>IMÁGENES DEL PRODUCTO</p>
         <div class="fotos-producto">
-
-
-
-
-            <div class="foto"> 
+          <div class="foto"> 
               <i class="fas fa-camera"></i>
-            </div>
-              <div class="input-foto">
-                <label for="foto-principal" name="foto-principal"class="titulo-imagen">IMAGEN PRINCIPAL</label>
-                <input type="file" class="foto-principal" name= "foto-principal" id="foto-principal">
-              </div>
-            </div>
-
+          </div>
+          <div class="input-foto">
+              <label for="foto-principal" name="foto-principal"class="titulo-imagen">IMAGEN PRINCIPAL</label>
+              <input type="file" class="foto-principal" name= "foto-principal" id="foto-principal">
+          </div>
+        </div>
 
           <!--<div class="foto">
             <i class="fas fa-camera"></i>
@@ -56,7 +76,6 @@
           <div class="foto">
             <i class="fas fa-camera"></i>
           </div> -->
-        </div>
 
         <div class="descripcion-producto">
           <label for="descripcion" class="titulo-formulario-producto">DESCRIPCIÓN</label>
@@ -65,7 +84,19 @@
 
         <div class="precio">
           <label for="precio" class="titulo-formulario-producto">PRECIO</label>
-          <input type="tel" name="precio" id="precio">
+          <input 
+          type="tel" 
+          name="precio" 
+          id="precio"
+          class="input-nombre <%=locals.errors && errors.precio ? "is-invalid" :null %> "
+            value="<%= locals.oldData ? oldData.precio :null%>">
+            
+          <% if(locals.errors && errors.precio){%>
+            <div class="text-danger">
+              <%=errors.precio.msg%>
+            </div>
+              <% } %> 
+            
         </div>
 
         <!--<div class="stock">
@@ -95,30 +126,76 @@
 
         <div class="color">
           <label for="color" class="titulo-formulario-producto">Color:</label>
-          <select name="color" id="color">
-            <option value="Blanco">Blanco</option>
-            <option value="Negro">Negro</option>
-            <option value="Rojo">Rojo</option>
-            <option value="Tostado">Tostado</option>
-            <option value="Rosa">Rosa</option>
-            <option value="Gris">Gris</option>
-            <option value="Celeste">Celeste</option>
-            <option value="Azul">Azul</option>
-            <option value="Verde">Verde</option>
-          </select>
-
-            <div>
-              <label for="sale" class= "titulo-formulario-producto">PUBLICAR:</label>
-              <select name="sale" id="sale">
-                <option value="si">si</option>
-                <option value="no">no</option>
-              </select>
-            </div>
-          <div class="boton-producto">
+          <select 
+            name="color" 
+            id="color"
+            class="eleccion-opciones <%= locals.errors && errors.color ?  "is-invalid" : null %>">
             
-            <button class="agregar" type="submit">AGREGAR PRODUCTO</button>
-          </div>
+              <option value="">Elegí un color</option>
+
+              <option <% if(locals.oldData && locals.oldData.color =="Blanco"){%>  selected <%}%>
+              value="Blanco">Blanco</option>
+
+              <option <% if(locals.oldData && locals.oldData.categoria =="Negro"){%>  selected <%}%>
+                value="Negro">Negro</option>
+
+              <option <% if(locals.oldData && locals.oldData.categoria =="Rojo"){%>  selected <%}%>
+                value="Rojo">Rojo</option>
+
+              <option <% if(locals.oldData && locals.oldData.categoria =="Tostado"){%>  selected <%}%>
+                value="Tostado">Tostado</option>
+
+              <option <% if(locals.oldData && locals.oldData.categoria =="Rosa"){%>  selected <%}%>
+                value="Rosa">Rosa</option>
+
+              <option <% if(locals.oldData && locals.oldData.categoria =="Gris"){%>  selected <%}%>
+                value="Gris">Gris</option>
+
+              <option <% if(locals.oldData && locals.oldData.categoria =="Celeste"){%>  selected <%}%>
+                value="Celeste">Celeste</option>
+
+              <option <% if(locals.oldData && locals.oldData.categoria =="Azul"){%>  selected <%}%>
+                value="Azul">Azul</option>
+
+              <option <% if(locals.oldData && locals.oldData.categoria =="Verde"){%>  selected <%}%>
+                value="Verde">Verde</option>
+            </select>
+            <div>
+              <% if(locals.errors && errors.precio){%>
+              <div class="text-danger">
+              <%=errors.color.msg%>
+              </div>
+              <% } %> 
+            </div>
         </div>
+
+        <div class="publicar">
+            <label for="sale" class= "titulo-formulario-producto">PUBLICAR:</label>
+            <select 
+                name="sale" 
+                id="sale"
+                class="eleccion-opciones <%= locals.errors && errors.sale ?  "is-invalid" : null %>">
+            
+                <option value="">Elegí una opción</option>
+
+                <option <% if(locals.oldData && locals.oldData.categoria =="si"){%>  selected <%}%>
+                  value="si">si</option>
+                <option <% if(locals.oldData && locals.oldData.categoria =="no"){%>  selected <%}%>
+                  value="no">no</option>
+            </select>
+            <div>
+              <% if(locals.errors && errors.sale){%>
+              <div class="text-danger">
+                <%=errors.sale.msg%>
+              </div>
+                <% } %> 
+            </div>
+        </div>
+
+        <div class="boton-producto">
+            <button class="agregar" type="submit">AGREGAR PRODUCTO</button>
+        </div>
+
       </form>
     </fieldset> 
   </main> 
