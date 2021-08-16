@@ -1,13 +1,31 @@
-## 1er WEEKLY STAND-UP: VIERNES 20/7##
+## 4to WEEKLY STAND-UP: VIERNES 14/8##
+
+Para el sprint 4, decidimos avanzar en reuniones grupales, y luego dejar como trabajo individual algunos seteos de estilo.
+Orden de trabajo hasta ahora:
+1. creación archivos JSON
+2. creación rutas por post, put y delete
+3. Instalación multer para subir imágenes
+
+Pendientes: 
+1. validaciones formulario new producto 
+2. validation imagen new producto
+
+Programamos reuniones a través de Discord y compartimos pantalla, trabajando todos a la vez.
+
+DIFICULTADES ENCONTRADAS: 
+Probamos trabajar con una carpeta separada de middleware pero tuvimos algunos inconvenientes en el funcionamiento por lo que optamos hacer el código dentro del archivo de ruta y seguir los pasos hechos en clase por los docentes y el playground.
+
+## 3er WEEKLY STAND-UP: VIERNES 6/8##
 
 - ¿Qué se hizo? 
-Se debatio de que manera poder comenzar el tercer Sprint dividiendo las distintas etapas entre nosotros para poder ir avanzando de a poco.
+En este oportunidad conversamos para ver como poder comenzar con el cuarto sprint en una llamada de Discord e ir dividiendo los distintos puntos para poder comenzar.
 
 - ¿Se encontró con algun problema?
-Por el momento lo unico que tuvimos fueron a lo mejor problemas con respecto a nuestros horarios pero aun asi siempre estamos en contacto por nuestro grupo de WhatsApp.
+Ninguno por el momento.
 
 - ¿Qué se va a hacer hoy?
-Vamos avanzar un poco en conjunto hasta donde podamos y luego cada uno comenzara por su parte.
+Cada uno va a comenzar con lo que le toco para luego hacer una puesta en comun del material con el que se fue avanzando.
+
 
 ## 2do WEEKLY STAND-UP: VIERNES 27/7##
 En la 2da reunion semanal comentamos los avances en las diferentes tareas del Sprint 3.
@@ -25,13 +43,14 @@ Inconvenientes encontrados: error en tipear la línea poniendo un espacio de má
 Siguiente etapa: paso 7 del sprint: colaborar en los estilos finales y media query de las nuevas vistas
 
 
-## 3er WEEKLY STAND-UP: VIERNES 6/8##
+
+## 1er WEEKLY STAND-UP: VIERNES 20/7##
 
 - ¿Qué se hizo? 
-En este oportunidad conversamos para ver como poder comenzar con el cuarto sprint en una llamada de Discord e ir dividiendo los distintos puntos para poder comenzar.
+Se debatio de que manera poder comenzar el tercer Sprint dividiendo las distintas etapas entre nosotros para poder ir avanzando de a poco.
 
 - ¿Se encontró con algun problema?
-Ninguno por el momento.
+Por el momento lo unico que tuvimos fueron a lo mejor problemas con respecto a nuestros horarios pero aun asi siempre estamos en contacto por nuestro grupo de WhatsApp.
 
 - ¿Qué se va a hacer hoy?
-Cada uno va a comenzar con lo que le toco para luego hacer una puesta en comun del material con el que se fue avanzando.
+Vamos avanzar un poco en conjunto hasta donde podamos y luego cada uno comenzara por su parte.
