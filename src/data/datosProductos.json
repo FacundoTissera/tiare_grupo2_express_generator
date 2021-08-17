@@ -61,7 +61,6 @@
         "imagen": "pantalon1_1.jpeg",
         "sale": "si"
     },
-   
     {
         "id": 7,
         "nombre": "Campera BERLIN",
@@ -72,7 +71,6 @@
         "imagen": "CamperaBerlin1.jpeg",
         "sale": "si"
     },
-   
     {
         "id": 8,
         "nombre": "bea",
@@ -92,26 +90,5 @@
         "descripcion": "Vestido semi-entallado, para todas las ocasiones",
         "imagen": "vestidoVietnam2.jpg",
         "sale": "si"
-    },
-    {
-        "id": 10,
-        "nombre": "un saquito muy lindo",
-        "precio": "30000",
-        "categoria": "abrigos",
-        "color": "Rojo",
-        "descripcion": "lalala",
-        "imagen": "camperaBerlin4.jpg",
-        "sale": "si"
-    },
-    {
-        "id": 11,
-        "nombre": "Pantalón Varsovia",
-        "precio": "2800",
-        "categoria": "pantalones-y-shorts",
-        "color": "Verde",
-        "descripcion": "Súper cómodo, modelo tipo joggineta. Lo vas a amar",
-        "imagen": "pantalonVarsovia1.jpg",
-        "sale": "si"
     }
-   
 ]
