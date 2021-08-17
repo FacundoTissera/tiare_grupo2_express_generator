@@ -61,56 +61,20 @@
         "imagen": "pantalon1_1.jpeg",
         "sale": "si"
     },
+   
     {
         "id": 7,
-        "nombre": "Facundo ",
-        "precio": "2312",
-        "categoria": "pantalones-y-shorts",
-        "color": "Blanco",
-        "descripcion": "dddd"
-    },
-    {
-        "id": 8,
-        "nombre": "Facundo ",
-        "precio": "3334535",
-        "categoria": "pantalones-y-shorts",
-        "color": "Blanco",
-        "descripcion": "4365346",
-        "imagen": "fotoCurriculum.jpeg",
-        "sale": "si"
-    },
-    {
-        "id": 9,
-        "nombre": "ddd",
-        "precio": "21222",
-        "categoria": "pantalones-y-shorts",
-        "color": "Blanco",
-        "descripcion": "ddd",
+        "nombre": "Campera BERLIN",
+        "precio": "5500",
+        "categoria": "abrigos",
+        "color": "Celeste",
+        "descripcion": "Clásica campera abrigadísima, pero con mucha onda",
         "imagen": "CamperaBerlin1.jpeg",
         "sale": "si"
     },
+   
     {
-        "id": 10,
-        "nombre": "arroz",
-        "precio": "123123",
-        "categoria": "pantalones-y-shorts",
-        "color": "Blanco",
-        "descripcion": "wqedqda",
-        "imagen": "VestidoVietnam.jpeg",
-        "sale": "si"
-    },
-    {
-        "id": 11,
-        "nombre": "Camisa Mexico",
-        "precio": "43545",
-        "categoria": "pantalones-y-shorts",
-        "color": "Blanco",
-        "descripcion": "5345",
-        "imagen": "PantalonBarsovia.jpeg",
-        "sale": "no"
-    },
-    {
-        "id": 12,
+        "id": 8,
         "nombre": "bea",
         "precio": "20000  ",
         "categoria": "faldas-y-vestidos",
@@ -120,17 +84,17 @@
         "sale": "no"
     },
     {
-        "id": 13,
-        "nombre": "bea",
-        "precio": "20000",
+        "id": 9,
+        "nombre": "Vestido VIETNAM",
+        "precio": "4900",
         "categoria": "faldas-y-vestidos",
-        "color": "Negro",
-        "descripcion": "vestido",
+        "color": "Tostado",
+        "descripcion": "Vestido semi-entallado, para todas las ocasiones",
         "imagen": "vestidoVietnam2.jpg",
         "sale": "si"
     },
     {
-        "id": 14,
+        "id": 10,
         "nombre": "un saquito muy lindo",
         "precio": "30000",
         "categoria": "abrigos",
@@ -140,43 +104,14 @@
         "sale": "si"
     },
     {
-        "id": 15,
-        "nombre": "vestido",
-        "precio": "5000 ",
-        "categoria": "faldas-y-vestidos",
-        "color": "Blanco",
-        "descripcion": "lksdnlks",
-        "imagen": "vestidoVietnam2.jpg",
-        "sale": "si"
-    },
-    {
-        "id": 16,
-        "nombre": "Pantalón Zaragoza",
+        "id": 11,
+        "nombre": "Pantalón Varsovia",
         "precio": "2800",
         "categoria": "pantalones-y-shorts",
         "color": "Verde",
-        "descripcion": "knkj",
+        "descripcion": "Súper cómodo, modelo tipo joggineta. Lo vas a amar",
         "imagen": "pantalonVarsovia1.jpg",
         "sale": "si"
-    },
-    {
-        "id": 17,
-        "nombre": "remera china",
-        "precio": "111",
-        "categoria": "remeras-y-camisas",
-        "color": "Blanco",
-        "descripcion": "",
-        "imagen": "camisa1_3.jpeg",
-        "sale": "si"
-    },
-    {
-        "id": 18,
-        "nombre": "remera china",
-        "precio": "111",
-        "categoria": "remeras-y-camisas",
-        "color": "Blanco",
-        "descripcion": "jkjkjbkjhghkb",
-        "imagen": "camisa1_3.jpeg",
-        "sale": "si"
     }
+   
 ]
