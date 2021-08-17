@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "nombre": "Camisa SUIZAff",
-        "precio": "2500 ",
+        "nombre": "Camisa SUIZA",
+        "precio": "2500  ",
         "categoria": "remeras-y-camisas",
         "color": "Blanco",
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
@@ -141,12 +141,42 @@
     },
     {
         "id": 15,
-        "nombre": "vestido lindo",
-        "precio": "10000",
+        "nombre": "vestido",
+        "precio": "5000 ",
         "categoria": "faldas-y-vestidos",
         "color": "Blanco",
         "descripcion": "lksdnlks",
         "imagen": "vestidoVietnam2.jpg",
+        "sale": "si"
+    },
+    {
+        "id": 16,
+        "nombre": "Pantalón Zaragoza",
+        "precio": "2800",
+        "categoria": "pantalones-y-shorts",
+        "color": "Verde",
+        "descripcion": "knkj",
+        "imagen": "pantalonVarsovia1.jpg",
+        "sale": "si"
+    },
+    {
+        "id": 17,
+        "nombre": "remera china",
+        "precio": "111",
+        "categoria": "remeras-y-camisas",
+        "color": "Blanco",
+        "descripcion": "",
+        "imagen": "camisa1_3.jpeg",
+        "sale": "si"
+    },
+    {
+        "id": 18,
+        "nombre": "remera china",
+        "precio": "111",
+        "categoria": "remeras-y-camisas",
+        "color": "Blanco",
+        "descripcion": "jkjkjbkjhghkb",
+        "imagen": "camisa1_3.jpeg",
         "sale": "si"
     }
 ]

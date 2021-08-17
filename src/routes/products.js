@@ -11,7 +11,7 @@ const {body} = require ('express-validator');
 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname + '../../public/images'))
+        cb(null, path.join(__dirname + '../../../public/images'))
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
@@ -25,10 +25,24 @@ let upload = multer({ storage: storage })
 const validations=[
    body('nombre').notEmpty().withMessage('Debes completar este campo'),
    body('precio').notEmpty().withMessage('Debes completar este campo').bail() 
-   .isInt() .withMessage ('Debes poner un numero entero'),
+   .isInt() .withMessage ('Debes poner un número entero'),
    body('color').notEmpty().withMessage('Debes completar este campo'),
-  body('categoria').notEmpty().withMessage('Debes completar este campo'),
- body('sale').notEmpty().withMessage('Debes completar este campo'),
+   body('categoria').notEmpty().withMessage('Debes completar este campo'),
+   body('sale').notEmpty().withMessage('Debes completar este campo'),
+   body('fotoPrinc').custom((value, {req}) =>{
+     let file = req.file;
+     let extensionPermitida = ['.jpg', '.jpeg', '.png', '.gif'];
+     if (!file){
+         throw new Error ('Tienes que subir una imagen');
+        } else {
+            let extensiones = path.extname(file.originalname);
+           if (!extensionPermitida.includes(extensiones)){
+           throw new Error ('El archivo debe ser .jpg, .jpeg, .png o .gif');
+
+            }
+        }
+     return true;
+ })
 ]
 
 //requiere el controlador
@@ -41,7 +55,7 @@ router.get('/detalle/:id',productsController.detalle);
 /*nuevo producto, formulario y post */
 
 router.get('/new',productsController.nuevo );
-router.post('/new',upload.single('foto-principal'),validations, productsController.store);
+router.post('/new',upload.single('fotoPrinc'),validations, productsController.store);
 
 //Borrar producto
 router.delete('/borrar/:id', productsController.delete);

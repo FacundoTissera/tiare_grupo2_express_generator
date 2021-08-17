@@ -65,9 +65,14 @@
               <i class="fas fa-camera"></i>
           </div>
           <div class="input-foto">
-              <label for="foto-principal" name="foto-principal"class="titulo-imagen">IMAGEN PRINCIPAL</label>
-              <input type="file" class="foto-principal" name= "foto-principal" id="foto-principal">
-          </div>
+              <label for="foto-principal" name="fotoPrinc"class="titulo-imagen">IMAGEN PRINCIPAL</label>
+              <input type="file" class="foto-principal" name= "fotoPrinc" id="foto-principal">
+              <%if (locals.errors && errors.fotoPrinc){%>
+                <div class="text-danger">
+                  <%=errors.fotoPrinc.msg%>
+                  <%}%>
+                </div>
+            </div>
         </div>
 
           <!--<div class="foto">
@@ -79,7 +84,8 @@
 
         <div class="descripcion-producto">
           <label for="descripcion" class="titulo-formulario-producto">DESCRIPCIÓN</label>
-          <textarea rows="8" name="descripcion" id="descripcion"></textarea>
+          <textarea rows="8" name="descripcion" id="descripcion"
+          ><%= locals.oldData ? oldData.descripcion :null%></textarea>
         </div>
 
         <div class="precio">
@@ -136,32 +142,32 @@
               <option <% if(locals.oldData && locals.oldData.color =="Blanco"){%>  selected <%}%>
               value="Blanco">Blanco</option>
 
-              <option <% if(locals.oldData && locals.oldData.categoria =="Negro"){%>  selected <%}%>
+              <option <% if(locals.oldData && locals.oldData.color =="Negro"){%>  selected <%}%>
                 value="Negro">Negro</option>
 
-              <option <% if(locals.oldData && locals.oldData.categoria =="Rojo"){%>  selected <%}%>
+              <option <% if(locals.oldData && locals.oldData.color =="Rojo"){%>  selected <%}%>
                 value="Rojo">Rojo</option>
 
-              <option <% if(locals.oldData && locals.oldData.categoria =="Tostado"){%>  selected <%}%>
+              <option <% if(locals.oldData && locals.oldData.color =="Tostado"){%>  selected <%}%>
                 value="Tostado">Tostado</option>
 
-              <option <% if(locals.oldData && locals.oldData.categoria =="Rosa"){%>  selected <%}%>
+              <option <% if(locals.oldData && locals.oldData.color =="Rosa"){%>  selected <%}%>
                 value="Rosa">Rosa</option>
 
-              <option <% if(locals.oldData && locals.oldData.categoria =="Gris"){%>  selected <%}%>
+              <option <% if(locals.oldData && locals.oldData.color =="Gris"){%>  selected <%}%>
                 value="Gris">Gris</option>
 
-              <option <% if(locals.oldData && locals.oldData.categoria =="Celeste"){%>  selected <%}%>
+              <option <% if(locals.oldData && locals.oldData.color =="Celeste"){%>  selected <%}%>
                 value="Celeste">Celeste</option>
 
-              <option <% if(locals.oldData && locals.oldData.categoria =="Azul"){%>  selected <%}%>
+              <option <% if(locals.oldData && locals.oldData.color =="Azul"){%>  selected <%}%>
                 value="Azul">Azul</option>
 
-              <option <% if(locals.oldData && locals.oldData.categoria =="Verde"){%>  selected <%}%>
+              <option <% if(locals.oldData && locals.oldData.color =="Verde"){%>  selected <%}%>
                 value="Verde">Verde</option>
             </select>
             <div>
-              <% if(locals.errors && errors.precio){%>
+              <% if(locals.errors && errors.color){%>
               <div class="text-danger">
               <%=errors.color.msg%>
               </div>
@@ -178,10 +184,10 @@
             
                 <option value="">Elegí una opción</option>
 
-                <option <% if(locals.oldData && locals.oldData.categoria =="si"){%>  selected <%}%>
-                  value="si">si</option>
-                <option <% if(locals.oldData && locals.oldData.categoria =="no"){%>  selected <%}%>
-                  value="no">no</option>
+                <option <% if(locals.oldData && locals.oldData.sale =="si"){%>  selected <%}%>
+                  value="si">Si</option>
+                <option <% if(locals.oldData && locals.oldData.sale =="no"){%>  selected <%}%>
+                  value="no">No</option>
             </select>
             <div>
               <% if(locals.errors && errors.sale){%>
