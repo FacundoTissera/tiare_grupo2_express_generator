@@ -1,3 +1,21 @@
+## Retro SPRING 4:
+## RETROSPECTIVA GENERAL:
+Nuevamente pudimos cumplir con los objetivos del Sprint en tiempo y forma. De todas formas el tema disponibilidad de tiempo sumado a la complejidad de los temas que estamos abordando hacen que empiecen a surgir otro tipo de dificultades. Si bien estamos conformes con lo presentado, sentimos que es momento de rearmar la estructura del proyecto y tomarnos unas horas para limpiar lo presentado eliminando código que ya no volveremos a utilizar. 
+Al haber dado comienzo inmediato el Sprint 5, que también tiene un nivel alto de dificultad, estuvimos viendo cuál sería la mejor forma de organizarnos para cumplir ambos objetivos por lo que esta vez dividimos tareas en forma diferente para poder lograrlo. 
+Para esto Beatriz dedicará esta semana a reorganizar el CRUD de productos y Facundo y Lucas avanzarán con el SPRINT 5 con la parte de CRUD y validaciones, y luego avanzaremos en conjunto sobre los nuevos temas.
+
+## START DOING
+Limpiar código que no se volverá a usar (archivos de imágenes incluido) a medida que detectemos que no serán necesarios en el futuro. 
+## MORE OFF
+Por el momento nada por acá. 
+## KEEP DOING
+Mantener el nivel de comunicación grupal y la colaboración interna del equipo. 
+## LESS OFF
+Nada por acá.
+## STOP DOING
+Nada por acá. 
+
+
 ## Retro SPRING 3:
 ## RETROSPECTIVA GENERAL:
 El tercer spring se logró cumplir en tiempo y forma aunque estuvimos bastante más ajustados con los tiempos.

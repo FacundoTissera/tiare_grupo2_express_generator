@@ -1,3 +1,9 @@
+## 5to WEEKLY STAND-UP: VIERNES 21/8##
+Debido a lo resuelto en la RETRO del SPRINT 4, hemos decidido dedicar esta semana a reorganizar la estructura del CRUD de productos, y limpiar el código. 
+Beatriz se encargará de eso, y en forma paralela Lucas y Facundo comenzarán con el SPRINT 5, armando el CRUD de usuarios con las validaciones pertinentes.
+Al finalizar esta semana, si logramos cumplir los objetivos, dividiremos las tareas siguientes: desarrollo de Session, Cookies y Hashes.
+
+
 ## 4to WEEKLY STAND-UP: VIERNES 14/8##
 
 Para el sprint 4, decidimos avanzar en reuniones grupales, y luego dejar como trabajo individual algunos seteos de estilo.
