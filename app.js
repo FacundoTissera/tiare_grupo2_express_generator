@@ -33,7 +33,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/products',productsRouter);
 app.use('/login',loginRouter);
-app.use('/Cart',cartRouter);
+app.use('/cart',cartRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

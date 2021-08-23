@@ -9,7 +9,7 @@
 <%- include('../parciales/header') %>
 
 <main>
-<img src="/images/carrusel1.png" alt="" width="100%"class="carrusel-image" >
+<img src="/images/web/carrusel1.png" alt="" width="100%"class="carrusel-image" >
 <!-- <div class="form" action="#" method="GET">
 <input type="search" name="busquedas" size="30"  placeholder="Busca productos, marcas y más...">
 
@@ -18,16 +18,13 @@
 <h2 class="titulo-productos">NUESTROS PRODUCTOS</h2>
 <section class="secciones-articulos">
 
-    
-    
-
     <article class="articulos-linea1">
         <% for( let i = 0; i < sale.length; i++ ) { %>
         <div class="articulos-index">
             
             <div class="foto-producto">
                 <a href= "/products/detalle/<%= sale[i].id %> "> 
-                    <img src="/images/<%= sale[i].imagen %> " alt="Foto-Producto" class="foto-producto">
+                    <img src="/images/prendas/<%= sale[i].imagen %> " alt="Foto-Producto" class="foto-producto">
                 </a>
             </div>
             <div class="descripciones">
@@ -49,7 +46,7 @@
 <!--BOTON DE WHATSAPP-->
 <button class="button-whatsapp" >
     <a href="https://api.whatsapp.com/send?phone=+54 353 481 3541">
-        <img src="/images/whatsapp.png" alt="whatsapp" class="whatsapp">
+        <img src="/images/web/whatsapp.png" alt="whatsapp" class="whatsapp">
     </a>
 </button>
 

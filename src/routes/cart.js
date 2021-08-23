@@ -5,6 +5,6 @@ const loginController = require('../controllers/cartController');
 
 //rutas de carrito
 
-router.get('/productCart/:id',cartController.carro);
+router.get('/productCart',cartController.carro);
 
 module.exports = router;
