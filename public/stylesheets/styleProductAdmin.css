@@ -72,7 +72,7 @@ body{
 
 .boton-administrar{
     display:flex;
-    background-color:#9D766F;
+    background-color:darkslategrey;
     color:#f9efed;
     border:solid 2px grey;
     border-radius: 5%;
