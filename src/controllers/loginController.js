@@ -6,9 +6,6 @@ const loginController = {
     registrarse:(req,res)=>{
         res.render('login/register',{title: 'registrete'});
     },
-    admin: (req, res) =>{
-        res.render('login/admin', {title: 'administrador'})
-    },
     
     
 };

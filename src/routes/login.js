@@ -9,7 +9,6 @@ router.get('/',loginController.ingreso);
 
 router.get('/register', loginController.registrarse);
 
-router.get('/admin',loginController.admin);
 
 
 
