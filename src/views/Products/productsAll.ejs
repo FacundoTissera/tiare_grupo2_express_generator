@@ -13,22 +13,22 @@
     
     
         <article class="articulos-linea1">
-            <% for( let i = 0; i < todosLosProductos.length; i++ ) { %>
+            <% for( let i = 0; i < prendas.length; i++ ) { %>
             
             <div class="articulos-index">
                 <div class="foto-producto">
-                    <a href= "/products/detalle/<%= todosLosProductos[i].id %>"> 
-                        <img src="/images/prendas/<%= todosLosProductos[i].imagen %>" alt="Foto-Producto" class="foto-producto">
+                    <a href= "/products/detalle/<%= prendas[i].id %>"> 
+                        <img src="/images/prendas/<%= prendas[i].imagen %>" alt="Foto-Producto" class="foto-producto">
                     </a>
                 </div>
                 <div class="descripciones">
-                    <p><%= todosLosProductos[i].nombre %></p>
+                    <p><%= prendas[i].nombre %></p>
                 </div>
                 <div class="precios">
-                    <p>$<%= todosLosProductos[i].precio %></p>
+                    <p>$<%= prendas[i].precio %></p>
                 </div>
                 <div class="loQuiero">
-                    <a href="/products/detalle/<%= todosLosProductos[i].id %>">LO QUIERO!</a>
+                    <a href="/products/detalle/<%= prendas[i].id %>">LO QUIERO!</a>
                 </div>
             </div>
             <% } %>

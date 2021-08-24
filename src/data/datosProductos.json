@@ -54,7 +54,7 @@
     {
         "id": 6,
         "nombre": "Pantalón VIENA",
-        "precio": 4000,
+        "precio": "4500 ",
         "categoria": "pantalones-y-shorts",
         "color": "Blanco",
         "descripcion": "Pantalón palazzo en lanilla, con pinzas y contura elastizada.",
@@ -72,16 +72,6 @@
         "sale": "si"
     },
     {
-        "id": 8,
-        "nombre": "bea",
-        "precio": "20000  ",
-        "categoria": "faldas-y-vestidos",
-        "color": "Negro",
-        "descripcion": "vestido",
-        "imagen": "pantalonVarsovia1.jpg",
-        "sale": "no"
-    },
-    {
         "id": 9,
         "nombre": "Vestido VIETNAM",
         "precio": "4900",
@@ -90,5 +80,15 @@
         "descripcion": "Vestido semi-entallado, para todas las ocasiones",
         "imagen": "vestidoVietnam2.jpg",
         "sale": "si"
+    },
+    {
+        "id": 10,
+        "nombre": "Pantalón Varsovia",
+        "precio": "4500",
+        "categoria": "pantalones-y-shorts",
+        "color": "Tostado",
+        "descripcion": "Un pantalón muy cómodo, estilo jogger",
+        "imagen": "pantalonVarsovia1.jpg",
+        "sale": "no"
     }
 ]

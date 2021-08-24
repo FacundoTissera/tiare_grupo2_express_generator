@@ -32,7 +32,7 @@
                 </div> -->
             </div>
             <div class="div-eleccion-producto">
-                <form action="/cart/productCart/8" method="GET" class="eleccion-producto">
+                <form action="/cart/productCart" method="GET" class="eleccion-producto">
                     
                     <p><%= product.nombre %> <br><br>$ <%= product.precio %>  </p>
 
@@ -74,9 +74,9 @@
         </section>
         <section class="botones-editar-borrar">
 
-                    <a href="/products/editar/<%=product.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
+                    <a href="/admin/editar/<%=product.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
                     
-                    <form action="/products/borrar/<%= product.id %>?_method=DELETE " method="POST">
+                    <form action="/admin/borrar/<%= product.id %>?_method=DELETE " method="POST">
                         <button type="submit"class="borrar-producto">ELIMINAR</button> 
                     </form>
                         
