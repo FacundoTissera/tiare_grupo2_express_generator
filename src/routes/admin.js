@@ -60,5 +60,8 @@ router.delete('/borrar/:id', adminController.delete);
 router.get('/editar/:id', adminController.editar);
 router.put ('/editar/:id',adminController.cambio);
 
+/*listar productos en admin*/
+router.get('/listaEdit',adminController.lista);
+
 
 module.exports = router;

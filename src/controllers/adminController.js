@@ -45,7 +45,7 @@ const adminController = {
         //mando el click del formulario al detalle del producto subido
         res.redirect ("/products/detalle/" + nuevoProductoStore.id);
         },
-        
+
     //formulario de editar get
     editar:(req, res) =>{
         let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
@@ -83,7 +83,10 @@ const adminController = {
 
 
         res.redirect("/products")
-
+    },
+    lista:(req, res) =>{
+        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+        res.render('admin/listaEdit', {title: 'Listado productos'})
     }
 
 

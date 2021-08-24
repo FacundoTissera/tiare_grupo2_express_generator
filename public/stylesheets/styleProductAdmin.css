@@ -62,6 +62,30 @@ body{
     font-size: 10x;
     color:#5E5236;
 }
+/*INDEX ADMIN*/
+.shortcuts{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 100px 20px;
+    justify-content: space-around;
+}
+
+.boton-administrar{
+    display:flex;
+    background-color:#9D766F;
+    color:#f9efed;
+    border:solid 2px grey;
+    border-radius: 5%;
+    padding: 5%;
+    text-decoration: none;
+    text-align: center;
+
+}
+.icon-admin{
+    font-size: x-large;
+}
+
+
 .main-formulario{
     margin:5%;
 }
