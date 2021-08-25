@@ -4,7 +4,7 @@
         "nombre": "Facundo" ,
         "apellido": "Tissera",
         "email": "facundotisserasorribas@gmail.com",
-        "contraseña": "asado123",
+        "password": "asado123",
         "rol": "Admin",
         "imagen": "fotoperfiladmin.jpg"
 
@@ -14,7 +14,7 @@
         "nombre": "Beatriz",
         "apellido": "Hambeck",
         "email": "bhambeck@gmail.com",
-        "contraseña": "vino123",
+        "password": "vino123",
         "rol": "Admin",
         "imagen": "fotoperfiladmin.jpg"
 
@@ -24,7 +24,7 @@
         "nombre": "Lucas",
         "apellido": "Rivero",
         "email": "lucas.rivero1993@gmaIl.com",
-        "contraseña": "cs123",
+        "password": "cs123",
         "rol": "Admin",
         "imagen": "fotoperfiladmin.jpg"
 
@@ -34,7 +34,7 @@
         "nombre": "Lio",
         "apellido": "Messi",
         "email": "liomessi10@gmail.com",
-        "contraseña": "barza123",
+        "password": "barza123",
         "rol": "cliente",
         "image": "user_4.jpg",
         "direccion": "11014 New Castle Street",

@@ -11,7 +11,7 @@ const methodOverride = require ('method-override');
 
 const productsRouter = require('./src/routes/products');
 const indexRouter = require('./src/routes/index');
-const loginRouter = require('./src/routes/login');
+const userRouter = require('./src/routes/user');
 const cartRouter = require('./src/routes/cart')
 const adminRouter = require ('./src/routes/admin');
 
@@ -33,7 +33,7 @@ app.use(methodOverride('_method'));
  //RUTAS DE LAS DIFERENTES PAGINAS
 app.use('/', indexRouter);
 app.use('/products',productsRouter);
-app.use('/login',loginRouter);
+app.use('/user',userRouter);
 app.use('/cart',cartRouter);
 app.use('/admin', adminRouter);
 

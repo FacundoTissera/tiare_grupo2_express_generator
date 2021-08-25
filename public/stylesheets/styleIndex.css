@@ -253,6 +253,9 @@ legend{
 .register-form{
     padding: 25px 15px;
 }
+.text-danger{
+    color: red;
+}
 .datos-registro{
     margin-bottom: 10px;
 }
