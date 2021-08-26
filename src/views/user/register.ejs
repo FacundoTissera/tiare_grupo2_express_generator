@@ -66,7 +66,7 @@
                             <% for( const unaProvincia of provincias) { %>
 
                                 <option  
-                                value="<%=unaProvincia %>" <%= locals.oldData && (unaProvincia === oldData.provincia) ? "selected" : null %> > <%= unaProvincia %> </option>
+                                value="<%=unaProvincia %>" <%= locals.oldData && (unaProvincia === oldData.provincia) ? "selected" : null%> > <%= unaProvincia %> </option>
                                 <% } %>
                                 
                             </select>
@@ -79,7 +79,7 @@
                         
                         <div class="datos-registro">
                             <label for="codigo-postal">Código Postal:</label> 
-                            <input type="number" name="codigoPostal" id="codigo-postal" value="<%= locals.oldData ? oldData.codigoPostal : null %> ">
+                            <input type="number" name="codigoPostal" id="codigo-postal" value="<%= locals.oldData ? oldData.codigoPostal : null %>">
 
                             <% if (locals.errors && errors.codigoPostal) { %>
                         <div class="text-danger">
@@ -91,7 +91,7 @@
                         
                         <div class="datos-registro">
                             <label for="telefono">Teléfono:</label> 
-                            <input type="number" name="telefono" id="telefono" value="<%= locals.oldData ? oldData.telefono : null %> ">
+                            <input type="number" name="telefono" id="telefono" value="<%= locals.oldData ? oldData.telefono : null %>">
                             <% if (locals.errors && errors.telefono) { %>
                         <div class="text-danger">
                             <%= errors.telefono.msg %> 
