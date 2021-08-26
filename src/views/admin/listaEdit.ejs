@@ -8,13 +8,38 @@
     <!--partial de HEADER-->
 
     <%- include('../parciales/adminHeader') %>
+    
+<main class= "listado-productos" >  
+    <article class="boton-lista">
+        <a href="/admin/newProduct" class="boton-crear">CREAR NUEVO PRODUCTO</a>
+    </article>
 
-
-    <p>Hola, aca va la lista de productos con el ojito para ver, el lapiz para editar y el tachito para tirar</p>
-    <p>PRODUCTO 1</p>
-    <p>PRODUCTO 2</p>
-    <p>PRODUCTO 3</p>
-    <p>PRODUCTO 4</p>
-    <p>PRODUCTO 5</p>
-    <p>PRODUCTO 6</p>
-    <p>PRODUCTO 7</p>
+    <article class="listado-edit">
+      <table class="tabla">
+          <thead>
+            <tr class='columnas'>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Ver</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Borrar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% prendas.forEach(prenda => { %>
+            <tr>
+                <td><%= prenda.id%> </td>
+                <td><%= prenda.nombre%> </td>
+                <td><a href="/products/detalle/<%= prenda.id%> "> <i class="icono-lista fas fa-eye"></i></a></td>
+                <td><a href="/admin/editar/<%= prenda.id%> "> <i class="icono-lista far fa-edit"></i></a></td>
+<!--dentro de la tabla la funcion borrar tiene que ir dentro de un formulario-->
+                <td><form action="/admin/borrar/<%= prenda.id%>?_method=DELETE " method="POST">
+                        <button type="submit"class="borrar-producto"><i class="icono-lista fas fa-trash-alt"></i></button> 
+                    </form>
+                </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table> 
+      </article>       
+</main>       

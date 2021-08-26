@@ -48,6 +48,10 @@ const validations=[
 
 router.get('/',adminController.index);
 
+//ruta de listado gral
+
+router.get('/listaEdit', adminController.lista);
+
 /*nuevo producto, formulario y post */
 
 router.get('/newProduct',adminController.nuevo );

@@ -72,7 +72,7 @@ body{
 
 .boton-administrar{
     display:flex;
-    background-color:darkslategrey;
+    background-color:grey;
     color:#f9efed;
     border:solid 2px grey;
     border-radius: 5%;
@@ -185,6 +185,49 @@ textarea{
         margin-top: 20px;
     }
 
+.boton-crear{
+    display:flex;
+    justify-content: center;
+    background-color:grey;
+    color:#f9efed;
+    border:solid 2px grey;
+    border-radius: 5%;
+    padding: 2%;
+    text-decoration: none;
+    text-align: center;
+    width:25%;
+    font-size: 10px;
+
+}
+.boton-lista{
+    display:flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.tabla{
+    margin: 3%;
+    width:70%;
+}
+.listado-edit{
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
+tr, td, th{
+    padding: 2%;
+    text-align: left;
+}
+.icono-lista{
+    text-decoration: none;
+    color: #382e2c;
+    
+}
+button{
+    border: none;
+    font-size: 16px;
+}
+
 /*BODY END*/
 /*FOOTER*/
 
@@ -241,6 +284,9 @@ textarea{
     }
     .derechos-reservados{
         font-size: 12px;
+    }
+    .boton-crear{
+        font-size: 16px;
     }
 
 }
