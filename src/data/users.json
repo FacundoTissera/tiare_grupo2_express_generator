@@ -290,5 +290,33 @@
   "password": "$2a$10$LnwB4Wmks.0EvFV7.EBDVe68fOckXxWKgC962hd4u7/byea1hgBmu",
   "aceptoTerminos": "on",
   "avatar": "1630006110577_img.jpeg"
+ },
+ {
+  "id": 23,
+  "fullName": "Facundo Tissera",
+  "direccion": "Pasteur",
+  "numero": "222",
+  "ciudad": "Villa Maria",
+  "provincia": "Bs. As.",
+  "codigoPostal": "22222",
+  "telefono": "123412",
+  "email": "orribas@hotmai.com",
+  "password": "$2a$10$u7MvQIMp0Zocc7z5bO9H3.aKBi/duYPLYHuoo.cpsIDWUvitIbasS",
+  "aceptoTerminos": "on",
+  "avatar": "1630015292494_img.jpeg"
+ },
+ {
+  "id": 24,
+  "fullName": "Facundo Tissera",
+  "direccion": "Pasteur",
+  "numero": "12312313",
+  "ciudad": "Villa Maria",
+  "provincia": "Bs. As.",
+  "codigoPostal": "22222",
+  "telefono": "3534813541",
+  "email": "facundo@gmail.com",
+  "password": "$2a$10$h4kvTib5qousEDKDQ0/y/uytxdPZEo32UG3SDpZQDw5pHxNBsireq",
+  "aceptoTerminos": "on",
+  "avatar": "1630028791938_img.jpeg"
  }
 ]

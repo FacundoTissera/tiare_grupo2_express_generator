@@ -9,21 +9,32 @@
 <%- include('../parciales/header') %>
 
     <main>
-            <form action="/" method="POST" class="login">
+            <form action="/user" method="POST" class="login">
             
                 <fieldset>
 
                     <legend>¡INGRESA!</legend>
-                    <p class="usuario">
-                        <label for="usuario">Nombre de usuario:</label> <br>
-                        <input type="text" name="usuario" id="usuario" placeholder="Tu nombre de usuario">
-                    </p>
-
-                    <p class="contraseña">
-                        <label for="clave">Contraseña: </label> <br>
-                        <input type="password" name="clave" id="clave" placeholder="Introducir tu clave">
-                    </p>
+                    <div class="usuario">
+                        
+                            <label for="email"><b>Email:</b></label> <br>
+                            <input type="text" name="email" id="email" placeholder="Ingrasa tu email de registro">
+                            <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %> 
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="contraseña">
                     
+                        <label for="password"><b>Contraseña:</b> </label> <br>
+                        <input type="password" name="password" id="password" placeholder="Introducir tu clave">
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="text-danger">
+                                <%= errors.password.msg %> 
+                            </div>
+                        <% } %>
+                    
+                    </div>
                     <p>
                     
                         <div class="caja-recuerdame">
