@@ -155,7 +155,7 @@ const userController = {
             
             //si la clave es correcta pasa al if y sino que salte al error      
             if (contraseniaCorrecta) {
-                    req.session.usuarioLogeado =usuarioRegistrado;
+                    req.session.usuarioLogeado = usuarioRegistrado;
                     return res.redirect('/');
                 }else{
                     return res.render('user/login',{
@@ -184,6 +184,9 @@ const userController = {
             }
         
         },
+        perfil:(req, res) =>{
+            
+        }
     
 };
 module.exports = userController;
