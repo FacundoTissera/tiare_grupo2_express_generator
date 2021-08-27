@@ -64,9 +64,15 @@ const validaciones ={
     
     login: [ 
     
-        body('email').notEmpty().withMessage('Debes escribir un email').bail().isEmail().withMessage('Debes escribir un formato de correo valido'),
-        body('password').notEmpty().withMessage('Debes escribir tu Contraseña'),
-    
+        body('email')
+            .notEmpty()
+            .withMessage('Debes escribir un email')
+            .bail().isEmail()
+            .withMessage('Debes escribir un formato de correo valido'),
+        body('password')
+            .notEmpty()
+            .withMessage('Debes escribir tu Contraseña'),
+        
     ]
     
 };
