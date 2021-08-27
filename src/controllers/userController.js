@@ -128,6 +128,7 @@ const userController = {
     },
     
     ingreso:(req, res)=>{
+        //console.log(req.session);
             res.render('user/login',{title: 'logueate',});
         },
         
@@ -143,20 +144,26 @@ const userController = {
             
             return usuarioEncontrado;
         };
-
+        // creo una variable para que utiluce la funcion de buscar por cualquier usuario en la parte de campo email y que coincida con lo que viene ene el body
         let usuarioRegistrado = BuscarPorCualquierCampo('email', req.body.email);
-
+        // aca digo que si usuario esta en la base de datos. si lo de arriba es verdadero pasa al if
         if (usuarioRegistrado) {
-                
+                //desencripto la clave que puso el usuario para que me coincida con la base de datos 
             let contraseniaCorrecta= bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
-                if (contraseniaCorrecta) {
+            
+            //si la clave es correcta pasa al if y sino que salte al error      
+            if (contraseniaCorrecta) {
+                    req.session.usuarioLogeado =usuarioRegistrado;
                     return res.redirect('/');
                 }else{
                     return res.render('user/login',{
                                 errors:{
                                     email:{
                                         msg: 'La contraseña o usuario incorrecto'
-                                    }
+                                    },
+                                    password:{
+                                        msg: 'La contraseña o usuario incorrecto'
+                                    }                                    
                                 }
                     }) ;
                 }
