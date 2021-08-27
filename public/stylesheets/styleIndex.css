@@ -210,7 +210,7 @@ legend{
     color: #5E5236;
     font-weight: bold;
 }
-#usuario, #clave{
+#email, #password{
     width: 100%;
     padding:8px;
     margin-top: 5px;
@@ -234,7 +234,7 @@ legend{
 .entrar{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     flex-wrap: wrap;
     background-color: #5E5236;
     color: #F7F7F7;
@@ -242,6 +242,7 @@ legend{
     cursor: pointer;
     font-weight: bolder;
     padding: 10px;
+    width: 30%;
 }
 .entrar:hover{
     background-color: #ebc6be;

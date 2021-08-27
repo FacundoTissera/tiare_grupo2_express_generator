@@ -66,7 +66,7 @@ body{
 .shortcuts{
     display: flex;
     flex-wrap: wrap;
-    margin: 100px 20px;
+    margin: 20px 20px;
     justify-content: space-around;
 }
 
@@ -226,6 +226,17 @@ tr, td, th{
 button{
     border: none;
     font-size: 16px;
+}
+.saludo-admin{
+    font-size: 16px;
+    text-align: center;
+    margin-top: 60px;
+    color:gray;
+}
+.fa-user-astronaut{
+    font-size: 90px;
+    padding: 3%;
+    color: rgb(59, 58, 58);
 }
 
 /*BODY END*/
