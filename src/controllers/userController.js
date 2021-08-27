@@ -184,8 +184,9 @@ const userController = {
             }
         
         },
-        perfil:(req, res) =>{
-            
+        cliente:(req,res)=>{
+            res.render('user/userLogueado', {title:'usuarioEnLogin'})
+
         }
     
 };
