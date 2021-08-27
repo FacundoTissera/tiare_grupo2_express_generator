@@ -134,6 +134,7 @@ const userController = {
     procesoDeLogin:(req, res)=>{
          //aca traigo convertido de la carpeta data todos los usuarios en formato array
         let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../data/users.json'),{encoding: 'utf-8'}));
+        
         function BuscarPorCualquierCampo(campo, text) {
             
             // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
@@ -165,9 +166,20 @@ const userController = {
                                     }                                    
                                 }
                     }) ;
+                };
+                
+        }else{
+            return res.render('user/login',{
+                errors:{
+                    email:{
+                        msg: 'La contraseña o usuario incorrecto'
+                    },
+                    password:{
+                        msg: 'La contraseña o usuario incorrecto'
+                    }                                    
                 }
-            
-        }
+    }) ;        
+            }
         
         },
     
