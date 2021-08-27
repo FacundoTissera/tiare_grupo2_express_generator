@@ -224,7 +224,7 @@ legend{
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 10px 5px ;
+    padding: 10px 30px ;
 }
 .recuerdame{
     display: flex;
