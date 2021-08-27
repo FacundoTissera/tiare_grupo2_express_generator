@@ -172,6 +172,9 @@ const userController = {
         }
         
         },
+        cliente:(req,res)=>{
+            res.render('user/userLogueado', {title:'usuarioEnLogin'})
+        }
     
 };
 module.exports = userController;

@@ -34,7 +34,7 @@ router.get('/register', userController.registrarse);
 //proceso de registro
 router.post('/register',uploadFile.single('avatar'),validaciones.register ,userController.procesoDeRegistro);
 
-
+router.get('/cliente', userController.cliente);
 
 
 module.exports = router;
