@@ -13,9 +13,9 @@
     {
         "id": 2,
         "nombre": "Sweater PARIS",
-        "precio": 3500,
+        "precio": "4500 ",
         "categoria": "abrigos",
-        "color": "Verde",
+        "color": "Blanco",
         "descripcion": "Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.",
         "imagen": "sweater1_1.jpeg",
         "sale": "si"

@@ -70,6 +70,8 @@ const userController = {
         function guardarUsuario(infoUsuario) {
             // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
             let todosLosUsuarios = users;
+
+            //OJO QUE SE PUEDEN REPETIR ID DE USUARIOS!!!!!!
             let idUltimo = todosLosUsuarios.length +1
             let nuevoUsuario = {
                 id: idUltimo ,
