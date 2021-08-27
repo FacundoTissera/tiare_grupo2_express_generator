@@ -25,10 +25,10 @@ const userController = {
             });
         };
         //aca traigo convertido de la carpeta data todos los usuarios en formato array
-        let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../data/users.json'),{encoding: 'utf-8'}));
-        
+            let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../data/users.json'),{encoding: 'utf-8'}));
+            
         //metodo para generar un ID 
-        function generadorId() {
+            function generadorId() {
             let todos = users;
             let ultimoId =todos.pop();
             if (ultimoId) {
@@ -37,7 +37,6 @@ const userController = {
             }
             return 1;
         };
-        
         //esta funcion me permite buscar a todos los usuarios 
         function todosLosUsuarios(){
             let todos = users
