@@ -30,8 +30,8 @@ const userController = {
         //aca traigo convertido de la carpeta data todos los usuarios en formato array
             let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../data/users.json'),{encoding: 'utf-8'}));
             
-    //metodo para generar un ID 
-        function generadorId() {
+        //metodo para generar un ID 
+            function generadorId() {
             let todos = users;
             let ultimoId =todos.pop();
             if (ultimoId) {
@@ -40,7 +40,7 @@ const userController = {
             }
             return 1;
         };
-    //esta funcion me permite buscar a todos los usuarios 
+        //esta funcion me permite buscar a todos los usuarios 
         function todosLosUsuarios(){
             let todos = users
             return todos
@@ -58,7 +58,7 @@ const userController = {
             return usuarioEncontrado;
         };
 
-    //creo funcion que permita buscar por cualquier campo..
+        //creo funcion que permita buscar por cualquier campo..
         function BuscarPorCualquierCampo(campo, text) {
         
         // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
@@ -69,8 +69,8 @@ const userController = {
             return usuarioEncontrado;
         };
         
-    //aca voy a intentar guardar los usuarios en la base de datos jajaj 
-    function guardarUsuario(infoUsuario) {
+        //aca voy a intentar guardar los usuarios en la base de datos jajaj 
+        function guardarUsuario(infoUsuario) {
         // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
         let todosLosUsuarios = users;
         let idUltimo = todosLosUsuarios.length +1
@@ -83,9 +83,9 @@ const userController = {
         fs.writeFileSync(path.join(__dirname, '../data/users.json'),JSON.stringify(todosLosUsuarios, null, ' '));
     
         return nuevoUsuario;
-    };
+        };
     
-    function eliminar(id) {
+         function eliminar(id) {
         // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
         let todosLosUsuarios = users;
         let ultimosUsuarios = todosLosUsuarios.filter(unUsuario => unUsuario.id !== id);
@@ -93,8 +93,8 @@ const userController = {
         fs.writeFileSync(path.join(__dirname, '../data/users.json'),JSON.stringify(ultimosUsuarios, null, ' '));
     
         return true;
-    };
-    //aca valido que el usuario no se encuentre logueado
+        };
+        //aca valido que el usuario no se encuentre logueado
         let usuarioExistente = BuscarPorCualquierCampo('email', req.body.email);
         if (usuarioExistente) {
             
