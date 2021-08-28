@@ -21,20 +21,24 @@ const storage = multer.diskStorage({
 });
 const uploadFile = multer({ storage });
 
+
 //rutas de login
 
-router.get('/',userController.ingreso);
+//formulario de login
+router.get('/', validaciones.usuario, userController.ingreso);
 
 //proceso de login
-router.post('/', validaciones.login, userController.procesoDeLogin);
+router.post('/', userController.procesoDeLogin);
 
-
-router.get('/register', userController.registrarse);
+//formulario de registro
+router.get('/register',validaciones.usuario, userController.registrarse);
 
 //proceso de registro
 router.post('/register',uploadFile.single('avatar'),validaciones.register ,userController.procesoDeRegistro);
 
-router.get('/cliente', userController.cliente);
+//perfil del usuario
+router.get('/usuario', userController.cliente);
 
+//router.get('/cliente', userController.cliente);
 
 module.exports = router;

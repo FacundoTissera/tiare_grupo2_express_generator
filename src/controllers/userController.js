@@ -71,8 +71,10 @@ const userController = {
             // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
             let todosLosUsuarios = users;
 
+            let idUltimo= todosLosUsuarios[todosLosUsuarios.length-1].id+1
+
             //OJO QUE SE PUEDEN REPETIR ID DE USUARIOS!!!!!!
-            let idUltimo = todosLosUsuarios.length +1
+        
             let nuevoUsuario = {
                 id: idUltimo ,
                 ...infoUsuario
@@ -151,12 +153,16 @@ const userController = {
         // aca digo que si usuario esta en la base de datos. si lo de arriba es verdadero pasa al if
         if (usuarioRegistrado) {
                 //desencripto la clave que puso el usuario para que me coincida con la base de datos 
-            let contraseniaCorrecta= bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
+                let contraseniaCorrecta= bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
             
-            //si la clave es correcta pasa al if y sino que salte al error      
-            if (contraseniaCorrecta) {
-                    req.session.usuarioLogeado = usuarioRegistrado;
-                    return res.redirect('/');
+                //si la clave es correcta pasa al if y sino que salte al error      
+                if (contraseniaCorrecta) {
+            //elimino la contraseña para que no quede guardada al navegar 
+            delete usuarioRegistrado.password
+            //ACA GUARDO AL USUARIO REGISTRADO ↓
+                req.session.usuarioLogeado = usuarioRegistrado;
+                
+                    return res.redirect('user/usuario');
                 }else{
                     return res.render('user/login',{
                                 errors:{
@@ -184,12 +190,15 @@ const userController = {
             }
         
         },
-        cliente:(req,res)=>{
-            res.render('user/userLogueado', {title:'usuarioEnLogin'})
-
+    
+    cliente:(req,res)=>{
+            res.render('user/usuario', {
+                //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
+            user: req.session.usuarioLogeado})
         }
     
 };
+
 module.exports = userController;
 
 

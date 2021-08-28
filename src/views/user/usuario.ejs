@@ -8,6 +8,19 @@
 <!--header del partial -->
 <%- include('../parciales/header') %>
 
+<div style="margin-top: 45px;margin-left: 45px;">   
+    <div>
+        <div>
+            <h2>¡¡ Hola <%= user.fullName %> !!  </h2>
+            <img src="/avatars/<%= user.avatar %> " alt="holis" style="width: 15%; margin-left: 45px;">
+            <br>
+            <br>
+            <div> email: <%= user.email %> </div>
+        </div>
+    </div>
+</div>
+
+
 <p>Aca van a ir los datos del usuario logueado para que los pueda ver y modificar</p>
 <p>Nombre, foto, direccion yb demas datos de registro</p>
 <p>boton de modificar datos de registro</p>

@@ -17,7 +17,7 @@ const cartRouter = require('./src/routes/cart')
 const adminRouter = require ('./src/routes/admin');
 
 const app = express();
-
+//ACA HAGO USO DE SESSION ↓
 app.use(session({
     secret: 'archivo secreto',
     resave: false ,

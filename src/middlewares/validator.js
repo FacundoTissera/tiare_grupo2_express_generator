@@ -1,6 +1,6 @@
 
 
-
+const session = require('express-session')
 const path = require('path')
 
 
@@ -73,6 +73,16 @@ const validaciones ={
             .notEmpty()
             .withMessage('Debes escribir tu Contraseña'),
         
+    ],
+    usuario:[ function(req, res, next) {
+        
+        if(req.session.usuarioLogueado) {
+
+            return res.redirect('user/usuario');
+        }
+        next();
+    }
+    
     ]
     
 };
