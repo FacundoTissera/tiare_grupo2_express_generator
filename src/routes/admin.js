@@ -62,7 +62,7 @@ router.delete('/borrar/:id', adminController.delete);
 
 /* edicion producto, formulario y put */
 router.get('/editar/:id', adminController.editar);
-router.put ('/editar/:id',adminController.cambio);
+router.put ('/editar/:id',upload.single('fotoPrinc'),adminController.cambio);
 
 /*listar productos en admin*/
 router.get('/listaEdit',adminController.lista);

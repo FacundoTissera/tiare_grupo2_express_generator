@@ -238,6 +238,9 @@ button{
     padding: 3%;
     color: rgb(59, 58, 58);
 }
+.foto-actual{
+    width:30%;
+}
 
 /*BODY END*/
 /*FOOTER*/
