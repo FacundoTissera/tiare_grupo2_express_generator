@@ -2,7 +2,7 @@
     {
         "id": 1,
         "nombre": "Camisa SUIZA",
-        "precio": "2500  ",
+        "precio": "2500    ",
         "categoria": "remeras-y-camisas",
         "color": "Blanco",
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
@@ -84,11 +84,21 @@
     {
         "id": 10,
         "nombre": "Pantalón Varsovia",
-        "precio": "4500",
+        "precio": "4500 ",
         "categoria": "pantalones-y-shorts",
         "color": "Tostado",
         "descripcion": "Un pantalón muy cómodo, estilo jogger",
         "imagen": "pantalonVarsovia1.jpg",
+        "sale": "si"
+    },
+    {
+        "id": 11,
+        "nombre": "Vestido Montreal",
+        "precio": "4800",
+        "categoria": "faldas-y-vestidos",
+        "color": "Tostado",
+        "descripcion": "Vestido supercómodo, clásico.",
+        "imagen": "vestidoVietnam3.jpg",
         "sale": "si"
     }
 ]

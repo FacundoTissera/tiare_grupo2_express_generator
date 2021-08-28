@@ -66,7 +66,7 @@ const adminController = {
             if (element.id== id){
                 element.nombre=req.body.nombre;
                 element.categoria=req.body.categoria;
-                element.imagen=req.file.originalname;
+                element.imagen=req.file ? req.file.filename : req.body.oldImagen;
                 element.color=req.body.color;
                 element.descripcion=req.body.descripcion;
                 element.precio=req.body.precio;
