@@ -10,7 +10,7 @@
     <fieldset>
     <legend class="titulo-fieldset">Estás editando: <%=productoAEditar.nombre %></legend>
       
-      <form action="/admin/editar/<%=productoAEditar.id%>?_method=PUT" method="POST"  class="formulario-nuevo-producto">
+      <form action="/admin/editar/<%=productoAEditar.id%>?_method=PUT" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data">
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
           <input type="text" name="nombre" id="producto" value= "<%=productoAEditar.nombre%>" required>
@@ -39,10 +39,8 @@
           <figure class="form-group">
               <img  class="foto-actual" src="/images/prendas/<%= productoAEditar.imagen%>" alt="articulo <%= productoAEditar.nombre%>">
           </figure>
-          <input type="hidden"  name="oldImagen"  value="<%= productoAEditar.imagen%>">
-          <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
-          <input type="file" name="imagen" >
-          
+         <input type="file" name="fotoPrinc" >
+
         </div>
 
         <div class="descripcion-producto">

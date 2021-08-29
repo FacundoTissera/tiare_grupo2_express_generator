@@ -2,12 +2,11 @@
     {
         "id": 1,
         "nombre": "Camisa SUIZA",
-        "precio": "2500    ",
+        "precio": "3500            ",
         "categoria": "remeras-y-camisas",
         "color": "Blanco",
         "descripcion": "Camisa manga larga en algodón con spandex, entallada",
-        "imagen": "camisa1_1.jpeg",
-        "descuento": "#",
+        "imagen": "camisa1_2.jpeg",
         "sale": "si"
     },
     {
