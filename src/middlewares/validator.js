@@ -1,9 +1,5 @@
-
-
 const session = require('express-session')
 const path = require('path')
-
-
 const { body } = require('express-validator');
 
 
@@ -54,7 +50,7 @@ const validaciones ={
                                     let fileExtension = path.extname(file.originalname);
                                     if (!acceptedExtensions.includes(fileExtension)) {
                                         
-                                        throw new Error (`Las extenciones permitidas son ${acceptedExtensions.join(', ')}`);
+                                        throw new Error (`Las extensiones permitidas son ${acceptedExtensions.join(', ')}`);
                                     }
                                 }
                                 

@@ -68,5 +68,61 @@
   "password": "$2a$10$UjfCFw60CyZw6alP0UHflurm2lDT.c0A3dUsGRivFwZWHZPdBi3X6",
   "aceptoTerminos": "on",
   "avatar": "1630776266699_img.jpg"
+ },
+ {
+  "id": 10,
+  "fullName": "Beatriz Hambeck",
+  "direccion": "Juramento",
+  "numero": "4389",
+  "ciudad": "Villa Urquiza",
+  "provincia": "Ciudad Autónoma de BsAs",
+  "codigoPostal": "1430",
+  "telefono": "01145445912",
+  "email": "bhambeck@gmail.com",
+  "password": "$2a$10$tEJkjxY.X4oACRh6KumvluXFEmohNTMRwf6bWmIxhTd.FGxMCmnNy",
+  "aceptoTerminos": "on",
+  "avatar": "1630782162350_img.jpeg"
+ },
+ {
+  "id": 11,
+  "fullName": "Bea Hambeck",
+  "direccion": "Jura",
+  "numero": "4389",
+  "ciudad": "Caba",
+  "provincia": "Ciudad Autónoma de BsAs",
+  "codigoPostal": "1430",
+  "telefono": "1111111",
+  "email": "bhambeck@yahoo.com",
+  "password": "$2a$10$FZGMjMdldtrorW47aTrbKOh.JFlnNKy2LSoSi7kVopphC4BUE3/Xq",
+  "aceptoTerminos": "on",
+  "avatar": "1630796435152_img.jpg"
+ },
+ {
+  "id": 12,
+  "fullName": "Ariel Barreiro",
+  "direccion": "8345 NW 66 ST",
+  "numero": "4444",
+  "ciudad": "Miami",
+  "provincia": "Catamarca",
+  "codigoPostal": "33166",
+  "telefono": "3054061696",
+  "email": "ariel@arielbarreiro.com",
+  "password": "$2a$10$8FPco9pXaLbKNPlDGu.ZmOc4TTOTI4eH5QBbFb31a38fO2Nx4.MBe",
+  "aceptoTerminos": "on",
+  "avatar": "1630796891230_img.jpeg"
+ },
+ {
+  "id": 13,
+  "fullName": "Ariel Barreiro",
+  "direccion": "8345 NW 66 ST #B3715",
+  "numero": "1111",
+  "ciudad": "Miami",
+  "provincia": "Jujuy",
+  "codigoPostal": "33166",
+  "telefono": "3054061696",
+  "email": "ari@bea.com",
+  "password": "$2a$10$MDZ9BSVOMGLDcVtRFerQQO40qWLwarQ58gJtHeOTaAxOuyx7ZuJKe",
+  "aceptoTerminos": "on",
+  "avatar": "1630797539889_img.jpg"
  }
 ]

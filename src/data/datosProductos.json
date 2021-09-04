@@ -99,5 +99,15 @@
         "descripcion": "Vestido supercómodo, clásico.",
         "imagen": "vestidoVietnam3.jpg",
         "sale": "si"
+    },
+    {
+        "id": 12,
+        "nombre": "vestido",
+        "precio": "1234 ",
+        "categoria": "pantalones-y-shorts",
+        "color": "Blanco",
+        "descripcion": "jnkjbjhvb",
+        "imagen": "vestidoVietnam2.jpg",
+        "sale": "si"
     }
 ]
