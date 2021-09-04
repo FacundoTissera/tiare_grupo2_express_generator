@@ -54,5 +54,19 @@
   "password": "$2a$10$cQKcxAcgZ9LQEXMMov1ZVOu8Mo4FnQQ1A0BoX5fpI9GrHkdM0h6gW",
   "aceptoTerminos": "on",
   "avatar": "1630092433137_img.jpeg"
+ },
+ {
+  "id": 9,
+  "fullName": "Lucas Rivero",
+  "direccion": "cullen ",
+  "numero": "81",
+  "ciudad": "Moron",
+  "provincia": "Bs. As.",
+  "codigoPostal": "1708",
+  "telefono": "1133172824",
+  "email": "lucas.rivero93@gmail.com",
+  "password": "$2a$10$UjfCFw60CyZw6alP0UHflurm2lDT.c0A3dUsGRivFwZWHZPdBi3X6",
+  "aceptoTerminos": "on",
+  "avatar": "1630776266699_img.jpg"
  }
 ]
