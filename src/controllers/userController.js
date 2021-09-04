@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
 const bcryptjs = require('bcryptjs');
-const { getMaxListeners } = require('process');
+
 
 
 
@@ -194,7 +194,7 @@ const userController = {
     cliente:(req,res)=>{
             res.render('user/usuario', {
                 //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
-            user: req.session.usuarioLogeado})
+            user:req.session.usuarioLogeado})
         }
     
 };

@@ -3,12 +3,66 @@
 
 <!--head del partial-->
 <%- include('../parciales/head') %>
+<link rel="stylesheet" href="/stylesheets/styleUser.css">
 
 <body>
-<!--header del partial -->
-<%- include('../parciales/header') %>
+    <!--header del partial -->
+    <%- include('../parciales/header') %>
+    
+<main>
+    <h2 class="linea"><span>MI CUENTA</span></h2>
+    
+    <div class="caja-completa-usuario">
+            <div class="">
+                <table class="default">
 
-<div style="margin-top: 45px;margin-left: 45px;">   
+                    <tr class="">
+                        
+                        <td>Mis datos</td>
+
+                    </tr>
+                    
+                    <tr>
+
+                        <td>usuario</td>
+                        
+                    </tr>
+                    
+                    <tr>
+
+                        <td>email</td>
+                        
+                    </tr>
+                    <tr>
+
+                        <td>telefono</td>
+                        
+                    </tr>
+
+
+                </table>
+            </div>
+            <div>
+                <table class="default">
+                    <tr>
+                        <td>Mis compras</td>
+                    </tr>
+                    <tr>
+                        <td>¡hace tu primera compra! <br>
+                        <a href="/">Ir a la tienda</a></td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+
+</main>
+
+        
+        <%- include('../parciales/footer') %>
+
+
+
+<!-- <div style="margin-top: 45px;margin-left: 45px;">   
     <div>
         <div>
             <h2>¡¡ Hola <%= user.fullName %> !!  </h2>
@@ -27,4 +81,4 @@
 <p>Listado de ultimas ordenes</p>
 <p>Listado de medios de pago registrados</p>
 <p>Estado de algun pedido que tenga en camino</p>
-</body>
+</body> -->
