@@ -1,11 +1,9 @@
-    h2 {
-    font: 33px sans-serif;
-    margin-top: 30px;
-    text-align: center;
-    }
     h2.linea {
-    position: relative;
-    z-index: 1;
+        position: relative;
+        z-index: 1;
+        font: 33px sans-serif;
+        margin-top: 30px;
+        text-align: center;
     }
     h2.linea:before {
     border-top: 2px solid #030303;
@@ -26,6 +24,9 @@
 
 .caja-completa-usuario{
     display: flex;
+    justify-content: center;
+    margin-left: 8px;
+    
 }
 .facu{
     background-color: rgba(128, 128, 128, 0.521);
