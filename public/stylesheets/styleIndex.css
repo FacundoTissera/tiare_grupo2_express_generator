@@ -229,7 +229,9 @@ legend{
 .recuerdame{
     display: flex;
     align-items: center;
-
+}
+.form-reg{
+    font-size: 16px;
 }
 .entrar{
     display: flex;

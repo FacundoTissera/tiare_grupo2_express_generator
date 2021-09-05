@@ -49,70 +49,112 @@ const userController = {
         },
         
     procesoDeLogin:(req, res)=>{
-         //aca traigo convertido de la carpeta data todos los usuarios en formato array
-        let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../data/users.json'),{encoding: 'utf-8'}));
-        
-        function BuscarPorCualquierCampo(campo, text) {
-            
-            // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
-            let todosLosUsuarios = users;
-            //al igual que la funcion de arriba itero en los usuarios pero le digo que del campo del json me devuelva los usuarios del mismo texto 
-            let usuarioEncontrado = todosLosUsuarios.find(unUsuario => unUsuario[campo] === text);
-            
-            return usuarioEncontrado;
-        };
-        // creo una variable para que utiluce la funcion de buscar por cualquier usuario en la parte de campo email y que coincida con lo que viene ene el body
-        let usuarioRegistrado = BuscarPorCualquierCampo('email', req.body.email);
-        // aca digo que si usuario esta en la base de datos. si lo de arriba es verdadero pasa al if
-        if (usuarioRegistrado) {
-                //desencripto la clave que puso el usuario para que me coincida con la base de datos 
-                let contraseniaCorrecta= bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
-            
-                //si la clave es correcta pasa al if y sino que salte al error      
-                if (contraseniaCorrecta) {
-            //elimino la contraseña para que no quede guardada al navegar 
-            delete usuarioRegistrado.password
-            //ACA GUARDO AL USUARIO REGISTRADO ↓
+        let usuarioRegistrado = User.buscarPorCampo('email', req.body.email);
+
+        if (usuarioRegistrado){
+            let contraseniaCorrecta= bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
+            if (contraseniaCorrecta) {
+                //elimino la contraseña para que no quede guardada al navegar 
+                delete usuarioRegistrado.password
+                //ACA GUARDO AL USUARIO REGISTRADO ↓
                 req.session.usuarioLogeado = usuarioRegistrado;
-                
-                    return res.redirect('user/usuario');
-                }else{
-                    return res.render('user/login',{
-                                errors:{
-                                    email:{
-                                        msg: 'La contraseña o usuario incorrecto'
-                                    },
-                                    password:{
-                                        msg: 'La contraseña o usuario incorrecto'
-                                    }                                    
-                                }
-                    }) ;
-                };
-                
-        }else{
+                //voy a la vista del usuario
+                return res.redirect('user/usuario'); }   
+
             return res.render('user/login',{
                 errors:{
                     email:{
-                        msg: 'La contraseña o usuario incorrecto'
+                        msg: 'Contraseña o usuario incorrecto'
                     },
                     password:{
-                        msg: 'La contraseña o usuario incorrecto'
+                        msg: 'Contraseña o usuario incorrecto'
                     }                                    
                 }
-    }) ;        
-            }
-        
+            });
+        }
+        return res.render('user/login',{
+                            errors:{
+                                email:{
+                                    msg: 'Usuario no registrado'
+                                }                                   
+                            }
+                }) ;
         },
-    
-    cliente:(req,res)=>{
+        cliente:(req,res)=>{
             res.render('user/usuario', {
                 //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
             user:req.session.usuarioLogeado})
         }
-    
 };
-
+    
 module.exports = userController;
+          
+
+
+         //aca traigo convertido de la carpeta data todos los usuarios en formato array
+        //let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../data/users.json'),{encoding: 'utf-8'}));
+        
+        //function BuscarPorCualquierCampo(campo, text) {
+            
+            // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
+           // let todosLosUsuarios = users;
+            //al igual que la funcion de arriba itero en los usuarios pero le digo que del campo del json me devuelva los usuarios del mismo texto 
+           // let usuarioEncontrado = todosLosUsuarios.find(unUsuario => unUsuario[campo] === text);
+            
+           // return usuarioEncontrado;
+       // };
+        // creo una variable para que utiluce la funcion de buscar por cualquier usuario en la parte de campo email y que coincida con lo que viene ene el body
+        //let usuarioRegistrado = BuscarPorCualquierCampo('email', req.body.email);
+        // aca digo que si usuario esta en la base de datos. si lo de arriba es verdadero pasa al if
+        //if (usuarioRegistrado) {
+                //desencripto la clave que puso el usuario para que me coincida con la base de datos 
+              //  let contraseniaCorrecta= bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
+            
+                //si la clave es correcta pasa al if y sino que salte al error      
+               // if (contraseniaCorrecta) {
+            //elimino la contraseña para que no quede guardada al navegar 
+           // delete usuarioRegistrado.password
+            //ACA GUARDO AL USUARIO REGISTRADO ↓
+              //  req.session.usuarioLogeado = usuarioRegistrado;
+                
+                  //  return res.redirect('user/usuario');
+               // }else{
+                 //   return res.render('user/login',{
+                   //             errors:{
+                     //               email:{
+                       //                 msg: 'La contraseña o usuario incorrecto'
+                         //           },
+                           //         password:{
+                             //           msg: 'La contraseña o usuario incorrecto'
+                               //     }                                    
+                              //  }
+                //    }) ;
+              //  };
+                
+        //}else{
+          //  return res.render('user/login',{
+            //    errors:{
+              //      email:{
+                //        msg: 'Usuario incorrecto'
+                  //  },
+                    //password:{
+                      //  msg: 'La contraseña o usuario incorrecto'
+                   // }                                    
+               // }
+   // }) ;        
+     //       }
+        
+       // },
+    
+   // cliente:(req,res)=>{
+       //     res.render('user/usuario', {
+                //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
+       //     user:req.session.usuarioLogeado})
+       // }
+    
+//};
+
+//module.exports = userController;
 
 
 
