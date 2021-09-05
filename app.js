@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-//requiereo el session
+//requiero el session
 const session = require('express-session')
 //requerir el metodo para usar el put y el delete
 const methodOverride = require ('method-override');

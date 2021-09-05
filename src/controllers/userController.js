@@ -57,7 +57,7 @@ const userController = {
                 //elimino la contraseña para que no quede guardada al navegar 
                 delete usuarioRegistrado.password
                 //ACA GUARDO AL USUARIO REGISTRADO ↓
-                req.session.usuarioLogeado = usuarioRegistrado;
+                req.session.usuarioLogueado = usuarioRegistrado;
                 //voy a la vista del usuario
                 return res.redirect('user/usuario'); }   
 
@@ -83,155 +83,11 @@ const userController = {
         cliente:(req,res)=>{
             res.render('user/usuario', {
                 //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
-            user:req.session.usuarioLogeado})
+            user:req.session.usuarioLogueado})
         }
 };
     
 module.exports = userController;
           
 
-
-         //aca traigo convertido de la carpeta data todos los usuarios en formato array
-        //let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../data/users.json'),{encoding: 'utf-8'}));
-        
-        //function BuscarPorCualquierCampo(campo, text) {
-            
-            // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
-           // let todosLosUsuarios = users;
-            //al igual que la funcion de arriba itero en los usuarios pero le digo que del campo del json me devuelva los usuarios del mismo texto 
-           // let usuarioEncontrado = todosLosUsuarios.find(unUsuario => unUsuario[campo] === text);
-            
-           // return usuarioEncontrado;
-       // };
-        // creo una variable para que utiluce la funcion de buscar por cualquier usuario en la parte de campo email y que coincida con lo que viene ene el body
-        //let usuarioRegistrado = BuscarPorCualquierCampo('email', req.body.email);
-        // aca digo que si usuario esta en la base de datos. si lo de arriba es verdadero pasa al if
-        //if (usuarioRegistrado) {
-                //desencripto la clave que puso el usuario para que me coincida con la base de datos 
-              //  let contraseniaCorrecta= bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
-            
-                //si la clave es correcta pasa al if y sino que salte al error      
-               // if (contraseniaCorrecta) {
-            //elimino la contraseña para que no quede guardada al navegar 
-           // delete usuarioRegistrado.password
-            //ACA GUARDO AL USUARIO REGISTRADO ↓
-              //  req.session.usuarioLogeado = usuarioRegistrado;
-                
-                  //  return res.redirect('user/usuario');
-               // }else{
-                 //   return res.render('user/login',{
-                   //             errors:{
-                     //               email:{
-                       //                 msg: 'La contraseña o usuario incorrecto'
-                         //           },
-                           //         password:{
-                             //           msg: 'La contraseña o usuario incorrecto'
-                               //     }                                    
-                              //  }
-                //    }) ;
-              //  };
-                
-        //}else{
-          //  return res.render('user/login',{
-            //    errors:{
-              //      email:{
-                //        msg: 'Usuario incorrecto'
-                  //  },
-                    //password:{
-                      //  msg: 'La contraseña o usuario incorrecto'
-                   // }                                    
-               // }
-   // }) ;        
-     //       }
-        
-       // },
-    
-   // cliente:(req,res)=>{
-       //     res.render('user/usuario', {
-                //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
-       //     user:req.session.usuarioLogeado})
-       // }
-    
-//};
-
-//module.exports = userController;
-
-
-
-//ACA PRACTICO QUE LO DE4 ARRIBA FUNCIONE!!
-
-// let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../data/users.json'),{encoding: 'utf-8'}));
-//     //console.log(users);
-
-// function todosLosUsuarios(){
-//     let todos = users
-//     return todos
-//     };
-    
-//     //console.log(todosLosUsuarios());
-    
-// function buscarUsuarioPorPk(id) {
-//     // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
-//         let todosLosUsuarios = users;
-        
-//     //aca lo que hago es iterar el array de todos los isualrios si lo encuentra por id lo devuelve  
-//         let usuarioEncontrado = todosLosUsuarios.find(unUsuario => unUsuario.id == id);
-        
-//         return usuarioEncontrado;
-//     };
-
-//     //console.log(buscarUsuarioPorPk(1));
-
-//     function BuscarPorCualquierCampo(campo, text) {
-        
-//         // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
-//             let todosLosUsuarios = users;
-//         //al igual que la funcion de arriba itero en los usuarios pero le digo que del campo del json me devuelva los usuarios del mismo texto 
-//             let usuarioEncontrado = todosLosUsuarios.find(unUsuario => unUsuario[campo] === text);
-
-//             return usuarioEncontrado;
-//         };
-
-//         //console.log(BuscarPorCualquierCampo('email', 'facundotisserasorribas@gmail.com'));
-//   //metodo para generar un ID 
-//         function generadorId() {
-//             let todos = users;
-//             let ultimoId = todos.pop();
-//             if (ultimoId) {
-                
-//                 return ultimoId.id + 1;
-//             }
-//             return 1;
-//         };
-//         //console.log(generadorId());
-
-//         function guardarUsuario(infoUsuario) {
-//             // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
-//             let todosLosUsuarios = users;
-//             let idUltimo = todosLosUsuarios.length +1
-//             let nuevoUsuario = {
-//                 id: idUltimo ,
-//                 ...infoUsuario
-//             }
-//             todosLosUsuarios.push(nuevoUsuario);
-    
-//             fs.writeFileSync(path.join(__dirname, '../data/users.json'),JSON.stringify(todosLosUsuarios, null, ' '));
-        
-//             return nuevoUsuario;
-//         };
-
-//         //console.log(guardarUsuario({nombre: 'Lucas', apellido: 'HidghdhdLcs'}));
-    
-        
-        
-//     function eliminar(id) {
-//         // creo una variable todos los usuarios para que me traiga de arriba la funcion todos los usuarios
-//         let todosLosUsuarios = users;
-//         let ultimosUsuarios = todosLosUsuarios.filter(unUsuario => unUsuario.id !== id);
-        
-//         fs.writeFileSync(path.join(__dirname, '../data/users.json'),JSON.stringify(ultimosUsuarios, null, ' '));
-    
-//         return true;
-//     }
-//     //console.log(eliminar(21));
 
