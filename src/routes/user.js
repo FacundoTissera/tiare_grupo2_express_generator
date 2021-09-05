@@ -6,6 +6,7 @@ const userController = require('../controllers/userController');
 const uploadFile= require('../middlewares/multerMiddleware')
 const validaciones = require('../middlewares/validator');
 const ingresoMiddleware = require('../middlewares/ingresoMiddleware');
+const sinSessionMiddleware = require('../middlewares/sinSessionMiddleware');
 
 //rutas
 
@@ -22,7 +23,7 @@ router.get('/register',ingresoMiddleware, userController.registrarse);
 router.post('/register',uploadFile.single('avatar'),validaciones.register ,userController.procesoDeRegistro);
 
 //perfil del usuario
-router.get('/usuario', userController.cliente);
+router.get('/usuario', sinSessionMiddleware, userController.cliente);
 
 //router.get('/cliente', userController.cliente);
 
