@@ -1,3 +1,9 @@
+## 6to WEEKLY STAND-UP: VIERNES 3/9##
+Facundo creo la carpeta Middelwares para que quede el codigo mas limpio luego creo las funciones de proceso de registro, controlador para buscar un guardar/eliminar un usuario. El proceso del login.
+Tuvo inconvenientes con que el usuario quede logeado una vez ya logeado.
+Junto con Beatriz vamos a hacer la modificación de datos en registros de usuarios para clientes y/o administradores.
+Hasta ahora limpiamos la parte de administrar el crud de productos ya que no estabamos convencidos con el primer diseño.
+
 ## 5to WEEKLY STAND-UP: VIERNES 21/8##
 Debido a lo resuelto en la RETRO del SPRINT 4, hemos decidido dedicar esta semana a reorganizar la estructura del CRUD de productos, y limpiar el código. 
 Beatriz se encargará de eso, y en forma paralela Lucas y Facundo comenzarán con el SPRINT 5, armando el CRUD de usuarios con las validaciones pertinentes.
