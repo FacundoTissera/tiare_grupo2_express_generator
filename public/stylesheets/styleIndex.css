@@ -309,6 +309,9 @@ legend{
     display: flex;
     justify-content: center;
 }
+.titulo-modificar{
+    font-size: 14px;
+}
 
 /*REGISTER FORM*/
 
@@ -697,6 +700,9 @@ header{
     .register-form fieldset{
         width:75%;
     }
+    .titulo-modificar{
+        font-size: 18px;
+    }
     /*---REGISTER END--*/
     /*---PRUDUCT--*/
     .imagenes-y-eleccion{
@@ -781,8 +787,12 @@ header{
     width: 40px;
 }
 /*index*/
+/*registro*/
 
-
+.titulo-modificar{
+    font-size: 22px;
+}
+/*registro*/
 
     .logo-ppal-image{
         width: 30%

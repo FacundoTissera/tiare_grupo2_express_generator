@@ -84,6 +84,11 @@ const userController = {
             res.render('user/usuario', {
                 //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
             user:req.session.usuarioLogueado})
+        },
+        
+        modificar:(req,res) =>{
+
+            res.render('user/modificar',{user:req.session.usuarioLogueado})
         }
 };
     

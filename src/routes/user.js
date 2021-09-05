@@ -25,6 +25,9 @@ router.post('/register',uploadFile.single('avatar'),validaciones.register ,userC
 //perfil del usuario
 router.get('/usuario', sinSessionMiddleware, userController.cliente);
 
+//modificar datos usuario
+router.get('/modificar', sinSessionMiddleware, userController.modificar);
+
 //router.get('/cliente', userController.cliente);
 
 module.exports = router;
