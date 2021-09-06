@@ -2,43 +2,32 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
-const path = require('path')
-const multer = require('multer');
-
-const { body } = require('express-validator');
-
+//Middlewares
+const uploadFile= require('../middlewares/multerMiddleware')
 const validaciones = require('../middlewares/validator');
+const ingresoMiddleware = require('../middlewares/ingresoMiddleware');
+const sinSessionMiddleware = require('../middlewares/sinSessionMiddleware');
 
-const storage = multer.diskStorage({
-    destination:(req, file, cb)=>{
-        cb(null, './public/avatars' );
-    },
-    filename: (req, file, cb)=>{
-        
-        let filename = `${Date.now()}_img${path.extname(file.originalname)}`;
-        cb(null, filename);
-    }
-});
-const uploadFile = multer({ storage });
-
-
-//rutas de login
+//RUTAS
 
 //formulario de login
-router.get('/', validaciones.usuario, userController.ingreso);
+router.get('/', ingresoMiddleware, userController.ingreso);
 
 //proceso de login
 router.post('/', userController.procesoDeLogin);
 
 //formulario de registro
-router.get('/register',validaciones.usuario, userController.registrarse);
+router.get('/register',ingresoMiddleware, userController.registrarse);
 
 //proceso de registro
 router.post('/register',uploadFile.single('avatar'),validaciones.register ,userController.procesoDeRegistro);
 
 //perfil del usuario
-router.get('/usuario', userController.cliente);
+router.get('/usuario', sinSessionMiddleware, userController.cliente);
 
-//router.get('/cliente', userController.cliente);
+//modificar datos usuario
+router.get('/modificar/:id', sinSessionMiddleware, userController.modificar);
+
+
 
 module.exports = router;

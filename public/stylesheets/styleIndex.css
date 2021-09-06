@@ -46,13 +46,47 @@ a{
     text-align: center;
     text-decoration: none;
     color:#5E5236;
-    font-weight: bold;
-    
+    font-weight: bold;  
 }
 .logo-principal{
     display:flex;
     justify-content: center;
 }
+#menu-nav ul a {
+    display:block;
+    color:#5E5236;
+    text-decoration: none;
+}
+#menu-nav ul li {
+    position: relative;
+    float:left;
+    margin:0;
+    padding:0;
+}
+
+#menu-nav ul ul{
+    display: none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#ebe0c5;
+    padding: 0;
+    border-radius: 5%;
+}
+
+#menu-nav ul li:last-child ul {
+    right: -300%;
+    left: auto;
+}
+
+#menu-nav ul ul a{
+    padding: 10px 15px;
+}
+#menu-nav ul li:hover > ul{
+    display:block;
+}
+
+
 
 /*HEADER*/
 /*MAIN*/
@@ -229,7 +263,9 @@ legend{
 .recuerdame{
     display: flex;
     align-items: center;
-
+}
+.form-reg{
+    font-size: 16px;
 }
 .entrar{
     display: flex;
@@ -306,6 +342,9 @@ legend{
 .enviar-registro{
     display: flex;
     justify-content: center;
+}
+.titulo-modificar{
+    font-size: 14px;
 }
 
 /*REGISTER FORM*/
@@ -695,6 +734,9 @@ header{
     .register-form fieldset{
         width:75%;
     }
+    .titulo-modificar{
+        font-size: 18px;
+    }
     /*---REGISTER END--*/
     /*---PRUDUCT--*/
     .imagenes-y-eleccion{
@@ -779,8 +821,12 @@ header{
     width: 40px;
 }
 /*index*/
+/*registro*/
 
-
+.titulo-modificar{
+    font-size: 22px;
+}
+/*registro*/
 
     .logo-ppal-image{
         width: 30%
