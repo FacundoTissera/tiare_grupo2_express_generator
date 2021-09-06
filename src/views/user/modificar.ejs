@@ -16,7 +16,7 @@
 
                     <div class="datos-registro">
                         <label for="nombre"class="label-nombre">Nombre y Apellido:</label> 
-                        <input type="text" name="fullName" id="nombre"  value="<%= locals.oldData ? oldData.fullName : null%>" >
+                        <input type="text" name="fullName" id="nombre"  value="<%=user.fullName%>" >
                         <% if (locals.errors && errors.fullName) { %>
                         <div class="text-danger">
                             <%= errors.fullName.msg %> 
@@ -28,13 +28,13 @@
                     
                     <div class="datos-registro">
                         <label for="direccion">Dirección:</label> 
-                        <input type="text" name="direccion" id="calle" placeholder="Calle" value="<%= locals.oldData ? oldData.direccion : null%>" >
+                        <input type="text" name="direccion" id="calle" placeholder="Calle" value="<%=user.direccion%>" >
                         <% if (locals.errors && errors.direccion) { %>
                         <div class="text-danger">
                             <%= errors.direccion.msg %> 
                         </div>
                         <% } %>
-                        <input type="number" name="numero" id="numero-puerta" placeholder="Número" value="<%= locals.oldData ? oldData.numero : null%>" >
+                        <input type="number" name="numero" id="numero-puerta" placeholder="Número" value="<%=user.numero%>" >
                         <% if (locals.errors && errors.numero) { %>
                         <div class="text-danger">
                             <%= errors.numero.msg %> 
@@ -46,7 +46,7 @@
                     
                     <div class="datos-registro">
                         <label for="ciudad">Ciudad:</label> 
-                        <input type="text" name="ciudad" id="ciudad" value="<%= locals.oldData ? oldData.ciudad : null%>" >
+                        <input type="text" name="ciudad" id="ciudad" value="<%=user.ciudad%>" >
                         <% if (locals.errors && errors.ciudad) { %>
                         <div class="text-danger">
                             <%= errors.ciudad.msg %> 
@@ -79,7 +79,7 @@
                         
                         <div class="datos-registro">
                             <label for="codigo-postal">Código Postal:</label> 
-                            <input type="number" name="codigoPostal" id="codigo-postal" value="<%= locals.oldData ? oldData.codigoPostal : null %>">
+                            <input type="number" name="codigoPostal" id="codigo-postal" value="<%= user.codigoPostal%>">
 
                             <% if (locals.errors && errors.codigoPostal) { %>
                         <div class="text-danger">
@@ -91,7 +91,7 @@
                         
                         <div class="datos-registro">
                             <label for="telefono">Teléfono:</label> 
-                            <input type="number" name="telefono" id="telefono" value="<%= locals.oldData ? oldData.telefono : null %>">
+                            <input type="number" name="telefono" id="telefono" value="<%= user.telefono %>">
                             <% if (locals.errors && errors.telefono) { %>
                         <div class="text-danger">
                             <%= errors.telefono.msg %> 
@@ -102,7 +102,7 @@
                         
                         <div class="datos-registro">
                             <label for="email">Email:</label> 
-                            <input type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %> " required>
+                            <input type="email" name="email" id="email" value="<%=user.email%> " required>
                             <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
                             <%= errors.email.msg %> 
@@ -133,25 +133,10 @@
                                 <% } %>
                     
                         </div>
-                        
-                        <div class="acepto-newsletter">
-                            <input type="radio" name="aceptoTerminos" id="" >
-                            <label for="acepto-terminos">Acepto terminos y condiciones</label>
-                            <% if (locals.errors && errors.aceptoTerminos) { %>
-                        <div class="text-danger">
-                            <%= errors.aceptoTerminos.msg %> 
-                        </div>
-                        <% } %>
-
-                        </div>
-                        <div class="acepto-newsletter">
-                            <input type="radio" name="newsletter">
-                            <label for="newsletter">Quiero recibir ofertas y descuentos especiales </label>
-                            
-                        </div>
+                     
                         
                         <div class="enviar-registro">
-                            <button type="submit" class="enviar">ENVIAR</button>
+                            <button type="submit" class="enviar">ACTUALIZAR</button>
                         </div>
                         
             </fieldset>
