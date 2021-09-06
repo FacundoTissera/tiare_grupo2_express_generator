@@ -69,8 +69,9 @@ a{
     position:absolute;
     top:100%;
     left:0;
-    background:#eee9df;
+    background:#ebe0c5;
     padding: 0;
+    border-radius: 5%;
 }
 
 #menu-nav ul li:last-child ul {
