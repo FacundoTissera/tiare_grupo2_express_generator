@@ -89,6 +89,12 @@ const userController = {
         modificar:(req,res) =>{
 
             res.render('user/modificar',{user:req.session.usuarioLogueado})
+        },
+        
+        logout:(req,res) =>{
+
+            req.session.destroy();
+            return res.redirect('/')
         }
 };
     

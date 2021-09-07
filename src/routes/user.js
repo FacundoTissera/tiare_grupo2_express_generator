@@ -28,6 +28,9 @@ router.get('/usuario', sinSessionMiddleware, userController.cliente);
 //modificar datos usuario
 router.get('/modificar/:id', sinSessionMiddleware, userController.modificar);
 
+//cerrar sesion, logout
+router.get('/logout', userController.logout);
+
 
 
 module.exports = router;
