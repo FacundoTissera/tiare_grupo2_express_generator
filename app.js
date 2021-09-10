@@ -8,6 +8,8 @@ const session = require('express-session')
 //requerir el metodo para usar el put y el delete
 const methodOverride = require ('method-override');
 
+//requiere la funcion middleware de usuario logueado para manejar las vistas y barras de navegacion
+const usuarioLogMiddleware = require ('./src/middlewares/usuarioLogMiddleware');
 //requiere  las rutas de diferentes archivos
 
 const productsRouter = require('./src/routes/products');
@@ -23,6 +25,10 @@ app.use(session({
     resave: false ,
     saveUninitialized: false,
 }))
+
+//USO EL MIDDLEWARE de usuario logueado OJO!!! tiene que ir despues de usar session
+app.use(usuarioLogMiddleware);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'ejs');

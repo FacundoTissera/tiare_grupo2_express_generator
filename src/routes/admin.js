@@ -1,7 +1,9 @@
 const express = require('express');
 const adminController = require('../controllers/adminController');
 const router = express.Router();
-const path = require('path')
+const path = require('path');
+
+const sinSessionMiddleware = require('../middlewares/sinSessionMiddleware');
 
 //requiere multer
 const multer = require ('multer');
@@ -46,7 +48,7 @@ const validations=[
 
 //rutas del admin
 
-router.get('/',adminController.index);
+router.get('/',sinSessionMiddleware, adminController.index);
 
 //ruta de listado gral
 
