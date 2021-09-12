@@ -1,12 +1,14 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 //requiero el session
 const session = require('express-session')
+//requiero cookie-pareser
+const cookies = require('cookie-parser');
 //requerir el metodo para usar el put y el delete
 const methodOverride = require ('method-override');
+
 
 //requiere la funcion middleware de usuario logueado para manejar las vistas y barras de navegacion
 const usuarioLogMiddleware = require ('./src/middlewares/usuarioLogMiddleware');
@@ -26,6 +28,8 @@ app.use(session({
     saveUninitialized: false,
 }))
 
+//utilizo cookie-pareser
+app.use(cookies());
 //USO EL MIDDLEWARE de usuario logueado OJO!!! tiene que ir despues de usar session
 app.use(usuarioLogMiddleware);
 
@@ -36,7 +40,10 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
+
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 //usar el put y el delete
@@ -52,6 +59,7 @@ app.use('/admin', adminRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
+  
 });
 
 // error handler
@@ -63,6 +71,8 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+
+  
 });
 
 module.exports = app;

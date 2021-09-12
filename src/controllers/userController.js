@@ -6,7 +6,7 @@ const User = require ('../models/User');
 //Traigo el modelo User para usarlo en este controlador
 
 const userController = {
-    
+    //formulario registro
     registrarse:(req,res)=>{
         res.render('user/register',{title: 'registrate'});
     },
@@ -42,13 +42,15 @@ const userController = {
         return res.redirect('/user');
     },
 
-    
+    //formulario login
     ingreso:(req, res)=>{
         //console.log(req.session);
+        
             res.render('user/login',{title: 'logueate',});
         },
         
     procesoDeLogin:(req, res)=>{
+        //return res.send(req.body);
         let usuarioRegistrado = User.buscarPorCampo('email', req.body.email);
 
         if (usuarioRegistrado){
@@ -58,6 +60,12 @@ const userController = {
                 delete usuarioRegistrado.password
                 //ACA GUARDO AL USUARIO REGISTRADO ↓
                 req.session.usuarioLogueado = usuarioRegistrado;
+
+
+                if(req.body.recuerdame) {
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+				}
+                
                 //voy a la vista del usuario
                 return res.redirect('user/usuario'); }   
 
@@ -80,10 +88,13 @@ const userController = {
                             }
                 }) ;
         },
+        //Perfil
         cliente:(req,res)=>{
+            
+
             res.render('user/usuario', {
                 //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
-            user:req.session.usuarioLogueado})
+            user:req.session.usuarioLogueado}) 
         },
         
         modificar:(req,res) =>{
@@ -92,13 +103,12 @@ const userController = {
         },
         
         logout:(req,res) =>{
-
+            res.clearCookie('userEmail');
             req.session.destroy();
             return res.redirect('/')
         }
 };
     
 module.exports = userController;
-          
 
 
