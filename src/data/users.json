@@ -124,5 +124,19 @@
   "password": "$2a$10$MDZ9BSVOMGLDcVtRFerQQO40qWLwarQ58gJtHeOTaAxOuyx7ZuJKe",
   "aceptoTerminos": "on",
   "avatar": "1630797539889_img.jpg"
+ },
+ {
+  "id": 14,
+  "fullName": "Facundo Tissera",
+  "direccion": "Pasteur",
+  "numero": "125",
+  "ciudad": "Villa Maria",
+  "provincia": "Bs. As.",
+  "codigoPostal": "22222",
+  "telefono": "351568652",
+  "email": "ft@hotmail.com",
+  "password": "$2a$10$lCAQmIJmjRYfU1LndVpJTuyqwlav3KWYRA8bWqJ6Zox2fzPJRSiuq",
+  "aceptoTerminos": "on",
+  "avatar": "1631454717823_img.jpeg"
  }
 ]

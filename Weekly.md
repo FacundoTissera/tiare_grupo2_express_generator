@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 ## 7to WEEKLY STAND-UP: VIERNES 3/17##
 Nos juntamos para comenzar con el diagrama decidimos hacerlo en el Dynobird y completamos todo el esquema.
 Durante esta semana hicimos el paso 4,5 y 6 del sprint Actual.
 Los problemas que tuvimos son el de no tener un host para poder trabajar en conjunto.
 Ahora vamos a comenzar a trabajar en los modelos y configurar el proyecto para trabajar con Sequelize.
+=======
+## 7mo WEEKLY STAND-UP: VIERNES 10/9
+Terminando ya rutas por usuario, y creando middlewares nos encontramos con algunas dificultades sobretodo en cuanto a la sintaxis y orden de ubicacion de las rutas.
+La entrega es el proximo lunes y para eso nos reuniremos el domingo los 3 para terminar con la parte de cookies y cerrar este sprint.
+>>>>>>> 99b4c6258c2366d11f50e46cb42ce23fde53b1d7
 
 ## 6to WEEKLY STAND-UP: VIERNES 3/9##
 Facundo creo la carpeta Middelwares para que quede el codigo mas limpio luego creo las funciones de proceso de registro, controlador para buscar un guardar/eliminar un usuario. El proceso del login.

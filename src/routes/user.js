@@ -8,7 +8,7 @@ const validaciones = require('../middlewares/validator');
 const ingresoMiddleware = require('../middlewares/ingresoMiddleware');
 const sinSessionMiddleware = require('../middlewares/sinSessionMiddleware');
 
-//rutas
+//RUTAS
 
 //formulario de login
 router.get('/', ingresoMiddleware, userController.ingreso);
@@ -26,8 +26,11 @@ router.post('/register',uploadFile.single('avatar'),validaciones.register ,userC
 router.get('/usuario', sinSessionMiddleware, userController.cliente);
 
 //modificar datos usuario
-router.get('/modificar', sinSessionMiddleware, userController.modificar);
+router.get('/modificar/:id', sinSessionMiddleware, userController.modificar);
 
-//router.get('/cliente', userController.cliente);
+//cerrar sesion, logout
+router.get('/logout', userController.logout);
+
+
 
 module.exports = router;

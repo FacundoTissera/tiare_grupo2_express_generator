@@ -1,3 +1,19 @@
+## Retro SPRING 5:
+## RETROSPECTIVA GENERAL:
+El sprint 5 fue cumplido adecuadamente y sin mayores inconvenientes. A la vez de cumplir con los requisitos pudimos hacer una reorganización de archivos y carpetas y además limpiar un poco el código que ya no estábamos utilizando. Lo más complicado fue el tema session, y poder lograr cada nueva ruta y limitarla a que la pueda ver un usuario logueado.
+El trabajo en equipo sigue destacándose, pudiendo complementarnos y comunicarnos en forma continua. 
+
+## START DOING
+En esta etapa no encontramos nada nuevo para incorporar sistemáticamente.  
+## MORE OFF
+Seguir trabajando en códigos más limpios y claros de leer. Comentar cada una de las partes realizadas en forma clara para que cuando otro compañero tome ese trabajo no surjan dudas o si surgen sean más fáciles de resolver.
+## KEEP DOING
+Mantener el nivel de comunicación grupal y la colaboración interna del equipo. 
+## LESS OFF
+Nada por acá.
+## STOP DOING
+Nada por acá. 
+
 ## Retro SPRING 4:
 ## RETROSPECTIVA GENERAL:
 Nuevamente pudimos cumplir con los objetivos del Sprint en tiempo y forma. De todas formas el tema disponibilidad de tiempo sumado a la complejidad de los temas que estamos abordando hacen que empiecen a surgir otro tipo de dificultades. Si bien estamos conformes con lo presentado, sentimos que es momento de rearmar la estructura del proyecto y tomarnos unas horas para limpiar lo presentado eliminando código que ya no volveremos a utilizar. 
