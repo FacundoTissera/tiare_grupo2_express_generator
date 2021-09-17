@@ -1,3 +1,9 @@
+## 7to WEEKLY STAND-UP: VIERNES 3/17##
+Nos juntamos para comenzar con el diagrama decidimos hacerlo en el Dynobird y completamos todo el esquema.
+Durante esta semana hicimos el paso 4,5 y 6 del sprint Actual.
+Los problemas que tuvimos son el de no tener un host para poder trabajar en conjunto.
+Ahora vamos a comenzar a trabajar en los modelos y configurar el proyecto para trabajar con Sequelize.
+
 ## 6to WEEKLY STAND-UP: VIERNES 3/9##
 Facundo creo la carpeta Middelwares para que quede el codigo mas limpio luego creo las funciones de proceso de registro, controlador para buscar un guardar/eliminar un usuario. El proceso del login.
 Tuvo inconvenientes con que el usuario quede logeado una vez ya logeado.
