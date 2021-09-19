@@ -138,5 +138,19 @@
   "password": "$2a$10$lCAQmIJmjRYfU1LndVpJTuyqwlav3KWYRA8bWqJ6Zox2fzPJRSiuq",
   "aceptoTerminos": "on",
   "avatar": "1631454717823_img.jpeg"
+ },
+ {
+  "id": 15,
+  "fullName": "Duque el Perro",
+  "direccion": "San Martin",
+  "numero": "1234",
+  "ciudad": "Una Ciudad",
+  "provincia": "La Pampa",
+  "codigoPostal": "33333",
+  "telefono": "23445672",
+  "email": "duque@gmail.com",
+  "password": "$2a$10$.je9idvhMSvg3/HQ3MJDzOW1ntNuKuxws8YppbvIrX62rXSL1Fh4K",
+  "aceptoTerminos": "on",
+  "avatar": "1632018788607_img.jpeg"
  }
 ]
