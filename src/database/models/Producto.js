@@ -51,6 +51,7 @@ module.exports = function (sequelize, dataTypes){
             foreignKey:'product_id',
             otherKey: 'color_id',
         })
+        //Stock
       
         
     }
