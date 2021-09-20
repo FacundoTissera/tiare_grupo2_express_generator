@@ -171,34 +171,6 @@ LOCK TABLES `orders_detail` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `product_discount`
---
-
-DROP TABLE IF EXISTS `product_discount`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `product_discount` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `product_id` int NOT NULL,
-  `discount_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_b9600a06-d1fa-4ec6-acce-25ef5f4705e3` (`product_id`),
-  KEY `FK_56ab8917-0fdf-4314-a51d-af247b833582` (`discount_id`),
-  CONSTRAINT `FK_56ab8917-0fdf-4314-a51d-af247b833582` FOREIGN KEY (`discount_id`) REFERENCES `discounts` (`Id`),
-  CONSTRAINT `FK_b9600a06-d1fa-4ec6-acce-25ef5f4705e3` FOREIGN KEY (`product_id`) REFERENCES `products` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `product_discount`
---
-
-LOCK TABLES `product_discount` WRITE;
-/*!40000 ALTER TABLE `product_discount` DISABLE KEYS */;
-/*!40000 ALTER TABLE `product_discount` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `products`
 --
 
@@ -314,13 +286,16 @@ CREATE TABLE `stocks` (
   `size_id` int NOT NULL,
   `color_id` int NOT NULL,
   `stock` int NOT NULL,
+  `discount_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_7a4a9b75-0467-4e9a-994b-8450b68690f5` (`size_id`),
   KEY `FK_1a966d39-980b-44d6-81f1-55e65860efee` (`color_id`),
   KEY `FK_f23550e6-7ca6-477f-b765-a6c8ed650046` (`product_id`),
+  KEY `discount_id` (`discount_id`),
   CONSTRAINT `FK_1a966d39-980b-44d6-81f1-55e65860efee` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`),
   CONSTRAINT `FK_7a4a9b75-0467-4e9a-994b-8450b68690f5` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`Id`),
-  CONSTRAINT `FK_f23550e6-7ca6-477f-b765-a6c8ed650046` FOREIGN KEY (`product_id`) REFERENCES `products` (`Id`)
+  CONSTRAINT `FK_f23550e6-7ca6-477f-b765-a6c8ed650046` FOREIGN KEY (`product_id`) REFERENCES `products` (`Id`),
+  CONSTRAINT `stocks_ibfk_1` FOREIGN KEY (`discount_id`) REFERENCES `discounts` (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -330,7 +305,7 @@ CREATE TABLE `stocks` (
 
 LOCK TABLES `stocks` WRITE;
 /*!40000 ALTER TABLE `stocks` DISABLE KEYS */;
-INSERT INTO `stocks` VALUES (1,1,4,9,2),(2,1,5,9,1),(3,1,4,1,2),(4,1,5,9,2),(5,2,1,1,1),(6,2,1,2,2),(7,2,1,8,2),(8,3,1,10,2),(9,3,1,2,2),(12,4,3,1,2),(13,4,4,1,2),(14,4,5,2,2),(15,5,1,3,2),(16,6,4,8,1),(17,6,6,8,1),(18,7,1,10,2),(19,7,1,2,2),(20,8,2,3,2),(21,8,4,3,1),(22,9,3,3,1),(23,9,4,3,1),(24,9,3,2,1),(25,9,5,2,1),(26,9,4,5,1),(27,9,6,6,1),(28,10,3,7,1),(29,10,4,7,1),(30,10,3,2,1);
+INSERT INTO `stocks` VALUES (1,1,4,9,2,NULL),(2,1,5,9,1,1),(3,1,4,1,2,NULL),(4,1,5,9,2,NULL),(5,2,1,1,1,NULL),(6,2,1,2,2,1),(7,2,1,8,2,NULL),(8,3,1,10,2,NULL),(9,3,1,2,2,NULL),(12,4,3,1,2,1),(13,4,4,1,2,NULL),(14,4,5,2,2,NULL),(15,5,1,3,2,NULL),(16,6,4,8,1,2),(17,6,6,8,1,NULL),(18,7,1,10,2,NULL),(19,7,1,2,2,NULL),(20,8,2,3,2,2),(21,8,4,3,1,NULL),(22,9,3,3,1,NULL),(23,9,4,3,1,NULL),(24,9,3,2,1,NULL),(25,9,5,2,1,NULL),(26,9,4,5,1,1),(27,9,6,6,1,NULL),(28,10,3,7,1,NULL),(29,10,4,7,1,NULL),(30,10,3,2,1,1);
 /*!40000 ALTER TABLE `stocks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,4 +361,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-18 23:41:27
+-- Dump completed on 2021-09-20 15:00:56
