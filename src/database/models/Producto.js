@@ -23,6 +23,9 @@ module.exports = function (sequelize, dataTypes){
         },
         category_id:{
             type:dataTypes.INTEGER
+        }, 
+        discount: {
+            type:dataTypes.DOUBLE
         }
     };
     let config = {
@@ -36,6 +39,7 @@ module.exports = function (sequelize, dataTypes){
         Producto.belongsTo(models.Categoria, {
             as: 'categorias',
             foreignKey: 'category_id'
+            
         }) 
         //Talle
         Producto.belongsToMany(models.Talle, {
@@ -43,6 +47,7 @@ module.exports = function (sequelize, dataTypes){
             through: 'stock', // Tabla pivot
             foreignKey: 'product_id',
             otherKey: 'size_id',
+            timestamps: false
         })
         //Color
         Producto.belongsToMany(models.Color, {
@@ -50,8 +55,8 @@ module.exports = function (sequelize, dataTypes){
             through: 'stock', //Tabla pivot
             foreignKey:'product_id',
             otherKey: 'color_id',
+            timestamps: false
         })
-        //Stock
       
         
     }
