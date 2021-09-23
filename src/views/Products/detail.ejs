@@ -35,30 +35,22 @@
                 <form action="/cart/productCart" method="GET" class="eleccion-producto">
                     
                     <p><%= producto.name %> <br><br>$ <%= producto.price %>  </p>
-
+                    <p><%=producto.categorias.category%></p>
                     <fieldset>
                         <legend>Elige un color</legend>
-                        <label>
-                            <input type="radio" name="color" value="Blanco" class="color">Blanco
-                        </label>
-                        <label>
-                            <input type="radio" name="color" value="Natural" class="color">Natural
-                        </label>
-                        <label>
-                            <input type="radio" name="color" value="Negro" class="color">Negro
-                        </label>
-                        <label>
-                            <input type="radio" name="color" value="Suela" class="color">Suela
-                        </label>
+                        <% for (let i=0; i<producto.colores.length; i++){%>
+                            <label>
+                                <input type="radio" name="color" value="<%=producto.colores[i].color%>" class="color"><%=producto.colores[i].color%>
+                            </label>
+                        <% } %> 
                     </fieldset>
                     <fieldset>
                         <legend>Elige un talle</legend>
-                        <label>
-                            <input type="radio" name="talle" value="1"> 1
-                        </label>
-                        <label>
-                            <input type="radio" name="talle" value="2"> 2
-                        </label>
+                        <% for (let i=0; i<producto.talles.length; i++){%>
+                            <label>
+                                <input type="radio" name="talle" value="<%=producto.talles[i].size%>" class="talle"><%=producto.talles[i].size%>
+                            </label>
+                        <% } %> 
                     </fieldset>
                     <div class="agregar-carrito">
                         <button type="submit" class="agregar-carrito" > Agregar al carrito</button></a>
