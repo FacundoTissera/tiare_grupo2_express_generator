@@ -1,3 +1,5 @@
+const Stock = require('./Stock');
+
 module.exports = function (sequelize, dataTypes){
     let alias = 'Producto';
     let cols = {
@@ -39,23 +41,21 @@ module.exports = function (sequelize, dataTypes){
         Producto.belongsTo(models.Categoria, {
             as: 'categorias',
             foreignKey: 'category_id'
-            
+
         }) 
         //Talle
         Producto.belongsToMany(models.Talle, {
             as: 'talles',
-            through: 'stock', // Tabla pivot
+            through: Stock, // Tabla pivot
             foreignKey: 'product_id',
-            otherKey: 'size_id',
-            timestamps: false
+            otherKey: 'size_id'
         })
         //Color
         Producto.belongsToMany(models.Color, {
             as: 'colores',
-            through: 'stock', //Tabla pivot
+            through: Stock, //Tabla pivot
             foreignKey:'product_id',
-            otherKey: 'color_id',
-            timestamps: false
+            otherKey: 'color_id'
         })
       
         
