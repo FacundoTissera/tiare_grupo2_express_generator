@@ -1,5 +1,5 @@
-const Stock = require('./Stock');
 module.exports = function (sequelize, dataTypes){
+    const Stock = require('./Stock')(sequelize, dataTypes);
     let alias = 'Color';
     let cols = {
         id: {
@@ -18,7 +18,6 @@ module.exports = function (sequelize, dataTypes){
     const Color = sequelize.define(alias, cols, config);
 
     Color.associate = models => {
-        
         //Producto
         Color.belongsToMany(models.Producto, {
             as: 'productos',

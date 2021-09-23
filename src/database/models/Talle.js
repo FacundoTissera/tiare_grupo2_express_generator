@@ -1,5 +1,5 @@
-const Stock = require('./Stock');
 module.exports = function (sequelize, dataTypes){
+    const Stock = require('./Stock')(sequelize, dataTypes);
     let alias = 'Talle';
     let cols = {
         id: {
@@ -15,7 +15,7 @@ module.exports = function (sequelize, dataTypes){
         tableName: 'sizes',
         timestamps: false
     };
-    const Color = sequelize.define(alias, cols, config);
+    const Talle = sequelize.define(alias, cols, config);
 
     Talle.associate = models => {
         

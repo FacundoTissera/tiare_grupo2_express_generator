@@ -1,20 +1,26 @@
 const path = require('path');
 const fs = require('fs');
 const {validationResult} = require ('express-validator');
+//requiero el modelo de producto de la base de datos
+const db = require ('../database/models')
 
 const productsDatos = path.join(__dirname, '../data/datosProductos.json');
 let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
 
 const adminController = {
+    //menu administrador
     index:  (req, res )=>{
         res.render('admin/administrar', {title: 'menu administrar'})
 
     },
+    //listado de productos para editar, ver o borrar
     lista:(req,res) =>{
         let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
         res.render('admin/listaEdit', {prendas:prendas});
     },
+    //nuevo producto CREAR
     nuevo:(req,res) =>{
+
         let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
         res.render('admin/newProduct', {title: 'Agregar productos'})
         },

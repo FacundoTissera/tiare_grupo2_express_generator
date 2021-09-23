@@ -1,6 +1,5 @@
-const Stock = require('./Stock');
-
 module.exports = function (sequelize, dataTypes){
+    const Stock = require('./Stock')(sequelize, dataTypes);
     let alias = 'Producto';
     let cols = {
         id: {

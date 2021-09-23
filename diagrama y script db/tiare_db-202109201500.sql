@@ -64,6 +64,30 @@ INSERT INTO `colors` VALUES (1,'Blanco'),(2,'Negro'),(3,'Tostado'),(4,'Gris'),(5
 UNLOCK TABLES;
 
 --
+-- Table structure for table `discounts`
+--
+
+DROP TABLE IF EXISTS `discounts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `discounts` (
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `percent` int NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `discounts`
+--
+
+LOCK TABLES `discounts` WRITE;
+/*!40000 ALTER TABLE `discounts` DISABLE KEYS */;
+INSERT INTO `discounts` VALUES (1,10),(2,15),(3,20),(4,25),(5,30);
+/*!40000 ALTER TABLE `discounts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `order_status`
 --
 
@@ -161,7 +185,6 @@ CREATE TABLE `products` (
   `image` varchar(255) DEFAULT NULL,
   `sale` tinyint NOT NULL,
   `category_id` int NOT NULL,
-  `discount` double DEFAULT '0',
   PRIMARY KEY (`Id`),
   KEY `FK_618e2a0b-0986-4a47-9784-332c32c3bf08` (`category_id`),
   CONSTRAINT `FK_618e2a0b-0986-4a47-9784-332c32c3bf08` FOREIGN KEY (`category_id`) REFERENCES `categories` (`Id`)
@@ -174,7 +197,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Camisa Suiza',3500,'Camisa manga larga en algodón con spandex, entallada.','camisa1_2.jpeg',1,1,0.1),(2,'Sweater Paris',4500,'Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.','sweater1_1.jpeg',1,2,0),(3,'Buzo Francia',3000,'Buzo en morley, mangas largas oversize. 100% polyester.','buzo1_1.jpeg',1,2,0),(4,'Blusa España',2900,'Camisa clásica, mangas anchas, super larga. Puede usarse como vestido camisero y llevarla con toda la onda.','blusa1_1.jpeg',1,1,0),(5,'Sweater Madrid',4500,'Sweater en escote en V, tejido buclé. Talle único oversize.','sweater2_1.jpeg',1,1,0.15),(6,'Pantalón Viena',4500,'Pantalón palazzo en lanilla, con pinzas y cintura elastizada.','pantalon1_1.jpeg',1,3,0),(7,'Campera Berlin',5500,'Práctica campera abrigadísima pero con mucha onda. ','camperaBerlin1.jpeg',1,1,0),(8,'Vestido Vietnam',4900,'Vestido semi-entallado, para todas las ocasiones.','vestidoVietnam2.jpeg',1,4,0),(9,'Pantalón Varsovia',4500,'Un pantalón muy cómodo, estilo Jogger.','pantalonVarovia1.jpeg',1,3,0),(10,'Vestido Montreal',4000,'Vestido supercómodo. Clásico','vestidoVietnam3.jpeg',1,4,0);
+INSERT INTO `products` VALUES (1,'Camisa Suiza',3500,'Camisa manga larga en algodón con spandex, entallada.','camisa1_2.jpeg',1,1),(2,'Sweater Paris',4500,'Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.','sweater1_1.jpeg',1,2),(3,'Buzo Francia',3000,'Buzo en morley, mangas largas oversize. 100% polyester.','buzo1_1.jpeg',1,2),(4,'Blusa España',2900,'Camisa clásica, mangas anchas, super larga. Puede usarse como vestido camisero y llevarla con toda la onda.','blusa1_1.jpeg',1,1),(5,'Sweater Madrid',4500,'Sweater en escote en V, tejido buclé. Talle único oversize.','sweater2_1.jpeg',1,1),(6,'Pantalón Viena',4500,'Pantalón palazzo en lanilla, con pinzas y cintura elastizada.','pantalon1_1.jpeg',1,3),(7,'Campera Berlin',5500,'Práctica campera abrigadísima pero con mucha onda. ','camperaBerlin1.jpeg',1,1),(8,'Vestido Vietnam',4900,'Vestido semi-entallado, para todas las ocasiones.','vestidoVietnam2.jpeg',1,4),(9,'Pantalón Varsovia',4500,'Un pantalón muy cómodo, estilo Jogger.','pantalonVarovia1.jpeg',1,3),(10,'Vestido Montreal',4000,'Vestido supercómodo. Clásico','vestidoVietnam3.jpeg',1,4);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -263,13 +286,16 @@ CREATE TABLE `stocks` (
   `size_id` int NOT NULL,
   `color_id` int NOT NULL,
   `stock` int NOT NULL,
+  `discount_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_7a4a9b75-0467-4e9a-994b-8450b68690f5` (`size_id`),
   KEY `FK_1a966d39-980b-44d6-81f1-55e65860efee` (`color_id`),
   KEY `FK_f23550e6-7ca6-477f-b765-a6c8ed650046` (`product_id`),
+  KEY `discount_id` (`discount_id`),
   CONSTRAINT `FK_1a966d39-980b-44d6-81f1-55e65860efee` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`),
   CONSTRAINT `FK_7a4a9b75-0467-4e9a-994b-8450b68690f5` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`Id`),
-  CONSTRAINT `FK_f23550e6-7ca6-477f-b765-a6c8ed650046` FOREIGN KEY (`product_id`) REFERENCES `products` (`Id`)
+  CONSTRAINT `FK_f23550e6-7ca6-477f-b765-a6c8ed650046` FOREIGN KEY (`product_id`) REFERENCES `products` (`Id`),
+  CONSTRAINT `stocks_ibfk_1` FOREIGN KEY (`discount_id`) REFERENCES `discounts` (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -279,7 +305,7 @@ CREATE TABLE `stocks` (
 
 LOCK TABLES `stocks` WRITE;
 /*!40000 ALTER TABLE `stocks` DISABLE KEYS */;
-INSERT INTO `stocks` VALUES (1,1,4,9,2),(2,1,5,9,1),(3,1,4,1,2),(4,1,5,9,2),(5,2,1,1,1),(6,2,1,2,2),(7,2,1,8,2),(8,3,1,10,2),(9,3,1,2,2),(12,4,3,1,2),(13,4,4,1,2),(14,4,5,2,2),(15,5,1,3,2),(16,6,4,8,1),(17,6,6,8,1),(18,7,1,10,2),(19,7,1,2,2),(20,8,2,3,2),(21,8,4,3,1),(22,9,3,3,1),(23,9,4,3,1),(24,9,3,2,1),(25,9,5,2,1),(26,9,4,5,1),(27,9,6,6,1),(28,10,3,7,1),(29,10,4,7,1),(30,10,3,2,1);
+INSERT INTO `stocks` VALUES (1,1,4,9,2,NULL),(2,1,5,9,1,1),(3,1,4,1,2,NULL),(4,1,5,9,2,NULL),(5,2,1,1,1,NULL),(6,2,1,2,2,1),(7,2,1,8,2,NULL),(8,3,1,10,2,NULL),(9,3,1,2,2,NULL),(12,4,3,1,2,1),(13,4,4,1,2,NULL),(14,4,5,2,2,NULL),(15,5,1,3,2,NULL),(16,6,4,8,1,2),(17,6,6,8,1,NULL),(18,7,1,10,2,NULL),(19,7,1,2,2,NULL),(20,8,2,3,2,2),(21,8,4,3,1,NULL),(22,9,3,3,1,NULL),(23,9,4,3,1,NULL),(24,9,3,2,1,NULL),(25,9,5,2,1,NULL),(26,9,4,5,1,1),(27,9,6,6,1,NULL),(28,10,3,7,1,NULL),(29,10,4,7,1,NULL),(30,10,3,2,1,1);
 /*!40000 ALTER TABLE `stocks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -335,4 +361,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-20 16:05:02
+-- Dump completed on 2021-09-20 15:00:56
