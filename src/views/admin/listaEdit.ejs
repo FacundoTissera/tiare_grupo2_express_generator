@@ -26,10 +26,10 @@
             </tr>
           </thead>
           <tbody>
-            <% prendas.forEach(prenda => { %>
+            <% producto.forEach(prenda => { %>
             <tr>
                 <td><%= prenda.id%> </td>
-                <td><%= prenda.nombre%> </td>
+                <td><%= prenda.name%> </td>
                 <td><a href="/products/detalle/<%= prenda.id%> "> <i class="icono-lista fas fa-eye"></i></a></td>
                 <td><a href="/admin/editar/<%= prenda.id%> "> <i class="icono-lista far fa-edit"></i></a></td>
 <!--dentro de la tabla la funcion borrar tiene que ir dentro de un formulario-->

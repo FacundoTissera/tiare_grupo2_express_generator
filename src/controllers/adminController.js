@@ -15,8 +15,12 @@ const adminController = {
     },
     //listado de productos para editar, ver o borrar
     lista:(req,res) =>{
-        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-        res.render('admin/listaEdit', {prendas:prendas});
+       // let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+        //res.render('admin/listaEdit', {prendas:prendas});
+        db.Producto.findAll()
+        .then(function(producto){
+            res.render('admin/listaEdit', {producto:producto})
+        })
     },
     //nuevo producto CREAR
     nuevo:(req,res) =>{

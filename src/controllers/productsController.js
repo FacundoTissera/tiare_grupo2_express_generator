@@ -24,7 +24,10 @@ const productsController = {
     },
 
     detalle:(req,res) =>{
-        //let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+        //CON JSON: let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+         //let id = req.params.id;
+        //let unProducto= prendas.find(element => element.id == id);
+        //res.render('products/detail', {product: unProducto} 
         db.Producto.findByPk(req.params.id,{
             include:[{association:"categorias"}, {association:"talles"}, {
                 association:"colores"}
@@ -33,12 +36,7 @@ const productsController = {
         .then(function(producto){
             res.render('products/detail', {producto:producto})
         })
-        //let id = req.params.id;
-        //let unProducto= prendas.find(element => element.id == id);
-        //res.render('products/detail', {product: unProducto}
-        
     },
-  
 };
 
 
