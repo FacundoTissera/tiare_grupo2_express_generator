@@ -13,7 +13,7 @@ const adminController = {
         res.render('admin/administrar', {title: 'menu administrar'})
 
     },
-    //listado de productos para editar, ver o borrar
+    //listado de productos para editar, ver o borrar desde el menu admin
     lista:(req,res) =>{
        // let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
         //res.render('admin/listaEdit', {prendas:prendas});
@@ -22,12 +22,17 @@ const adminController = {
             res.render('admin/listaEdit', {producto:producto})
         })
     },
-    //nuevo producto CREAR
+    //nuevo producto CREAR GET (formulario)
     nuevo:(req,res) =>{
+        let listaCategorias=db.Categoria.findAll()
+        let listaColores=db.Color.findAll()
+        let listaTalles=db.Talle.findAll()
+        Promise.all([listaCategorias, listaColores, listaTalles])
+        .then(function([categoria, color, talle]){
+            res.render('admin/newProduct', {title: 'Agregar productos', categorias:categoria, colores:color, talles:talle})
+        })
+     },
 
-        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-        res.render('admin/newProduct', {title: 'Agregar productos'})
-        },
     //nuevo producto post   
     store:(req, res) =>{
         let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));

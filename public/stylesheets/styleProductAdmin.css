@@ -218,6 +218,23 @@ tr, td, th{
     padding: 2%;
     text-align: left;
 }
+table{
+    table-layout: fixed;
+    display: flex;
+    justify-content: center;
+    margin: 3% 10%;
+    border-collapse: collapse;
+}
+tbody td{
+    border-style: solid;
+    border-color:#d0aea8;
+    
+}
+th, td{
+    padding: 10px;
+    width: 200px ;
+    text-align: center;
+}
 .icono-lista{
     text-decoration: none;
     color: #382e2c;
