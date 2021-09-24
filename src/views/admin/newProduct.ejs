@@ -132,8 +132,9 @@
             <p class= titulo-formulario-producto>OPCIONES DEL PRODUCTO</p>
               <tr>
                 <% for (i=1; i<=3; i++) {%> 
+                  <td>Combinación <%=i %></td>
                   <td><select name="color" id="color" class="eleccion-opciones<%= locals.errors && errors.colores ? "is-invalid" : null %>">
-                        <option value="">Color <%=i %> </option>
+                        <option value="">Color</option>
                         <% for (let i=0; i < colores.length; i++) { %> 
                         <option <%if (locals.oldData && locals.oldData.color) { %>
                                 <% if (locals.oldData.color == colores[i].color) { %> 
