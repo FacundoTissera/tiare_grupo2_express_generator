@@ -13,13 +13,17 @@ let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
 const productsController = {
 
     total:(req,res) =>{
-        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-
-        let id = req.params.id;
-        let todosLosProductos = prendas.filter(element => element.sale == "si");
-
-        res.render('products/productsAll', {
-            prendas : prendas
+        //CON JSONlet prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+        //let todosLosProductos = prendas.filter(element => element.sale == "si");
+        //res.render('products/productsAll', {
+          //  prendas : prendas})
+        db.Producto.findAll ({
+            include:[{association:"categorias"}, {association:"talles"}, {
+                association:"colores"}]
+        })
+        .then (function(productos){
+            let productoPublicar= productos.filter(element => element.sale =='1')
+            res.render('products/productsAll', {producto:productoPublicar})
         })
     },
 

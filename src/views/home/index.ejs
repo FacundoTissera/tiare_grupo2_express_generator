@@ -25,18 +25,18 @@
         <div class="articulos-index">
             
             <div class="foto-producto">
-                <a href= "/products/detalle/<%= sale[i].id %> "> 
-                    <img src="/images/prendas/<%= sale[i].imagen %> " alt="Foto-Producto" class="foto-producto">
+                <a href= "/products/detalle/<%= producto[i].id %> "> 
+                    <img src="/images/prendas/<%= producto[i].image %> " alt="Foto-Producto" class="foto-producto">
                 </a>
             </div>
             <div class="descripciones">
-                <p> <%= sale[i].nombre %>  </p>
+                <p> <%= producto[i].name %>  </p>
             </div>
             <div class="precios">
-                <p>$<%= sale[i].precio %> </p>
+                <p>$<%= producto[i].price %> </p>
             </div>
             <div class="loQuiero">
-                <a href="/products/detalle/<%= sale[i].id %> ">LO QUIERO!</a>
+                <a href="/products/detalle/<%= producto[i].id %> ">LO QUIERO!</a>
             </div>
         </div>
     <% } %>
