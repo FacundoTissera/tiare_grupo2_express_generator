@@ -16,7 +16,7 @@
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
           <input type="text" 
             name="nombre" 
-            id="producto" 
+            id="nombre" 
             placeholder="Ej: REMERA MILÁN" 
             class="input-nombre <%=locals.errors && errors.nombre ? "is-invalid" :null %> "
             value="<%= locals.oldData ? oldData.nombre :null%>">
@@ -113,9 +113,9 @@
                 <option value="">Elegí una opción</option>
 
                 <option <% if(locals.oldData && locals.oldData.sale =="si"){%>  selected <%}%>
-                  value="si">Si</option>
+                  value="1">Si</option>
                 <option <% if(locals.oldData && locals.oldData.sale =="no"){%>  selected <%}%>
-                  value="no">No</option>
+                  value="0">No</option>
             </select>
             
             <div>
@@ -131,13 +131,13 @@
           <table  name="tabla-de-medidas">
             <p class= titulo-formulario-producto>OPCIONES DEL PRODUCTO</p>
               <tr>
-                <% for (i=1; i<=3; i++) {%> 
-                  <td>Combinación <%=i %></td>
-                  <td><select name="color" id="color" class="eleccion-opciones<%= locals.errors && errors.colores ? "is-invalid" : null %>">
+                <% for (let i=0; i<9; i++) {%> 
+                  <td>Combinación <%=i+1 %></td>
+                  <td><select name="color[<%=i%>]" id="color" class="eleccion-opciones<%= locals.errors && errors.colores ? "is-invalid" : null %>">
                         <option value="">Color</option>
                         <% for (let i=0; i < colores.length; i++) { %> 
-                        <option <%if (locals.oldData && locals.oldData.color) { %>
-                                <% if (locals.oldData.color == colores[i].color) { %> 
+                        <option <%if (locals.oldData && locals.oldData.color && locals.oldData.color[i]) { %>
+                                <% if (locals.oldData.color[i] == colores[i].color) { %> 
                                 selected
                                 <% } %> 
                               <% } %> 
@@ -151,11 +151,11 @@
                         </div>
                       <%}%>
                   </td>
-                  <td><select name="talles" id="talles" class="eleccion-opciones<%= locals.errors && errors.colores ? "is-invalid" : null %>">
+                  <td><select name="talles[<%=i%>]" id="talles" class="eleccion-opciones<%= locals.errors && errors.talles ? "is-invalid" : null %>">
                     <option value="">Talle</option>
                     <% for (let i=0; i < talles.length; i++) { %> 
-                    <option <%if (locals.oldData && locals.oldData.talle) { %>
-                            <% if (locals.oldData.talle == talles[i].size) { %> 
+                    <option <%if (locals.oldData && locals.oldData.talle && locals.oldData.talle[i]) { %>
+                            <% if (locals.oldData.talle[i] == talles[i].size) { %> 
                             selected
                             <% } %> 
                           <% } %> 
@@ -163,18 +163,18 @@
                     </option>
                     <% } %>
                     </select>
-                    <%if (locals.errors && errors.color){%>
+                    <%if (locals.errors && errors.talle){%>
                     <div class="text-danger">
                       <%=errors.talle.msg%>
                     </div>
                     <%}%>
                   </td>
                   <td>
-                    <select name="stock" id="stock" class="eleccion-opciones<%= locals.errors && errors.stock ? "is-invalid" : null %>">
+                    <select name="stock[<%=i%>]" id="stock" class="eleccion-opciones<%= locals.errors && errors.stock ? "is-invalid" : null %>">
                       <option value="">Stock</option>
-                      <% for (let i=0; i < 5; i++) { %> 
-                      <option <%if (locals.oldData && locals.oldData.stock) { %>
-                              <% if (locals.oldData.stock == i) { %> 
+                      <% for (let i=1; i < 5; i++) { %> 
+                      <option <%if (locals.oldData && locals.oldData.stock && locals.oldData.stock[i]) { %>
+                              <% if (locals.oldData.stock[i] == i) { %> 
                               selected
                               <% } %> 
                             <% } %> 

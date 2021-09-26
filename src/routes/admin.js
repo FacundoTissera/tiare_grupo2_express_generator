@@ -26,7 +26,6 @@ const validations=[
    body('nombre').notEmpty().withMessage('Debes completar este campo'),
    body('precio').notEmpty().withMessage('Debes completar este campo').bail() 
    .isInt() .withMessage ('Debes poner un número entero'),
-   body('color').notEmpty().withMessage('Debes completar este campo'),
    body('categoria').notEmpty().withMessage('Debes completar este campo'),
    body('sale').notEmpty().withMessage('Debes completar este campo'),
    body('fotoPrinc').custom((value, {req}) =>{

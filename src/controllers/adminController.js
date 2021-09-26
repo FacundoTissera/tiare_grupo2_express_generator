@@ -35,35 +35,48 @@ const adminController = {
 
     //nuevo producto post   
     store:(req, res) =>{
-        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+        //let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+        
         //validaciones
         const resultadosValidacion= validationResult(req)
         if(resultadosValidacion.errors.length >0){
-            return res.render('admin/newProduct',
-                {errors:resultadosValidacion.mapped(),
-                oldData:req.body}
-            );
+            let listaCategorias=db.Categoria.findAll()
+            let listaColores=db.Color.findAll()
+            let listaTalles=db.Talle.findAll()
+            Promise.all([listaCategorias, listaColores, listaTalles])
+            .then(function([categoria, color, talle]){
+                return res.render('admin/newProduct', {title: 'Agregar productos', categorias:categoria, colores:color, talles:talle, errors:resultadosValidacion.mapped(),
+                oldData:req.body})
+            });
         }
-        //pongo datos al nuevo producto
-        let nuevoId= prendas[prendas.length-1].id+1
-        let nuevoProductoStore ={
-            id:nuevoId,  
-            nombre: req.body.nombre,
-            precio: req.body.precio,
-            categoria: req.body.categoria,
-            color: req.body.color,
-            descripcion: req.body.descripcion,  
-            imagen: req.file.originalname,
-            sale: req.body.sale,        
+        else {
+            db.Producto.create({
+                name:req.body.nombre,
+                price:req.body.precio,
+                description:req.body.descripcion,
+                image:req.file.originalname,
+                sale:req.body.sale,
+                category_id:req.body.categoria,
+            })
+            .then(function(nuevoProducto){
+                let promesas = []
+                for (let i=0; i<req.body.color.length; i++){
+                    if(req.body.color[i]){
+                        promesas.push(db.Stock.create({
+                            product_id:nuevoProducto.id,
+                            size_id:req.body.talles[i],
+                            color_id:req.body.color[i],
+                            stock:req.body.stock[i]
+                        }));
+                    }
+                }
+                Promise.all(promesas).then( res.redirect('/products/detalle/'+nuevoProducto.id))
+            
+            })
+            
+                
         }
-        prendas.push(nuevoProductoStore);
-
-        //mando el array modificado con el producto nuevo a data
-        fs.writeFileSync(productsDatos, JSON.stringify(prendas, null, 4), 'utf-8');
-
-        //mando el click del formulario al detalle del producto subido
-        res.redirect ("/products/detalle/" + nuevoProductoStore.id);
-        },
+    },
 
     //formulario de editar get
     editar:(req, res) =>{
