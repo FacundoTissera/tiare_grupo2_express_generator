@@ -218,7 +218,7 @@ tr, td, th{
     padding: 2%;
     text-align: left;
 }
-table{
+.tabla-de-medidas{
     table-layout: fixed;
     display: flex;
     justify-content: center;
