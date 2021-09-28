@@ -2,7 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const {validationResult} = require ('express-validator');
 //requiero el modelo de producto de la base de datos
-const db = require ('../database/models')
+const db = require ('../database/models');
+const Producto = require('../database/models/Producto');
 
 const productsDatos = path.join(__dirname, '../data/datosProductos.json');
 let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
@@ -101,25 +102,40 @@ const adminController = {
 
     //modifica el producto put
     cambio: (req,res) =>{
-        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-        let id= req.params.id;
-        prendas.forEach(element => {
-            if (element.id== id){
-                element.nombre=req.body.nombre;
-                element.categoria=req.body.categoria;
-                if  (req.file) {
-                    element.imagen = req.file.originalname;
+        let datosProducto = {
+            name:req.body.nombre,
+            price:req.body.precio,
+            description:req.body.descripcion,
+            sale:req.body.sale,
+            category_id:req.body.categoria,
+            };
+                if (req.file){
+                datosProducto.image= req.file.originalname
                 }
-                //element.imagen=req.file ? req.file.originalname : req.body.oldImagen;
-                element.color=req.body.color;
-                element.descripcion=req.body.descripcion;
-                element.precio=req.body.precio;
-                element.sale=req.body.sale;
-            }  
-            fs.writeFileSync(productsDatos, JSON.stringify(prendas, null, 4), 'utf-8')
-        }) 
-        res.redirect ("/products/detalle/"+id)
+        let productEditado = db.Producto.update(datosProducto,
+            { where: {id:req.params.id}})
+            
+            .then(function(){
+                let combinacionesBorrar = db.Stock.destroy(
+                 {where:{product_id: req.params.id}})
+                
+                let promesas = []
+                    for (let i=0; i<req.body.color.length; i++){
+                        if(req.body.color[i]){
+                            promesas.push(db.Stock.create({
+                                product_id:req.params.id,
+                                size_id:req.body.talles[i],
+                                color_id:req.body.color[i],
+                                stock:req.body.stock[i]
+                            }));
+                        }
+                    
+                    }
+                Promise.all([combinacionesBorrar,promesas])
+                .then(() => res.redirect('/products/detalle/'+req.params.id))
+            })
     },
+
     delete: (req, res) =>{
         let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
 
