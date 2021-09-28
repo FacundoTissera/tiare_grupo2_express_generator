@@ -26,7 +26,7 @@ CREATE TABLE `categories` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `category` varchar(255) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +50,7 @@ CREATE TABLE `colors` (
   `id` int NOT NULL AUTO_INCREMENT,
   `color` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +74,7 @@ CREATE TABLE `order_status` (
   `id` int NOT NULL AUTO_INCREMENT,
   `status` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,7 +105,7 @@ CREATE TABLE `orders` (
   KEY `id_user` (`user_id`),
   CONSTRAINT `FK_e2c126c9-5736-4524-ab08-d875a97e6d34` FOREIGN KEY (`order_status`) REFERENCES `order_status` (`id`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +134,7 @@ CREATE TABLE `orders_detail` (
   KEY `FK_306d87fe-e748-4a1e-97b4-05bac4d69cd0` (`stock_id`),
   CONSTRAINT `FK_306d87fe-e748-4a1e-97b4-05bac4d69cd0` FOREIGN KEY (`stock_id`) REFERENCES `stocks` (`id`),
   CONSTRAINT `FK_45daa870-5d22-4b95-a597-837302d6dce5` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +165,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`Id`),
   KEY `FK_618e2a0b-0986-4a47-9784-332c32c3bf08` (`category_id`),
   CONSTRAINT `FK_618e2a0b-0986-4a47-9784-332c32c3bf08` FOREIGN KEY (`category_id`) REFERENCES `categories` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,7 +189,7 @@ CREATE TABLE `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
   `role` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +213,7 @@ CREATE TABLE `sizes` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `size` varchar(25) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,7 +237,7 @@ CREATE TABLE `states` (
   `id` int NOT NULL AUTO_INCREMENT,
   `state` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -270,7 +270,7 @@ CREATE TABLE `stocks` (
   CONSTRAINT `FK_1a966d39-980b-44d6-81f1-55e65860efee` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`),
   CONSTRAINT `FK_7a4a9b75-0467-4e9a-994b-8450b68690f5` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`Id`),
   CONSTRAINT `FK_f23550e6-7ca6-477f-b765-a6c8ed650046` FOREIGN KEY (`product_id`) REFERENCES `products` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -309,7 +309,7 @@ CREATE TABLE `users` (
   KEY `FK_b5c10322-842b-4473-8986-dd9b611e3241` (`role_id`),
   CONSTRAINT `FK_639615f2-e250-40b7-9d3e-b42dfb2dc31e` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`),
   CONSTRAINT `FK_b5c10322-842b-4473-8986-dd9b611e3241` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 i;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
