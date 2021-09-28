@@ -131,7 +131,7 @@
           <table  class="tabla-de-medidas">
             <p class= titulo-formulario-producto>OPCIONES DEL PRODUCTO</p>
               <tr>
-                <% for (let i=0; i<9; i++) {%> 
+                <% for (let i=0; i<8; i++) {%> 
                   <td>Combinación <%=i+1 %></td>
                   <td><select name="color[<%=i%>]" id="color" class="eleccion-opciones<%= locals.errors && errors.colores ? "is-invalid" : null %>">
                         <option value="">Color</option>
@@ -192,49 +192,7 @@
                   <% } %> 
              
            
-          </table>
-        <!-- <div class="color">
-          <label for="color" class="titulo-formulario-producto">Color:</label>
-          <select name="color" id="color" class="eleccion-opciones <%= locals.errors && errors.color ?  " is-invalid" : null
-            %>">
-        
-            <option value="">Elegí un color</option>
-        
-            <option <% if(locals.oldData && locals.oldData.color=="Blanco" ){%> selected <%}%>
-                value="Blanco">Blanco</option>
-        
-            <option <% if(locals.oldData && locals.oldData.color=="Negro" ){%> selected <%}%>
-                value="Negro">Negro</option>
-        
-            <option <% if(locals.oldData && locals.oldData.color=="Rojo" ){%> selected <%}%>
-                value="Rojo">Rojo</option>
-        
-            <option <% if(locals.oldData && locals.oldData.color=="Tostado" ){%> selected <%}%>
-                value="Tostado">Tostado</option>
-        
-            <option <% if(locals.oldData && locals.oldData.color=="Rosa" ){%> selected <%}%>
-                value="Rosa">Rosa</option>
-        
-            <option <% if(locals.oldData && locals.oldData.color=="Gris" ){%> selected <%}%>
-                value="Gris">Gris</option>
-        
-            <option <% if(locals.oldData && locals.oldData.color=="Celeste" ){%> selected <%}%>
-                value="Celeste">Celeste</option>
-        
-            <option <% if(locals.oldData && locals.oldData.color=="Azul" ){%> selected <%}%>
-                value="Azul">Azul</option>
-        
-            <option <% if(locals.oldData && locals.oldData.color=="Verde" ){%> selected <%}%>
-                value="Verde">Verde</option>
-          </select>
-          <div>
-            <% if(locals.errors && errors.color){%>
-              <div class="text-danger">
-                <%=errors.color.msg%>
-              </div>
-              <% } %>
-          </div>
-        </div> -->
+        </table>
 
         <div class="boton-producto">
             <button class="agregar" type="submit">AGREGAR PRODUCTO</button>

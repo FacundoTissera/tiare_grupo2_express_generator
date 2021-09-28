@@ -80,10 +80,23 @@ const adminController = {
 
     //formulario de editar get
     editar:(req, res) =>{
-        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-        let id= req.params.id;
-        let productoAEditar = prendas.find (element => element.id ==id);
-        res.render('admin/editar', {productoAEditar:productoAEditar})
+        let productoEditar=db.Producto.findByPk(req.params.id)
+        let listaCategorias=db.Categoria.findAll()
+        let listaColores=db.Color.findAll()
+        let listaTalles=db.Talle.findAll()
+        let stocks=db.Stock.findAll({
+            where: {
+                product_id:req.params.id
+              }
+        })
+        Promise.all([productoEditar, listaCategorias, listaColores, listaTalles, stocks])
+        .then(function([producto, categoria, color, talle, stock]){
+            res.render('admin/editar', {title: 'Editar productos', producto:producto, categorias:categoria, colores:color, talles:talle, stocks:stock})
+        })
+        //let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+        //let id= req.params.id;
+        //let productoAEditar = prendas.find (element => element.id ==id);
+        //res.render('admin/editar', {productoAEditar:productoAEditar})
     },
 
     //modifica el producto put

@@ -8,36 +8,35 @@
 
   <main class="main-formulario">
     <fieldset>
-    <legend class="titulo-fieldset">Estás editando: <%=productoAEditar.nombre %></legend>
+    <legend class="titulo-fieldset">Estás editando:<%=producto.name %></legend>
       
-      <form action="/admin/editar/<%=productoAEditar.id%>?_method=PUT" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data">
+      <form action="/admin/editar/<%=producto.id%>?_method=PUT" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data">
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
-          <input type="text" name="nombre" id="producto" value= "<%=productoAEditar.nombre%>" required>
+          <input type="text" name="nombre" id="producto" value= "<%=producto.name%>" required>
         </div>
 
-        <div class="categoria-producto">
+       <div class="categoria-producto">
           <label for="categoria" class="titulo-formulario-producto">CATEGORIA DEL PRODUCTO:</label>
           <select name="categoria" id="categoria"required>
-          
-            <option value="pantalones-y-shorts" <% if (productoAEditar.categoria == "pantalones-y-shorts"){ %>
-            selected <% } %> >Pantalones y Shorts </option>
-            <option value="remeras-y-camisas"<% if (productoAEditar.categoria == "remeras-y-camisas"){ %>
-                selected <% } %>>Remeras y Camisas</option>
-            <option value="abrigos" <% if (productoAEditar.categoria == "abrigos"){ %> 
-                selected <% } %> >Abrigos</option>
-            <option value="faldas-y-vestidos"<% if (productoAEditar.categoria == "faldas-y-vestidos"){ %> 
-                selected <% } %>>Faldas y Vestidos</option>
-            <option value="accesorios"<% if (productoAEditar.categoria == "accesorios"){ %> 
-                selected <% } %>>Accesorios</option>
-           
+            <% for (let i=0; i < categorias.length; i++) { %> 
+              <% if (categorias[i].id== producto.category_id){ %> 
+              <option value="<%=categorias[i].id%>" selected>
+              <%=categorias[i].category%>
+              </option>
+              <%} else {%> 
+              <option value='<%=categorias[i].id%>'>
+                <%=categorias[i].category%>
+              </option>
+              <%}%> 
+          <%}%> 
           </select>
         </div>
       
         <div>
           <p class= titulo-formulario-producto>IMÁGEN DEL PRODUCTO:</p>
           <figure class="form-group">
-              <img  class="foto-actual" src="/images/prendas/<%= productoAEditar.imagen%>" alt="articulo <%= productoAEditar.nombre%>">
+              <img  class="foto-actual" src="/images/prendas/<%= producto.image%>" alt="articulo <%= producto.name%>">
           </figure>
          <input type="file" name="fotoPrinc" >
 
@@ -45,73 +44,92 @@
 
         <div class="descripcion-producto">
           <label for="descripcion" class="titulo-formulario-producto" >DESCRIPCIÓN</label>
-          <textarea rows="8" name="descripcion" id="descripcion"><%= productoAEditar.descripcion%></textarea>
+          <textarea rows="8" name="descripcion" id="descripcion"><%= producto.description%></textarea>
         </div>
 
         <div class="precio">
           <label for="precio" class="titulo-formulario-producto">PRECIO</label>
-          <input type="tel" name="precio" id="precio" value="<%= productoAEditar.precio%> " required>
+          <input type="tel" name="precio" id="precio" value="<%= producto.price%> " required>
         </div>
-
-        <!--<div class="stock">
-          <label for="stock" class="titulo-formulario-producto">Cantidad disponible:</label>
-          <select name="stock" id="stock">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-          </select>
-        </div>
-
-        <div class="talles">
-          <label for="talles" class="titulo-formulario-producto">Talle:</label>
-          <select name="talle" id="talles">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div> -->
-
-        <div class="color">
-          <label for="color" class="titulo-formulario-producto">Color:</label>
-          <select name="color" id="color">
-            <option value="Blanco"<% if (productoAEditar.color == "Blanco"){ %> 
-                selected <% } %>>Blanco</option>
-            <option value="Negro"<% if (productoAEditar.color == "Negro"){ %> 
-                selected <% } %>>Negro</option>
-            <option value="Rojo"<% if (productoAEditar.color == "Rojo"){ %> 
-                selected <% } %>>Rojo</option>
-            <option value="Tostado"<% if (productoAEditar.color == "Tostado"){ %> 
-                selected <% } %>>Tostado</option>
-            <option value="Rosa"<% if (productoAEditar.color == "Rosa"){ %> 
-                selected <% } %>>Rosa</option>
-            <option value="Gris"<% if (productoAEditar.color == "Gris"){ %> 
-                selected <% } %>>Gris</option>
-            <option value="Celeste"<% if (productoAEditar.color == "Celeste"){ %> 
-                selected <% } %>>Celeste</option>
-            <option value="Azul"<% if (productoAEditar.color == "Azul"){ %> 
-                selected <% } %>>Azul</option>
-            <option value="Verde<% if (productoAEditar.color == "Verde"){ %> 
-                selected <% } %>">Verde</option>
-          </select>
-
-          <div>
+        <div>
             <label for="sale">PUBLICAR</label> <br>
             <select name="sale" id="sale">
-              <option value="si"<% if (productoAEditar.sale== 'si') { %>
-              
+              <option value="1"<% if (producto.sale=='1') { %>
               selected<% } %>>Si</option>
-              <option value="no"<% if (productoAEditar.sale== 'no') { %>
+
+              <option value="0"<% if (producto.sale== '0') { %>
               
               selected<% } %>>No</option>
             </select>
           </div>
+      <section class="opciones">
+          <table  class="tabla-de-medidas">
+            <p class= titulo-formulario-producto>OPCIONES DEL PRODUCTO</p>
+              <tr>
+              
+                  <% for (let i=0; i<8; i++) {%> 
+                    <td>Combinación <%=i+1 %></td>
+                    <td><select name="color[<%=i%>]" id="color" class="eleccion-opciones<%= locals.errors && errors.colores ? "is-invalid" : null %>">
+                          <option value="">Color</option>
+                          <% for (let j=0; j < colores.length; j++) { %> 
+                          <option  
+                                  <% if (stocks[i] && stocks[i].color_id == colores[j].id) { %> 
+                                    selected  
+                                  <% } %>
+                                  value="<%= colores[j].id %>"  ><%=colores[j].color%>
+                          </option>
+                          <% } %>
+                        </select>
+                    </td>
+                    <td><select name="talles[<%=i%>]" id="talles" class="eleccion-opciones<%= locals.errors && errors.talles ? "is-invalid" : null %>">
+                      <option value="">Talle</option>
+                      <% for (let j=0; j < talles.length; j++) { %> 
+                      <option
+                      <% if (stocks[i] && stocks[i].size_id == talles[j].id) { %> 
+                        selected  
+                      <% } %>
+
+                       value="<%= talles[j].id %>"><%=talles[j].size%> 
+                      </option>
+                      <% } %>
+                      </select>
+                      <%if (locals.errors && errors.talle){%>
+                      <div class="text-danger">
+                        <%=errors.talle.msg%>
+                      </div>
+                      <%}%>
+                    </td>
+                    <td>
+                      <select name="stock[<%=i%>]" id="stock" class="eleccion-opciones<%= locals.errors && errors.stock ? "is-invalid" : null %>">
+                        <option value="">Stock</option>
+                        <% for (let j=0; j < 5; j++) { %> 
+                        <option 
+                        
+                        <% if (stocks[i] && stocks[i].stock == j) { %> 
+                          selected  
+                        <% } %>  
+
+                         value="<%=j%>"><%=j%> 
+                        </option>
+                        <% } %>
+                        </select>
+                        <%if (locals.errors && errors.stock){%>
+                        <div class="text-danger">
+                          <%=errors.stock.msg%>
+                        </div>
+                        <%}%>
+                    </td>
+                  </tr>
+                    <% } %> 
+               
+             
+            </table>
+
+
+
+
+
+
           <div class="boton-producto">
             <button class="agregar" type="submit">MODIFICAR PRODUCTO</button>
           </div>
