@@ -60,6 +60,7 @@ const adminController = {
                 category_id:req.body.categoria,
             })
             .then(function(nuevoProducto){
+                console.log (req.body)
                 let promesas = []
                 for (let i=0; i<req.body.color.length; i++){
                     if(req.body.color[i]){
@@ -118,7 +119,6 @@ const adminController = {
             .then(function(){
                 let combinacionesBorrar = db.Stock.destroy(
                  {where:{product_id: req.params.id}})
-                
                 let promesas = []
                     for (let i=0; i<req.body.color.length; i++){
                         if(req.body.color[i]){
@@ -137,17 +137,22 @@ const adminController = {
     },
 
     delete: (req, res) =>{
-        let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-
-        let id = req.params.id;
-        let productosActualizados = prendas.filter(element => element.id != id);
-            
-        // busca los que sean diferentes al id
+        //let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+        //let id = req.params.id;
+        //let productosActualizados = prendas.filter(element => element.id != id);    
+        // busca los que sean diferentes al id 
+        //fs.writeFileSync(productsDatos, JSON.stringify(productosActualizados, null, 4), 'utf-8')
+        let deleteStock= db.Stock.destroy({
+            where:{product_id:req.params.id}
+        })
         
-        fs.writeFileSync(productsDatos, JSON.stringify(productosActualizados, null, 4), 'utf-8')
-
-
-        res.redirect("/products")
+        let deleteProduct= db.Producto.destroy({
+            where:{id:req.params.id}
+        })
+       
+         Promise.all([deleteProduct, deleteStock])
+         .then(() => res.redirect('/products'))
+        
     }
 
     }
