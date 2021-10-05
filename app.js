@@ -8,6 +8,8 @@ const session = require('express-session')
 const cookies = require('cookie-parser');
 //requerir el metodo para usar el put y el delete
 const methodOverride = require ('method-override');
+// Aca llamo a la base de datos
+const db = require('../database/models');
 
 
 //requiere la funcion middleware de usuario logueado para manejar las vistas y barras de navegacion

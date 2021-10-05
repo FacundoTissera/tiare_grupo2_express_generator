@@ -2,13 +2,19 @@ const { validationResult } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
 const bcryptjs = require('bcryptjs');
-const User = require ('../models/User');
-//Traigo el modelo User para usarlo en este controlador
+const User = require ('../helpers/User'); //Traigo el modelo User para usarlo en este controlador
+const db = require("../database/models")  //Aca traigo los mopdelos de la base de datos.
 
 const userController = {
     //formulario registro
     registrarse:(req,res)=>{
-        res.render('user/register',{title: 'registrate'});
+       let todos = db.Usuario.findAll();
+       let provincias = db.State.findAll();
+       let roles = db.Role.findAll();
+       promise.all([todos, provincias, roles])
+       .then(function([usuario, provincia, role]){
+        return res.render('user/register',{Usuarios:usuario, Provincias:provincia, Roles:role});
+       })
     },
     
     procesoDeRegistro: (req, res)=>{
@@ -20,27 +26,45 @@ const userController = {
                 oldData: req.body,
             });
         };
-        let usuarioExistente = User.buscarPorCampo('email', req.body.email);
-        if (usuarioExistente) {
-            return res.render('user/register',{
-                errors: {
-                    email:{
-                        msg: 'Este email ya esta registrado'
-                    }
-                },
-                oldData: req.body,
-            });
+
+        db.Usuario.findAll({
+            include:[{association:"states"}, {association:"roles"}]
+        })
+        .then (function(usuarios){ 
+            let usuarioExistente = usuarios.find(unUsuario => unUsuario.email === req.body.email);
+            if (usuarioExistente) {
+                return res.render('user/register',{
+                    errors: {
+                        email:{
+                            msg: 'Este email ya esta registrado'
+                        }
+                    },
+                    oldData: req.body,
+                });
         };
+
         let usuarioCreado = {
-            ...req.body,
-        password: bcryptjs.hashSync(req.body.password, 10),
-        avatar:req.file.filename
+           name:req.body.nombre,
+           street:req.body.direccion,
+           number:req.body.numero,
+           city:req.body.ciudad,
+           state_id:req.body.provincia,
+           postalCode:req.body.codigoPostal,
+           phone:req.body.telefono,
+           email:req.body.email,
+           password: bcryptjs.hashSync(req.body.password, 10),
+           image: req.file.originalname, //antes decia .filename 
+
+
         };
 
-        User.crearUsuario(usuarioCreado);
-
-        return res.redirect('/user');
+        db.Usuario.create({usuarioCreado})
+        .then(function() {
+            return res.redirect('/user');
+        })
+    })
     },
+
 
     //formulario login
     ingreso:(req, res)=>{
@@ -49,7 +73,7 @@ const userController = {
             res.render('user/login',{title: 'logueate',});
         },
         
-    procesoDeLogin:(req, res)=>{
+   /* procesoDeLogin:(req, res)=>{
         //return res.send(req.body);
         let usuarioRegistrado = User.buscarPorCampo('email', req.body.email);
 
@@ -107,6 +131,7 @@ const userController = {
             req.session.destroy();
             return res.redirect('/')
         }
+        */
 };
     
 module.exports = userController;

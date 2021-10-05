@@ -8,7 +8,8 @@ function usuarioLogMiddleware (req, res, next){
     
         let emailInCookie = req.cookies.userEmail;
     //console.log(emailInCookie);
-    let userFromCookie = User.buscarPorCampo('email', emailInCookie);
+    let usuarioExistente = usuarios.find(unUsuario => unUsuario.email === req.cookies.userEmail);
+    let userFromCookie = usuarioExistente('email', emailInCookie);  
 
     if (userFromCookie) {
         req.session.usuarioLogueado = userFromCookie;
