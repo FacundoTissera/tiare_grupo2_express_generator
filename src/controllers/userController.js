@@ -19,51 +19,36 @@ const userController = {
     },
     
     procesoDeRegistro: (req, res)=>{
-        
-        const resultadoValidaciones = validationResult(req);
-        if(resultadoValidaciones.errors.length > 0){
-            return res.render('user/register',{
-                errors: resultadoValidaciones.mapped(),
-                oldData: req.body,
-            });
-        };
-
-        db.Usuario.findAll({
-            include:[{association:"states"}, {association:"roles"}]
-        })
-        .then (function(usuarios){ 
-            let usuarioExistente = usuarios.find(unUsuario => unUsuario.email === req.body.email);
-            if (usuarioExistente) {
+        db.State.findAll()
+        .then(function(provincias){
+            const resultadoValidaciones = validationResult(req);
+            console.log(resultadoValidaciones);
+            if(resultadoValidaciones.errors.length > 0){
                 return res.render('user/register',{
-                    errors: {
-                        email:{
-                            msg: 'Este email ya esta registrado'
-                        }
-                    },
-                    oldData: req.body,
+                    errors: resultadoValidaciones.mapped(),
+                    oldData: req.body, provincias:provincias
                 });
-        };
+            };  
+        })      
 
         let usuarioCreado = {
-           name:req.body.nombre,
-           street:req.body.direccion,
-           number:req.body.numero,
-           city:req.body.ciudad,
-           state_id:req.body.provincia,
-           postal_code:req.body.codigoPostal,
-           phone:req.body.telefono,
-           email:req.body.email,
-           password: bcryptjs.hashSync(req.body.password, 10),
-           image: req.file.originalname, //antes decia .filename 
-
-
+            name:req.body.nombre,
+            street:req.body.direccion,
+            number:req.body.numero,
+            city:req.body.ciudad,
+            state_id:req.body.provincia,
+            postal_code:req.body.codigoPostal,
+            phone:req.body.telefono,
+            email:req.body.email,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            image: req.file.filename, 
+            acept_terms: req.body.aceptoTerminos
         };
 
-        db.Usuario.create({usuarioCreado})
+        db.Usuario.create(usuarioCreado)
         .then(function() {
             return res.redirect('/user');
-        })
-    })
+        })    
     },
 
 

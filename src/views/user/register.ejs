@@ -16,10 +16,10 @@
 
                     <div class="datos-registro">
                         <label for="nombre"class="label-nombre">Nombre y Apellido:</label> 
-                        <input type="text" name="nombre" id="nombre"  value="<%= locals.oldData ? oldData.fullName : null%>" >
-                        <% if (locals.errors && errors.fullName) { %>
+                        <input type="text" name="nombre" id="nombre"  value="<%= locals.oldData ? oldData.nombre : null%>" >
+                        <% if (locals.errors && errors.nombre) { %>
                         <div class="text-danger">
-                            <%= errors.fullName.msg %> 
+                            <%= errors.nombre.msg %> 
                         </div>
                         <% } %>
 
@@ -137,7 +137,7 @@
                         </div>
                         
                         <div class="acepto-newsletter">
-                            <input type="radio" name="aceptoTerminos" id="" >
+                            <input type="radio" name="aceptoTerminos" id="" value="1">
                             <label for="acepto-terminos">Acepto terminos y condiciones</label>
                             <% if (locals.errors && errors.aceptoTerminos) { %>
                         <div class="text-danger">
