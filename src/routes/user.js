@@ -14,7 +14,7 @@ const sinSessionMiddleware = require('../middlewares/sinSessionMiddleware');
 router.get('/', ingresoMiddleware, userController.ingreso);
 
 // //proceso de login
-// router.post('/', userController.procesoDeLogin);
+//router.post('/', userController.procesoDeLogin);
 
 // //formulario de registro
 router.get('/register',ingresoMiddleware, userController.registrarse);

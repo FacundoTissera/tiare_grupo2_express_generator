@@ -1,7 +1,5 @@
-const Role = require("./Role");
-
 module.exports = function(sequelize, dataTypes){
-    let alias = 'Usuario';
+    let alias = "Usuario";
     let cols = {
         id:{
             autoIncrement: true,
@@ -29,7 +27,7 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false,
             type: dataTypes.INTEGER,
         },
-        postalCode:{
+        postal_code:{
             allowNull: false,
             type: dataTypes.INTEGER,
         },
@@ -50,16 +48,17 @@ module.exports = function(sequelize, dataTypes){
             allowNull: true,
             type: dataTypes.STRING
         },
-        acepTerms:{ 
+        acept_terms:{ 
             type: dataTypes.INTEGER
         },
         role_id:{
+            alowNull:true,
             type: dataTypes.INTEGER
         }
 
        };
     let config = {
-        tableName: 'users',
+        tableName: "users",
         timestamps: false
     }
     const Usuario = sequelize.define(alias,cols, config);
@@ -68,14 +67,14 @@ module.exports = function(sequelize, dataTypes){
     Usuario.associate = function(models){
         Usuario.belongsTo(models.State, {
             as: "states",
-            foreingKey: "state_id"
+            foreignKey: "state_id"
         });
 
         // Rol del usuario
         Usuario.associate = function(models){
-            Usuario.belongsTo(models,Role, {
+            Usuario.belongsTo(models.Role, {
                 as: "roles",
-                foreingKey: "role_id"
+                foreignKey: "role_id"
             });
         }
 

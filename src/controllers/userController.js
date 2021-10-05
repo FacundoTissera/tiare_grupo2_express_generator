@@ -10,10 +10,11 @@ const userController = {
     registrarse:(req,res)=>{
        let todos = db.Usuario.findAll();
        let provincias = db.State.findAll();
-       let roles = db.Role.findAll();
-       promise.all([todos, provincias, roles])
-       .then(function([usuario, provincia, role]){
-        return res.render('user/register',{Usuarios:usuario, Provincias:provincia, Roles:role});
+       //let roles = db.Role.findAll();
+       console.log(provincias)
+       Promise.all([todos, provincias])
+       .then(function([usuario, provincia]){
+        res.render('user/register',{usuarios:usuario, provincias:provincia});
        })
     },
     
@@ -49,7 +50,7 @@ const userController = {
            number:req.body.numero,
            city:req.body.ciudad,
            state_id:req.body.provincia,
-           postalCode:req.body.codigoPostal,
+           postal_code:req.body.codigoPostal,
            phone:req.body.telefono,
            email:req.body.email,
            password: bcryptjs.hashSync(req.body.password, 10),

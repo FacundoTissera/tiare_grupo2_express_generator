@@ -66,13 +66,13 @@
 
                         <option value="">Elegí una opción</option>
 
-                        <% for (let i=0; i < Provincias.length; i++) { %> 
+                        <% for (let i=0; i < provincias.length; i++) { %> 
                          <option <%if (locals.oldData && locals.oldData.provincia) { %>
-                          <% if (locals.oldData.provincia == Provincias[i].state) { %> 
+                          <% if (locals.oldData.provincia == provincias[i].state) { %> 
                                     selected
                                      <% } %> 
                                  <% } %> 
-                            value="<%= Provincias[i].id %>"><%=Provincias[i].state%> 
+                            value="<%= provincias[i].id %>"><%=provincias[i].state%> 
                      </option>
                      <% } %>
 

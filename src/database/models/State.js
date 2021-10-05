@@ -21,7 +21,7 @@ module.exports = function(sequelize, dataTypes){
        State.associate = function(models){
         State.hasMany(models.Usuario, {
             as: "usuarios",
-            foreingKey: "state_id"
+            foreignKey: "state_id"
         });
 
        }

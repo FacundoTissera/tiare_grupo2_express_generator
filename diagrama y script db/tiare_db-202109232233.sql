@@ -303,7 +303,7 @@ CREATE TABLE `users` (
   `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `image` varchar(200) NOT NULL,
   `acepTerms` tinyint NOT NULL,
-  `role_id` int NOT NULL,
+  `role_id` int,
   PRIMARY KEY (`id`),
   KEY `FK_639615f2-e250-40b7-9d3e-b42dfb2dc31e` (`state_id`),
   KEY `FK_b5c10322-842b-4473-8986-dd9b611e3241` (`role_id`),
