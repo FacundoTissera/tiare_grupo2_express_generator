@@ -152,5 +152,19 @@
   "password": "$2a$10$.je9idvhMSvg3/HQ3MJDzOW1ntNuKuxws8YppbvIrX62rXSL1Fh4K",
   "aceptoTerminos": "on",
   "avatar": "1632018788607_img.jpeg"
+ },
+ {
+  "id": 16,
+  "fullName": "bea hambeck",
+  "direccion": "Jurament",
+  "numero": "4434",
+  "ciudad": "Caba",
+  "provincia": "Ciudad Autónoma de BsAs",
+  "codigoPostal": "2222",
+  "telefono": "354545",
+  "email": "bea@gmail.com",
+  "password": "$2a$10$NJUZg8g.VVKzEL4bcm/lReuRhHL3Vf89ajVlsFw0dDzdX7sfOOPTy",
+  "aceptoTerminos": "on",
+  "avatar": "1633437502286_img.png"
  }
 ]

@@ -11,14 +11,15 @@ function usuarioLogMiddleware (req, res, next){
             email: req.cookies.userEmail
         }
     })
-    .then((userFromCookie) =>{
+    .then((userFromCookie) => {
         if (userFromCookie) {
             req.session.usuarioLogueado = userFromCookie; 
-    }
-    if (req.session && req.session.usuarioLogueado){
-        res.locals.isLogged = true;
-    }
-
-    next();
+        }
+        if (req.session && req.session.usuarioLogueado){
+            res.locals.isLogged = true;
+        }
+    }).finally(() => {
+        next();
+    });
 };
 module.exports = usuarioLogMiddleware;
