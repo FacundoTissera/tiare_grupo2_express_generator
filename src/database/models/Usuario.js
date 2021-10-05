@@ -54,7 +54,6 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         role_id:{
-            allowNull:false,
             type: dataTypes.INTEGER
         }
 
