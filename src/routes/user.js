@@ -14,7 +14,7 @@ const sinSessionMiddleware = require('../middlewares/sinSessionMiddleware');
 router.get('/', ingresoMiddleware, userController.ingreso);
 
 // //proceso de login
-//router.post('/', userController.procesoDeLogin);
+router.post('/', userController.procesoDeLogin);
 
 // //formulario de registro
 router.get('/register',ingresoMiddleware, userController.registrarse);
@@ -23,7 +23,7 @@ router.get('/register',ingresoMiddleware, userController.registrarse);
 router.post('/register',uploadFile.single('avatar'),validaciones.register ,userController.procesoDeRegistro);
 
 // //perfil del usuario
-// router.get('/usuario', sinSessionMiddleware, userController.cliente);
+router.get('/usuario', sinSessionMiddleware, userController.cliente);
 
 // //modificar datos usuario
 // router.get('/modificar/:id', sinSessionMiddleware, userController.modificar);

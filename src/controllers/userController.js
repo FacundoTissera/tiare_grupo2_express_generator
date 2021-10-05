@@ -59,27 +59,32 @@ const userController = {
             res.render('user/login',{title: 'logueate',});
         },
         
-   /* procesoDeLogin:(req, res)=>{
-        //return res.send(req.body);
-        let usuarioRegistrado = User.buscarPorCampo('email', req.body.email);
+    procesoDeLogin: async (req, res)=>{
+        //voy a ver si el usuario ya esta registrado
+        const usuarioRegistrado = await db.Usuario.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
 
-        if (usuarioRegistrado){
-            let contraseniaCorrecta= bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
+        if (usuarioRegistrado) {
+            let contraseniaCorrecta = bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
+            
             if (contraseniaCorrecta) {
                 //elimino la contraseña para que no quede guardada al navegar 
                 delete usuarioRegistrado.password
                 //ACA GUARDO AL USUARIO REGISTRADO ↓
                 req.session.usuarioLogueado = usuarioRegistrado;
 
-
-                if(req.body.recuerdame) {
+                //creo la cookie
+                if (req.body.recuerdame) {
 					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
-                
                 //voy a la vista del usuario
-                return res.redirect('user/usuario'); }   
+                return res.redirect('user/usuario');  
+            } 
 
-            return res.render('user/login',{
+            return res.render('user/login', {
                 errors:{
                     email:{
                         msg: 'Contraseña o usuario incorrecto'
@@ -90,34 +95,34 @@ const userController = {
                 }
             });
         }
+        
         return res.render('user/login',{
-                            errors:{
-                                email:{
-                                    msg: 'Usuario no registrado'
-                                }                                   
-                            }
-                }) ;
-        },
+            errors:{
+                email:{
+                    msg: 'Usuario no registrado'
+                }                                   
+            }
+        });
+    },
         //Perfil
-        cliente:(req,res)=>{
+     cliente:(req,res)=>{
             
-
             res.render('user/usuario', {
                 //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
             user:req.session.usuarioLogueado}) 
         },
         
-        modificar:(req,res) =>{
+        // modificar:(req,res) =>{
 
-            res.render('user/modificar',{user:req.session.usuarioLogueado})
-        },
+        //     res.render('user/modificar',{user:req.session.usuarioLogueado})
+        // },
         
-        logout:(req,res) =>{
-            res.clearCookie('userEmail');
-            req.session.destroy();
-            return res.redirect('/')
-        }
-        */
+        // logout:(req,res) =>{
+        //     res.clearCookie('userEmail');
+        //     req.session.destroy();
+        //     return res.redirect('/')
+        // }
+        // */
 };
     
 module.exports = userController;
