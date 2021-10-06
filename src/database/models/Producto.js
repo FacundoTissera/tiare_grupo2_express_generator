@@ -28,7 +28,7 @@ module.exports = function (sequelize, dataTypes){
         discount: {
             type:dataTypes.DOUBLE
         }
-    };
+    }; 
     let config = {
         tableName: 'products',
         timestamps: false
@@ -56,7 +56,7 @@ module.exports = function (sequelize, dataTypes){
             foreignKey:'product_id',
             otherKey: 'color_id'
         })
-      
+        
         
     }
 

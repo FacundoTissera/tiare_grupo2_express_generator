@@ -58,7 +58,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER
         }
 
-       };
+        };
     let config = {
         tableName: 'users',
         timestamps: false
