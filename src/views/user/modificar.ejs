@@ -57,29 +57,20 @@
                     
                     <div class="datos-registro">
                         <label for="provincia">Provincia:</label> 
-                        <select name="provincia" id="provincia"class="eleccion-opciones"
-                        <% if (locals.errors && errors.provincia) { %>
-                        class="text-danger">
-                              <%= errors.provincia.msg %> 
-                          <% } %>">
-                            
-                            <option value="">Elija una opción</option>
-                            
-                            <% for (let i=0; i < provincias.length; i++) { %> 
-                                <option <%if (locals.oldData && locals.oldData.provincia) { %>
-                                 <% if (locals.oldData.provincia == provincias[i].state) { %> 
-                                           selected
-                                            <% } %> 
-                                        <% } %> 
-                                   value="<%=provincias[i].id%>"><%=provincias[i].state%> 
-                                </option>
-                                <% } %>
+                        <select name="provincia" id="provincia"class="eleccion-opciones">
+                                <% for (let i=0; i < provincias.length; i++) { %> 
+                                  <% if (provincias[i].id== Usuario.state_id){ %> 
+                                  <option value="<%=provincias[i].id%>" selected>
+                                  <%=provincias[i].state%>
+                                  </option>
+                                  <%} else {%> 
+                                  <option value='<%=provincias[i].id%>'>
+                                    <%=provincias[i].state%>
+                                  </option>
+                                  <%}%> 
+                              <%}%> 
+                              </select>
                             </select>
-                            <% if (locals.errors && errors.provincia) { %>
-                                <div class="text-danger">
-                                    <%= errors.provincia.msg %> 
-                                </div>
-                                <% } %>
                         </div>
                         
                         <div class="datos-registro">
