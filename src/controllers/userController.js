@@ -161,7 +161,7 @@ const userController = {
             acept_terms: req.body.aceptoTerminos
         }
              if (req.file){
-            usuarioEditado.image= req.file.originalname}
+            usuarioEditado.image= req.file.filename}
         
        db.Usuario.update(usuarioEditado,
             { where: {id:req.params.id}})
