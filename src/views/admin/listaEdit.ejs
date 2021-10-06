@@ -26,14 +26,14 @@
             </tr>
           </thead>
           <tbody>
-            <% producto.forEach(prenda => { %>
+            <% Producto.forEach(producto => { %>
             <tr>
-                <td><%= prenda.id%> </td>
-                <td><%= prenda.name%> </td>
-                <td><a href="/products/detalle/<%= prenda.id%> "> <i class="icono-lista fas fa-eye"></i></a></td>
-                <td><a href="/admin/editar/<%= prenda.id%> "> <i class="icono-lista far fa-edit"></i></a></td>
+                <td><%= producto.id%> </td>
+                <td><%= producto.name%> </td>
+                <td><a href="/products/detalle/<%= producto.id%> "> <i class="icono-lista fas fa-eye"></i></a></td>
+                <td><a href="/admin/editar/<%= producto.id%> "> <i class="icono-lista far fa-edit"></i></a></td>
 <!--dentro de la tabla la funcion borrar tiene que ir dentro de un formulario-->
-                <td><form action="/admin/borrar/<%= prenda.id%>?_method=DELETE " method="POST">
+                <td><form action="/admin/borrar/<%= producto.id%>?_method=DELETE " method="POST">
                         <button type="submit"class="borrar-producto"><i class="icono-lista fas fa-trash-alt"></i></button> 
                     </form>
                 </td>

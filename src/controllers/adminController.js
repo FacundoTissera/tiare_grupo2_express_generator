@@ -20,7 +20,7 @@ const adminController = {
         //res.render('admin/listaEdit', {prendas:prendas});
         db.Producto.findAll()
         .then(function(producto){
-            res.render('admin/listaEdit', {producto:producto})
+            res.render('admin/listaEdit', {Producto:producto})
         })
     },
     //nuevo producto CREAR GET (formulario)
