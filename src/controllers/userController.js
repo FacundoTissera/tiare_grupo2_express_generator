@@ -11,7 +11,6 @@ const userController = {
        let todos = db.Usuario.findAll();
        let provincias = db.State.findAll();
        //let roles = db.Role.findAll();
-       console.log(provincias)
        Promise.all([todos, provincias])
        .then(function([usuario, provincia]){
         res.render('user/register',{usuarios:usuario, provincias:provincia});
@@ -77,9 +76,8 @@ const userController = {
                 req.session.usuarioLogueado = usuarioRegistrado;
 
                 //creo la cookie
-                if (req.body.recuerdame) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-				}
+                res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                
                 //voy a la vista del usuario
                 return res.redirect('user/usuario');  
             } 

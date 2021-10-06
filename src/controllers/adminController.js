@@ -60,7 +60,6 @@ const adminController = {
                 category_id:req.body.categoria,
             })
             .then(function(nuevoProducto){
-                console.log (req.body)
                 let promesas = []
                 for (let i=0; i<req.body.color.length; i++){
                     if(req.body.color[i]){

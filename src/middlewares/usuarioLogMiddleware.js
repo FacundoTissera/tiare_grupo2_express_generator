@@ -4,6 +4,7 @@ async function usuarioLogMiddleware (req, res, next){
 
     res.locals.isLogged = false;
 
+    
     if (req.cookies.userEmail) {
         let userFromCookie = await db.Usuario.findOne({
             where: {
