@@ -16,8 +16,7 @@ const adminController = {
     },
     //listado de productos para editar, ver o borrar desde el menu admin
     lista:(req,res) =>{
-       // let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-        //res.render('admin/listaEdit', {prendas:prendas});
+     
         db.Producto.findAll()
         .then(function(producto){
             res.render('admin/listaEdit', {Producto:producto})
@@ -36,8 +35,7 @@ const adminController = {
 
     //nuevo producto post   
     store:(req, res) =>{
-        //let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-        
+
         //validaciones
         const resultadosValidacion= validationResult(req)
         if(resultadosValidacion.errors.length >0){
@@ -94,10 +92,7 @@ const adminController = {
         .then(function([producto, categoria, color, talle, stock]){
             res.render('admin/editar', {title: 'Editar productos', producto:producto, categorias:categoria, colores:color, talles:talle, stocks:stock})
         })
-        //let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-        //let id= req.params.id;
-        //let productoAEditar = prendas.find (element => element.id ==id);
-        //res.render('admin/editar', {productoAEditar:productoAEditar})
+      
     },
 
     //modifica el producto put
@@ -136,11 +131,7 @@ const adminController = {
     },
 
     delete: (req, res) =>{
-        //let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
-        //let id = req.params.id;
-        //let productosActualizados = prendas.filter(element => element.id != id);    
-        // busca los que sean diferentes al id 
-        //fs.writeFileSync(productsDatos, JSON.stringify(productosActualizados, null, 4), 'utf-8')
+  
         let deleteStock= db.Stock.destroy({
             where:{product_id:req.params.id}
         })

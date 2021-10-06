@@ -10,16 +10,16 @@
 
     <main>
     
-        <form action="/user/modificar/<%=user.id%>?_method=PUT" method="POST" class="register-form" enctype="multipart/form-data">
+        <form action="/user/modificar/<%=Usuario.id%>?_method=PUT" method="POST" class="register-form" enctype="multipart/form-data">
             <fieldset>
-                <legend class="titulo-modificar">MODIFICAR DATOS DE <%=user.fullName%></legend>
+                <legend class="titulo-modificar">MODIFICAR DATOS DE <%=Usuario.name%></legend>
 
                     <div class="datos-registro">
                         <label for="nombre"class="label-nombre">Nombre y Apellido:</label> 
-                        <input type="text" name="fullName" id="nombre"  value="<%=user.fullName%>" >
-                        <% if (locals.errors && errors.fullName) { %>
+                        <input type="text" name="nombre" id="nombre"  value="<%=Usuario.name%>" >
+                        <% if (locals.errors && errors.nombre) { %>
                         <div class="text-danger">
-                            <%= errors.fullName.msg %> 
+                            <%= errors.nombre.msg %> 
                         </div>
                         <% } %>
 
@@ -28,13 +28,13 @@
                     
                     <div class="datos-registro">
                         <label for="direccion">Dirección:</label> 
-                        <input type="text" name="direccion" id="calle" placeholder="Calle" value="<%=user.direccion%>" >
+                        <input type="text" name="direccion" id="calle" placeholder="Calle" value="<%=Usuario.street%>" >
                         <% if (locals.errors && errors.direccion) { %>
                         <div class="text-danger">
                             <%= errors.direccion.msg %> 
                         </div>
                         <% } %>
-                        <input type="number" name="numero" id="numero-puerta" placeholder="Número" value="<%=user.numero%>" >
+                        <input type="number" name="numero" id="numero-puerta" placeholder="Número" value="<%=Usuario.number%>" >
                         <% if (locals.errors && errors.numero) { %>
                         <div class="text-danger">
                             <%= errors.numero.msg %> 
@@ -46,7 +46,7 @@
                     
                     <div class="datos-registro">
                         <label for="ciudad">Ciudad:</label> 
-                        <input type="text" name="ciudad" id="ciudad" value="<%=user.ciudad%>" >
+                        <input type="text" name="ciudad" id="ciudad" value="<%=Usuario.city%>" >
                         <% if (locals.errors && errors.ciudad) { %>
                         <div class="text-danger">
                             <%= errors.ciudad.msg %> 
@@ -57,18 +57,23 @@
                     
                     <div class="datos-registro">
                         <label for="provincia">Provincia:</label> 
-                        <select name="provincia" id="provincia">
+                        <select name="provincia" id="provincia"class="eleccion-opciones"
+                        <% if (locals.errors && errors.provincia) { %>
+                        class="text-danger">
+                              <%= errors.provincia.msg %> 
+                          <% } %>">
                             
                             <option value="">Elija una opción</option>
-                            <% 
-                                let provincias = ['Ciudad Autónoma de BsAs','Bs. As.', 'Catamarca','Chaco', 'Chubut', 'Cordoba', 'Corrientes','Entre Rios', 'Formosa', 'Jujuy', 'La Pampa', 'La Rioja','Mendoza','Misiones','Neuquen','Rio Negro','Salta','SanJuan','SanLuis','Santa Cruz','Santa Fe','Sgo. del Ester','Tierra del Fuego','Tucuman']
-                                %> 
-                            <% for( const unaProvincia of provincias) { %>
-
-                                <option  
-                                value="<%=unaProvincia %>" <%= locals.oldData && (unaProvincia === oldData.provincia) ? "selected" : null%> > <%= unaProvincia %> </option>
+                            
+                            <% for (let i=0; i < provincias.length; i++) { %> 
+                                <option <%if (locals.oldData && locals.oldData.provincia) { %>
+                                 <% if (locals.oldData.provincia == provincias[i].state) { %> 
+                                           selected
+                                            <% } %> 
+                                        <% } %> 
+                                   value="<%= provincias[i].id %>"><%=provincias[i].state%> 
+                                </option>
                                 <% } %>
-                                
                             </select>
                             <% if (locals.errors && errors.provincia) { %>
                                 <div class="text-danger">
@@ -79,7 +84,7 @@
                         
                         <div class="datos-registro">
                             <label for="codigo-postal">Código Postal:</label> 
-                            <input type="number" name="codigoPostal" id="codigo-postal" value="<%= user.codigoPostal%>">
+                            <input type="number" name="codigoPostal" id="codigo-postal" value="<%= Usuario.postal_code%>">
 
                             <% if (locals.errors && errors.codigoPostal) { %>
                         <div class="text-danger">
@@ -91,7 +96,7 @@
                         
                         <div class="datos-registro">
                             <label for="telefono">Teléfono:</label> 
-                            <input type="number" name="telefono" id="telefono" value="<%= user.telefono %>">
+                            <input type="number" name="telefono" id="telefono" value="<%= Usuario.phone %>">
                             <% if (locals.errors && errors.telefono) { %>
                         <div class="text-danger">
                             <%= errors.telefono.msg %> 
@@ -102,7 +107,7 @@
                         
                         <div class="datos-registro">
                             <label for="email">Email:</label> 
-                            <input type="email" name="email" id="email" value="<%=user.email%> " required>
+                            <input type="email" name="email" id="email" value="<%=Usuario.email%> " required>
                             <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
                             <%= errors.email.msg %> 
@@ -125,6 +130,9 @@
 
                         <div class="datos-registro">
                             <label >Imagen de perfil</label> 
+                             <figure class="form-group">
+                             <img  width="30%" class="foto-user" src="/images/avatars/<%= Usuario.image%>" alt="usuario <%= Usuario.name%>">
+                            </figure>
                             <input type="file" name="avatar" id="avatar" >
                             <% if (locals.errors && errors.avatar) { %>
                                 <div class="text-danger">

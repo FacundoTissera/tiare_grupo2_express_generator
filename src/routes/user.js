@@ -26,10 +26,13 @@ router.post('/register',uploadFile.single('avatar'),validaciones.register ,userC
 router.get('/usuario', sinSessionMiddleware, userController.cliente);
 
 // //modificar datos usuario
-// router.get('/modificar/:id', sinSessionMiddleware, userController.modificar);
+ router.get('/modificar/:id', sinSessionMiddleware, userController.modificar);
+
+//modificar datos usuario por put
+router.put('/modificar/:id',userController.modificarUsuario);
 
 // //cerrar sesion, logout
-// router.get('/logout', userController.logout);
+ router.get('/logout', userController.logout);
 
 // Listado de todos los usuarios
 router.get("/listadoUsuarios", sinSessionMiddleware, userController.listado);

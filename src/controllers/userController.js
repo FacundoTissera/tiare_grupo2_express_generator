@@ -127,18 +127,58 @@ const userController = {
             user:req.session.usuarioLogueado}) 
         },
         
-        // modificar:(req,res) =>{
+    modificar:(req,res) =>{
+        let usuarioEditar=db.Usuario.findByPk(req.params.id)
+        let listaProvincias=db.State.findAll()
+        let listaRoles=db.Role.findAll()
 
-        //     res.render('user/modificar',{user:req.session.usuarioLogueado})
-        // },
+        Promise.all([usuarioEditar, listaProvincias, listaRoles])
+        .then(function([usuario, provincia, role]){
+            res.render('user/modificar', {title: 'Editar usuarios', Usuario:usuario, provincias:provincia, Role:role})
+        })
+           // res.render('user/modificar',{user:req.session.usuarioLogueado})
+
+    },
+    modificarUsuario:(req, res) =>{
+        db.State.findAll()
+        .then(function(provincias){
+            const resultadoValidaciones = validationResult(req);
+            console.log(resultadoValidaciones);
+            if(resultadoValidaciones.errors.length > 0){
+                return res.render('user/modificar',{
+                    errors: resultadoValidaciones.mapped(),
+                    oldData: req.body, provincias:provincias
+                });
+            };  
+        })      
+
+        let usuarioEditado = {
+            name:req.body.nombre,
+            street:req.body.direccion,
+            number:req.body.numero,
+            city:req.body.ciudad,
+            state_id:req.body.provincia,
+            postal_code:req.body.codigoPostal,
+            phone:req.body.telefono,
+            email:req.body.email,
+            password: bcryptjs.hashSync(req.body.password, 10), 
+            acept_terms: req.body.aceptoTerminos
+        }
+             if (req.file){
+            usuarioEditado.image= req.file.originalname}
         
-        // logout:(req,res) =>{
-        //     res.clearCookie('userEmail');
-        //     req.session.destroy();
-        //     return res.redirect('/')
-        // }
-        // */
-};
+       db.Usuario.update(usuarioEditado,
+            { where: {id:req.params.id}})
+    
+        .then(() => res.redirect('/user/detalleUsuario/'+req.params.id))
+        },
+    logout:(req,res) =>{
+            res.clearCookie('userEmail');
+            req.session.destroy();
+            return res.redirect('/')
+        }
+        
+    }
     
     module.exports = userController;
     

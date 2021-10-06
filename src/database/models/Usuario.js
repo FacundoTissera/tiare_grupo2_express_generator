@@ -29,7 +29,7 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false,
             type: dataTypes.INTEGER,
         },
-        postalCode:{
+        postal_code:{
             allowNull: false,
             type: dataTypes.INTEGER,
         },
