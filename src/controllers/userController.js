@@ -49,8 +49,14 @@ const userController = {
             return res.redirect('/user');
         })    
     },
-
-
+    listado:(req,res)=> {
+        db.Usuario.findAll()
+           .then(function(usuarios){
+               res.render("user/listadoUsuarios", {Usuario:usuarios})
+           }) 
+},
+    
+    
     //formulario login
     ingreso:(req, res)=>{
         //console.log(req.session);
@@ -123,6 +129,7 @@ const userController = {
         // */
 };
     
-module.exports = userController;
-
-
+    module.exports = userController;
+    
+    
+    
