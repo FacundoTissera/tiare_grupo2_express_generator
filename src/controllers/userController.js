@@ -54,7 +54,18 @@ const userController = {
            .then(function(usuarios){
                res.render("user/listadoUsuarios", {Usuario:usuarios})
            }) 
-},
+    },
+
+    detalleUsuarios:(req,res) => {
+
+        db.Usuario.findByPk(req.params.id,{
+            include:[{association:"states"}, {association:"roles"}
+            ]
+        })
+        .then(function(usuario){
+            res.render('user/detalleUsuario', {Usuario:usuario})
+        })
+    },
     
     
     //formulario login

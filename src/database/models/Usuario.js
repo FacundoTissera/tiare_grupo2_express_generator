@@ -50,7 +50,7 @@ module.exports = function(sequelize, dataTypes){
             allowNull: true,
             type: dataTypes.STRING
         },
-        acepTerms:{ 
+        acept_terms:{ 
             type: dataTypes.INTEGER
         },
         role_id:{

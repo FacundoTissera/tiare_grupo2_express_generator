@@ -32,6 +32,9 @@ router.get('/usuario', sinSessionMiddleware, userController.cliente);
 // router.get('/logout', userController.logout);
 
 // Listado de todos los usuarios
-router.get("/lista", userController.listado);
+router.get("/listadoUsuarios", sinSessionMiddleware, userController.listado);
+
+//Detalle usuario (para los que no estan es session)
+router.get("/detalle/:id", sinSessionMiddleware, userController.detalleUsuarios)
 
 module.exports = router;
