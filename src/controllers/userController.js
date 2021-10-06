@@ -8,14 +8,14 @@ const db = require("../database/models")  //Aca traigo los mopdelos de la base d
 const userController = {
     //formulario registro
     registrarse:(req,res)=>{
-       let todos = db.Usuario.findAll();
-       let provincias = db.State.findAll();
-       //let roles = db.Role.findAll();
-       console.log(provincias)
-       Promise.all([todos, provincias])
-       .then(function([usuario, provincia]){
-        res.render('user/register',{usuarios:usuario, provincias:provincia});
-       })
+        let todos = db.Usuario.findAll();
+        let provincias = db.State.findAll();
+        //let roles = db.Role.findAll();
+        console.log(provincias)
+        Promise.all([todos, provincias])
+        .then(function([usuario, provincia]){
+            res.render('user/register',{usuarios:usuario, provincias:provincia});
+        }) 
     },
     
     procesoDeRegistro: (req, res)=>{
@@ -50,8 +50,14 @@ const userController = {
             return res.redirect('/user');
         })    
     },
-
-
+    listado:(req,res)=> {
+        db.User.findAll()
+           .then(function(usuarios){
+               res.render("user/listadoUsuarios", {Usuario:usuarios})
+           }) 
+},
+    
+    
     //formulario login
     ingreso:(req, res)=>{
         //console.log(req.session);
@@ -125,6 +131,7 @@ const userController = {
         // */
 };
     
-module.exports = userController;
-
-
+    module.exports = userController;
+    
+    
+    

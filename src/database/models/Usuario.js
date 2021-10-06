@@ -1,5 +1,7 @@
+const Role = require("./Role");
+
 module.exports = function(sequelize, dataTypes){
-    let alias = "Usuario";
+    let alias = 'Usuario';
     let cols = {
         id:{
             autoIncrement: true,
@@ -27,7 +29,7 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false,
             type: dataTypes.INTEGER,
         },
-        postal_code:{
+        postalCode:{
             allowNull: false,
             type: dataTypes.INTEGER,
         },
@@ -48,17 +50,16 @@ module.exports = function(sequelize, dataTypes){
             allowNull: true,
             type: dataTypes.STRING
         },
-        acept_terms:{ 
+        acepTerms:{ 
             type: dataTypes.INTEGER
         },
         role_id:{
-            alowNull:true,
             type: dataTypes.INTEGER
         }
 
         };
     let config = {
-        tableName: "users",
+        tableName: 'users',
         timestamps: false
     }
     const Usuario = sequelize.define(alias,cols, config);

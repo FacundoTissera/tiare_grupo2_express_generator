@@ -31,4 +31,7 @@ router.get('/usuario', sinSessionMiddleware, userController.cliente);
 // //cerrar sesion, logout
 // router.get('/logout', userController.logout);
 
+// Listado de todos los usuarios
+router.get("/lista", userController.listado);
+
 module.exports = router;
