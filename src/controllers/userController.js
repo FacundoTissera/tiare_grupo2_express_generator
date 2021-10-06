@@ -111,7 +111,7 @@ const userController = {
         });
     },
         //Perfil
-     cliente:(req,res)=>{
+    cliente:(req,res)=>{
             
             res.render('user/usuario', {
                 //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
