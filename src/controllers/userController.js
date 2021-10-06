@@ -51,7 +51,7 @@ const userController = {
         })    
     },
     listado:(req,res)=> {
-        db.User.findAll()
+        db.Usuario.findAll()
            .then(function(usuarios){
                res.render("user/listadoUsuarios", {Usuario:usuarios})
            }) 
