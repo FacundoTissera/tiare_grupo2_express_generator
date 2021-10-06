@@ -17,18 +17,16 @@ const userController = {
        })
     },
     
-    procesoDeRegistro: (req, res)=>{
-        db.State.findAll()
-        .then(function(provincias){
-            const resultadoValidaciones = validationResult(req);
-            console.log(resultadoValidaciones);
-            if(resultadoValidaciones.errors.length > 0){
-                return res.render('user/register',{
-                    errors: resultadoValidaciones.mapped(),
-                    oldData: req.body, provincias:provincias
-                });
-            };  
-        })      
+    procesoDeRegistro: async (req, res)=>{
+        let provincias = await db.State.findAll()
+        const resultadoValidaciones = validationResult(req);
+        if (resultadoValidaciones.errors.length > 0){
+            return res.render('user/register',{
+                errors: resultadoValidaciones.mapped(),
+                oldData: req.body, 
+                provincias: provincias
+            });
+        };  
 
         let usuarioCreado = {
             name:req.body.nombre,
@@ -139,20 +137,18 @@ const userController = {
            // res.render('user/modificar',{user:req.session.usuarioLogueado})
 
     },
-    modificarUsuario:(req, res) =>{
-        db.State.findAll()
-        .then(function(provincias){
-            const resultadoValidaciones = validationResult(req);
-            console.log(resultadoValidaciones);
-            if(resultadoValidaciones.errors.length > 0){
-                return res.render('user/modificar',{
-                    errors: resultadoValidaciones.mapped(),
-                    oldData: req.body, provincias:provincias
-                });
-            };  
-        })      
-
-        let usuarioEditado = {
+    modificarUsuario: async (req, res) =>{
+        let provincias = await db.State.findAll()
+        const resultadoValidaciones = validationResult(req);
+        if (resultadoValidaciones.errors.length > 0){
+            return res.render('user/modificar',{
+                errors: resultadoValidaciones.mapped(),
+                oldData: req.body, 
+                provincias: provincias
+            });
+        };    
+        
+        let usuarioEditado ={
             name:req.body.nombre,
             street:req.body.direccion,
             number:req.body.numero,
@@ -170,7 +166,7 @@ const userController = {
        db.Usuario.update(usuarioEditado,
             { where: {id:req.params.id}})
     
-        .then(() => res.redirect('/user/detalleUsuario/'+req.params.id))
+        .then(() => res.redirect('/user/detalle/'+req.params.id))
         },
     logout:(req,res) =>{
             res.clearCookie('userEmail');

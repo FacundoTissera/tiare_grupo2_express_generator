@@ -29,7 +29,7 @@ router.get('/usuario', sinSessionMiddleware, userController.cliente);
  router.get('/modificar/:id', sinSessionMiddleware, userController.modificar);
 
 //modificar datos usuario por put
-router.put('/modificar/:id',userController.modificarUsuario);
+router.put('/modificar/:id',uploadFile.single('avatar'), userController.modificarUsuario);
 
 // //cerrar sesion, logout
  router.get('/logout', userController.logout);
