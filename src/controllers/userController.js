@@ -176,8 +176,15 @@ const userController = {
             res.clearCookie('userEmail');
             req.session.destroy();
             return res.redirect('/')
-        }
-        
+        },
+        borrar: function(req,res) {
+            db.Usuario.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.redirect('/user/listadoUsuarios');
+        }  
     }
     
     module.exports = userController;

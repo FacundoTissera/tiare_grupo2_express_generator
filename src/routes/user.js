@@ -40,4 +40,7 @@ router.get("/listadoUsuarios", sinSessionMiddleware, userController.listado);
 //Detalle usuario (para los que no estan es session)
 router.get("/detalle/:id", sinSessionMiddleware, userController.detalleUsuarios)
 
+//Borrado
+router.delete("/borrar/:id", userController.borrar);
+
 module.exports = router;
