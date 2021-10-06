@@ -31,4 +31,7 @@ router.post('/register',uploadFile.single('avatar'),validaciones.register ,userC
 // //cerrar sesion, logout
 // router.get('/logout', userController.logout);
 
+// Listado de todos los usuarios
+router.get("/lista", userController.listado);
+
 module.exports = router;

@@ -8,14 +8,14 @@ const db = require("../database/models")  //Aca traigo los mopdelos de la base d
 const userController = {
     //formulario registro
     registrarse:(req,res)=>{
-       let todos = db.Usuario.findAll();
-       let provincias = db.State.findAll();
-       //let roles = db.Role.findAll();
-       console.log(provincias)
-       Promise.all([todos, provincias])
-       .then(function([usuario, provincia]){
-        res.render('user/register',{usuarios:usuario, provincias:provincia});
-       })
+        let todos = db.Usuario.findAll();
+        let provincias = db.State.findAll();
+        //let roles = db.Role.findAll();
+        console.log(provincias)
+        Promise.all([todos, provincias])
+        .then(function([usuario, provincia]){
+            res.render('user/register',{usuarios:usuario, provincias:provincia});
+        }) 
     },
     
     procesoDeRegistro: (req, res)=>{
@@ -27,7 +27,7 @@ const userController = {
                 oldData: req.body,
             });
         };
-
+        
         db.Usuario.findAll({
             include:[{association:"states"}, {association:"roles"}]
         })
@@ -42,42 +42,48 @@ const userController = {
                     },
                     oldData: req.body,
                 });
-        };
-
-        let usuarioCreado = {
-           name:req.body.nombre,
-           street:req.body.direccion,
-           number:req.body.numero,
-           city:req.body.ciudad,
-           state_id:req.body.provincia,
-           postal_code:req.body.codigoPostal,
-           phone:req.body.telefono,
-           email:req.body.email,
-           password: bcryptjs.hashSync(req.body.password, 10),
-           image: req.file.originalname, //antes decia .filename 
-
-
-        };
-
-        db.Usuario.create({usuarioCreado})
-        .then(function() {
-            return res.redirect('/user');
+            };
+            
+            let usuarioCreado = {
+                name:req.body.nombre,
+                street:req.body.direccion,
+                number:req.body.numero,
+                city:req.body.ciudad,
+                state_id:req.body.provincia,
+                postal_code:req.body.codigoPostal,
+                phone:req.body.telefono,
+                email:req.body.email,
+                password: bcryptjs.hashSync(req.body.password, 10),
+                image: req.file.originalname, //antes decia .filename 
+                
+                
+            };
+            
+            db.Usuario.create({usuarioCreado})
+            .then(function() {
+                return res.redirect('/user');
+            })
         })
-    })
     },
-
-
+    listado:(req,res)=> {
+        db.User.findAll()
+           .then(function(usuarios){
+               res.render("user/listadoUsuarios", {Usuario:usuarios})
+           }) 
+},
+    
+    
     //formulario login
     ingreso:(req, res)=>{
         //console.log(req.session);
         
-            res.render('user/login',{title: 'logueate',});
-        },
-        
-   /* procesoDeLogin:(req, res)=>{
+        res.render('user/login',{title: 'logueate',});
+    },
+    
+    /* procesoDeLogin:(req, res)=>{
         //return res.send(req.body);
         let usuarioRegistrado = User.buscarPorCampo('email', req.body.email);
-
+        
         if (usuarioRegistrado){
             let contraseniaCorrecta= bcryptjs.compareSync(req.body.password, usuarioRegistrado.password);
             if (contraseniaCorrecta) {
@@ -85,18 +91,18 @@ const userController = {
                 delete usuarioRegistrado.password
                 //ACA GUARDO AL USUARIO REGISTRADO ↓
                 req.session.usuarioLogueado = usuarioRegistrado;
-
-
+                
+                
                 if(req.body.recuerdame) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
                 
                 //voy a la vista del usuario
                 return res.redirect('user/usuario'); }   
-
-            return res.render('user/login',{
-                errors:{
-                    email:{
+                
+                return res.render('user/login',{
+                    errors:{
+                        email:{
                         msg: 'Contraseña o usuario incorrecto'
                     },
                     password:{
@@ -106,24 +112,24 @@ const userController = {
             });
         }
         return res.render('user/login',{
-                            errors:{
-                                email:{
-                                    msg: 'Usuario no registrado'
-                                }                                   
-                            }
-                }) ;
-        },
-        //Perfil
-        cliente:(req,res)=>{
-            
-
-            res.render('user/usuario', {
-                //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
+            errors:{
+                email:{
+                    msg: 'Usuario no registrado'
+                }                                   
+            }
+        }) ;
+    },
+    //Perfil
+    cliente:(req,res)=>{
+        
+        
+        res.render('user/usuario', {
+            //aca dejo a USER como req en la vista ejs (con user vas a poder usarlo en ejs);
             user:req.session.usuarioLogueado}) 
         },
         
         modificar:(req,res) =>{
-
+            
             res.render('user/modificar',{user:req.session.usuarioLogueado})
         },
         
@@ -133,8 +139,9 @@ const userController = {
             return res.redirect('/')
         }
         */
-};
+    };
     
-module.exports = userController;
-
-
+    module.exports = userController;
+    
+    
+    
