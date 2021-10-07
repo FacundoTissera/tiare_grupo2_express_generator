@@ -26,12 +26,21 @@ router.post('/register',uploadFile.single('avatar'),validaciones.register ,userC
 router.get('/usuario', sinSessionMiddleware, userController.cliente);
 
 // //modificar datos usuario
-// router.get('/modificar/:id', sinSessionMiddleware, userController.modificar);
+ router.get('/modificar/:id', sinSessionMiddleware, userController.modificar);
+
+//modificar datos usuario por put
+router.put('/modificar/:id',uploadFile.single('avatar'), userController.modificarUsuario);
 
 // //cerrar sesion, logout
-// router.get('/logout', userController.logout);
+ router.get('/logout', userController.logout);
 
 // Listado de todos los usuarios
-router.get("/lista", userController.listado);
+router.get("/listadoUsuarios", sinSessionMiddleware, userController.listado);
+
+//Detalle usuario (para los que no estan es session)
+router.get("/detalle/:id", sinSessionMiddleware, userController.detalleUsuarios)
+
+//Borrado
+router.delete("/borrar/:id", userController.borrar);
 
 module.exports = router;

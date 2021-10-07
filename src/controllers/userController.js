@@ -8,28 +8,25 @@ const db = require("../database/models")  //Aca traigo los mopdelos de la base d
 const userController = {
     //formulario registro
     registrarse:(req,res)=>{
-        let todos = db.Usuario.findAll();
-        let provincias = db.State.findAll();
-        //let roles = db.Role.findAll();
-        console.log(provincias)
-        Promise.all([todos, provincias])
-        .then(function([usuario, provincia]){
-            res.render('user/register',{usuarios:usuario, provincias:provincia});
-        }) 
+       let todos = db.Usuario.findAll();
+       let provincias = db.State.findAll();
+       //let roles = db.Role.findAll();
+       Promise.all([todos, provincias])
+       .then(function([usuario, provincia]){
+        res.render('user/register',{usuarios:usuario, provincias:provincia});
+       })
     },
     
-    procesoDeRegistro: (req, res)=>{
-        db.State.findAll()
-        .then(function(provincias){
-            const resultadoValidaciones = validationResult(req);
-            console.log(resultadoValidaciones);
-            if(resultadoValidaciones.errors.length > 0){
-                return res.render('user/register',{
-                    errors: resultadoValidaciones.mapped(),
-                    oldData: req.body, provincias:provincias
-                });
-            };  
-        })      
+    procesoDeRegistro: async (req, res)=>{
+        let provincias = await db.State.findAll()
+        const resultadoValidaciones = validationResult(req);
+        if (resultadoValidaciones.errors.length > 0){
+            return res.render('user/register',{
+                errors: resultadoValidaciones.mapped(),
+                oldData: req.body, 
+                provincias: provincias
+            });
+        };  
 
         let usuarioCreado = {
             name:req.body.nombre,
@@ -55,7 +52,18 @@ const userController = {
            .then(function(usuarios){
                res.render("user/listadoUsuarios", {Usuario:usuarios})
            }) 
-},
+    },
+
+    detalleUsuarios:(req,res) => {
+
+        db.Usuario.findByPk(req.params.id,{
+            include:[{association:"states"}, {association:"roles"}
+            ]
+        })
+        .then(function(usuario){
+            res.render('user/detalleUsuario', {Usuario:usuario})
+        })
+    },
     
     
     //formulario login
@@ -83,9 +91,8 @@ const userController = {
                 req.session.usuarioLogueado = usuarioRegistrado;
 
                 //creo la cookie
-                if (req.body.recuerdame) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-				}
+                res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                
                 //voy a la vista del usuario
                 return res.redirect('user/usuario');  
             } 
@@ -118,18 +125,63 @@ const userController = {
             user:req.session.usuarioLogueado}) 
         },
         
-        // modificar:(req,res) =>{
+    modificar:(req,res) =>{
+        let usuarioEditar=db.Usuario.findByPk(req.params.id)
+        let listaProvincias=db.State.findAll()
+        let listaRoles=db.Role.findAll()
 
-        //     res.render('user/modificar',{user:req.session.usuarioLogueado})
-        // },
+        Promise.all([usuarioEditar, listaProvincias, listaRoles])
+        .then(function([usuario, provincia, role]){
+            res.render('user/modificar', {title: 'Editar usuarios', Usuario:usuario, provincias:provincia, Role:role})
+        })
+           // res.render('user/modificar',{user:req.session.usuarioLogueado})
+
+    },
+    modificarUsuario: async (req, res) =>{
+        let provincias = await db.State.findAll()
+        const resultadoValidaciones = validationResult(req);
+        if (resultadoValidaciones.errors.length > 0){
+            return res.render('user/modificar',{
+                errors: resultadoValidaciones.mapped(),
+                oldData: req.body, 
+                provincias: provincias
+            });
+        };    
         
-        // logout:(req,res) =>{
-        //     res.clearCookie('userEmail');
-        //     req.session.destroy();
-        //     return res.redirect('/')
-        // }
-        // */
-};
+        let usuarioEditado ={
+            name:req.body.nombre,
+            street:req.body.direccion,
+            number:req.body.numero,
+            city:req.body.ciudad,
+            state_id:req.body.provincia,
+            postal_code:req.body.codigoPostal,
+            phone:req.body.telefono,
+            email:req.body.email,
+            password: bcryptjs.hashSync(req.body.password, 10), 
+            acept_terms: req.body.aceptoTerminos
+        }
+             if (req.file){
+            usuarioEditado.image= req.file.filename}
+        
+       db.Usuario.update(usuarioEditado,
+            { where: {id:req.params.id}})
+    
+        .then(() => res.redirect('/user/detalle/'+req.params.id))
+        },
+    logout:(req,res) =>{
+            res.clearCookie('userEmail');
+            req.session.destroy();
+            return res.redirect('/')
+        },
+        borrar: function(req,res) {
+            db.Usuario.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.redirect('/user/listadoUsuarios');
+        }  
+    }
     
     module.exports = userController;
     

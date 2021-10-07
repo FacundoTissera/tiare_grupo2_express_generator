@@ -3,7 +3,7 @@ Ya teniendo terminado la parte de Producto nos juntamos para ver como resolvemos
 porque tuvimos muchos inconvenientes ya que ademas de tener que crear los usuarios hay que tener en cuenta las validaciones, sesiones, etc. Se nos hizo mas dificil de lo que pensabamos pero de a poco lo vamos completando.
 
 
-## 7to WEEKLY STAND-UP: VIERNES 3/17##
+## 7to WEEKLY STAND-UP 17/9##
 Nos juntamos para comenzar con el diagrama decidimos hacerlo en el Dynobird y completamos todo el esquema.
 Durante esta semana hicimos el paso 4,5 y 6 del sprint Actual.
 Los problemas que tuvimos son el de no tener un host para poder trabajar en conjunto.

@@ -27,7 +27,7 @@
             <tr>
                 <td><%= usuario.id%> </td>
                 <td><%= usuario.name%> </td>
-                <td><a href="/user/usuario/<%= usuario.id%> "> <i class="icono-lista fas fa-eye"></i></a></td>
+                <td><a href="/user/detalle/<%= usuario.id%> "> <i class="icono-lista fas fa-eye"></i></a></td>
                 <td><a href="/user/modificar/<%= usuario.id%> "> <i class="icono-lista far fa-edit"></i></a></td>
 <!--dentro de la tabla la funcion borrar tiene que ir dentro de un formulario-->
                 <td><form action="/user/borrar/<%= usuario.id%>?_method=DELETE " method="POST">
