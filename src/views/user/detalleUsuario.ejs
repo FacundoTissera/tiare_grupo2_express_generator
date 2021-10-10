@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--head del partial-->
+<%- include('../parciales/head') %>
+<link rel="stylesheet" href="/stylesheets/styleUsuario.css">
+
+<body>
+    <!--header del partial -->
+    <%- include('../parciales/header') %>
+    
+<main>
+    <h2 class="linea"><span>DETALLE DE USUARIO</span></h2>
+    
+    <div class="caja-completa-usuario">
+            <div class="">
+                <table class="default">
+
+                    <tr class="facu">
+                        
+                        <td>Datos</td>
+
+                    </tr>
+                    <tr>
+
+                        <td><img src="/images/avatars/<%= Usuario.image %> " alt="holis" style="width: 100%"></td>
+                        
+                    </tr>
+                    
+                    <tr>
+
+                        <td>Usuario: <%= Usuario.name %></td>
+                        
+                    </tr>
+                    
+                    <tr>
+
+                        <td>Email: <%= Usuario.email %></td>
+                        
+                    </tr>
+                    <tr>
+
+                        <td>Telefono:<%= Usuario.phone %></td>
+                        
+                    </tr>
+
+
+                </table>
+            </div>
+            
+            <div>
+                <table class="default">
+                    <tr class="facu">
+                        <td>Editar DATOS</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href= '/user/modificar/<%=Usuario.id%> '>Modificar datos de registo</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>  
+            <div>
+                <table class="default">
+                    <tr class="facu">
+                        <td>ELIMINAR USUARIO</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href= '/user/eliminar/<%=Usuario.id%> '>ELIMINAR USUARIO</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>  
+    </div>
+    
+</main>
+
+        
+        <%- include('../parciales/footer') %>
+
+
+
+<!-- <div style="margin-top: 45px;margin-left: 45px;">   
+    <div>
+        <div>
+            <h2>¡¡ Hola <%= Usuario.name %> !!  </h2>
+            <img src="/avatars/<%= Usuario.image %> " alt="holis" style="width: 15%; margin-left: 45px;">
+            <br>
+            <br>
+            <div> email: <%= Usuario.email %> </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

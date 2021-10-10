@@ -1,12 +1,13 @@
 const session = require('express-session')
 const path = require('path')
 const { body } = require('express-validator');
+const db = require('../database/models');
 
 
 const validaciones ={
     
     register : [
-        body('fullName')
+        body('nombre')
                         .notEmpty()
                         .withMessage('Debes escribir tu Nombre y Apellido'),
         body('direccion')
@@ -32,7 +33,19 @@ const validaciones ={
                         .withMessage('Debes escribir un email')
                         .bail()
                         .isEmail()
-                        .withMessage('Debes escribir un formato de correo valido'),
+                        .withMessage('Debes escribir un formato de correo valido')
+                        .bail()
+                        .custom(async (value, {req})=>{
+                            let usuarioExistente = await db.Usuario.findOne({
+                                where: {
+                                    email: req.body.email
+                                }
+                            });
+                            if (usuarioExistente) {
+                                throw new Error ('Este email ya esta registrado')
+                            }
+                            return true;
+                        }),
         body('password')
                         .notEmpty()
                         .withMessage('Debes escribir tu Contraseña'),

@@ -664,9 +664,9 @@ header{
     }
     /*---INDEX--*/
 
-    main section div.articulos-index .loQuiero{
+    /*main section div.articulos-index .loQuiero{
         display: none;
-    }
+    }--*/
     main section div.articulos-index:hover .loQuiero{
         display: flex;
     }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--Partial de HEAD-->
+<%- include('../parciales/adminHead') %>
+
+<body>
+    <!--partial de HEADER-->
+
+    <%- include('../parciales/adminHeader') %>
+    
+<main class= "listado-productos" >  
+
+    <article class="listado-edit"></article>
+      <table class="tabla">
+          <thead>
+            <tr class='columnas'>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Ver</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Borrar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% Usuario.forEach(usuario => { %>
+            <tr>
+                <td><%= usuario.id%> </td>
+                <td><%= usuario.name%> </td>
+                <td><a href="/user/detalle/<%= usuario.id%> "> <i class="icono-lista fas fa-eye"></i></a></td>
+                <td><a href="/user/modificar/<%= usuario.id%> "> <i class="icono-lista far fa-edit"></i></a></td>
+<!--dentro de la tabla la funcion borrar tiene que ir dentro de un formulario-->
+                <td><form action="/user/borrar/<%= usuario.id%>?_method=DELETE " method="POST">
+                        <button type="submit"class="borrar-producto"><i class="icono-lista fas fa-trash-alt"></i></button> 
+                    </form>
+                </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table> 
+      </article>       
+</main>       

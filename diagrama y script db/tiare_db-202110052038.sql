@@ -64,30 +64,6 @@ INSERT INTO `colors` VALUES (1,'Blanco'),(2,'Negro'),(3,'Tostado'),(4,'Gris'),(5
 UNLOCK TABLES;
 
 --
--- Table structure for table `discounts`
---
-
-DROP TABLE IF EXISTS `discounts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `discounts` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `percent` int NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `discounts`
---
-
-LOCK TABLES `discounts` WRITE;
-/*!40000 ALTER TABLE `discounts` DISABLE KEYS */;
-INSERT INTO `discounts` VALUES (1,10),(2,15),(3,20),(4,25),(5,30);
-/*!40000 ALTER TABLE `discounts` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `order_status`
 --
 
@@ -171,34 +147,6 @@ LOCK TABLES `orders_detail` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `product_discount`
---
-
-DROP TABLE IF EXISTS `product_discount`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `product_discount` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `product_id` int NOT NULL,
-  `discount_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_b9600a06-d1fa-4ec6-acce-25ef5f4705e3` (`product_id`),
-  KEY `FK_56ab8917-0fdf-4314-a51d-af247b833582` (`discount_id`),
-  CONSTRAINT `FK_56ab8917-0fdf-4314-a51d-af247b833582` FOREIGN KEY (`discount_id`) REFERENCES `discounts` (`Id`),
-  CONSTRAINT `FK_b9600a06-d1fa-4ec6-acce-25ef5f4705e3` FOREIGN KEY (`product_id`) REFERENCES `products` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `product_discount`
---
-
-LOCK TABLES `product_discount` WRITE;
-/*!40000 ALTER TABLE `product_discount` DISABLE KEYS */;
-/*!40000 ALTER TABLE `product_discount` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `products`
 --
 
@@ -213,10 +161,11 @@ CREATE TABLE `products` (
   `image` varchar(255) DEFAULT NULL,
   `sale` tinyint NOT NULL,
   `category_id` int NOT NULL,
+  `discount` double DEFAULT '0',
   PRIMARY KEY (`Id`),
   KEY `FK_618e2a0b-0986-4a47-9784-332c32c3bf08` (`category_id`),
   CONSTRAINT `FK_618e2a0b-0986-4a47-9784-332c32c3bf08` FOREIGN KEY (`category_id`) REFERENCES `categories` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -225,7 +174,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Camisa Suiza',3500,'Camisa manga larga en algodón con spandex, entallada.','camisa1_2.jpeg',1,1),(2,'Sweater Paris',4500,'Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.','sweater1_1.jpeg',1,2),(3,'Buzo Francia',3000,'Buzo en morley, mangas largas oversize. 100% polyester.','buzo1_1.jpeg',1,2),(4,'Blusa España',2900,'Camisa clásica, mangas anchas, super larga. Puede usarse como vestido camisero y llevarla con toda la onda.','blusa1_1.jpeg',1,1),(5,'Sweater Madrid',4500,'Sweater en escote en V, tejido buclé. Talle único oversize.','sweater2_1.jpeg',1,1),(6,'Pantalón Viena',4500,'Pantalón palazzo en lanilla, con pinzas y cintura elastizada.','pantalon1_1.jpeg',1,3),(7,'Campera Berlin',5500,'Práctica campera abrigadísima pero con mucha onda. ','camperaBerlin1.jpeg',1,1),(8,'Vestido Vietnam',4900,'Vestido semi-entallado, para todas las ocasiones.','vestidoVietnam2.jpeg',1,4),(9,'Pantalón Varsovia',4500,'Un pantalón muy cómodo, estilo Jogger.','pantalonVarovia1.jpeg',1,3),(10,'Vestido Montreal',4000,'Vestido supercómodo. Clásico','vestidoVietnam3.jpeg',1,4);
+INSERT INTO `products` VALUES (1,'Camisa Suiza',5500,'Camisa manga larga en algodón con spandex, entallada.','camisa1_1.jpeg',1,1,0.1),(2,'Sweater Portugal',4500,'Sweater amplio, cuello tortuga. Cómodo, lindo y calentito.','sweater1_1.jpeg',1,2,0),(3,'Buzo Francia',3000,'Buzo en morley, mangas largas oversize. 100% polyester.','buzo1_1.jpeg',1,2,0),(4,'Blusa España',3900,'Camisa clásica, mangas anchas, super larga. Puede usarse como vestido camisero y llevarla con toda la onda.','blusa1_1.jpeg',1,1,0),(5,'Sweater Madrid',4500,'Sweater en escote en V, tejido buclé. Talle único oversize.','sweater2_1.jpeg',1,1,0.15),(6,'Pantalón Viena',4500,'Pantalón palazzo en lanilla, con pinzas y cintura elastizada.','pantalon1_1.jpeg',1,3,0),(7,'Campera Franfurt',5500,'Práctica campera abrigadísima pero con mucha onda. ','camperaBerlin1.jpeg',1,2,0),(8,'Vestido Vietnam',4900,'Vestido semi-entallado, para todas las ocasiones.','vestidoVietnam2.jpg',1,4,0),(9,'Pantalón Varsovia',4500,'Un pantalón muy cómodo, estilo Jogger.','pantalonVarsovia1.jpg',1,3,0),(10,'Vestido Montevideo',4000,'Vestido supercómodo. Clásico','vestidoVietnam3.jpg',1,4,0),(16,'Remera TULUM',2500,'Remera básica, 100% algodón PIMA peruano. ','remeraTulum.jpg',1,1,0),(17,'Sweater PRAGA',5600,'Buzo abrigado , maxi sweater.','sweaterPraga.jpg',1,2,0),(23,'Falda Niza',3900,'Hermosa falda, talle unico y cuero ecologico engomado. ','Screen Shot 2021-10-02 at 11.20.11.png',1,4,0);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,7 +270,7 @@ CREATE TABLE `stocks` (
   CONSTRAINT `FK_1a966d39-980b-44d6-81f1-55e65860efee` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`),
   CONSTRAINT `FK_7a4a9b75-0467-4e9a-994b-8450b68690f5` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`Id`),
   CONSTRAINT `FK_f23550e6-7ca6-477f-b765-a6c8ed650046` FOREIGN KEY (`product_id`) REFERENCES `products` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -330,7 +279,7 @@ CREATE TABLE `stocks` (
 
 LOCK TABLES `stocks` WRITE;
 /*!40000 ALTER TABLE `stocks` DISABLE KEYS */;
-INSERT INTO `stocks` VALUES (1,1,4,9,2),(2,1,5,9,1),(3,1,4,1,2),(4,1,5,9,2),(5,2,1,1,1),(6,2,1,2,2),(7,2,1,8,2),(8,3,1,10,2),(9,3,1,2,2),(12,4,3,1,2),(13,4,4,1,2),(14,4,5,2,2),(15,5,1,3,2),(16,6,4,8,1),(17,6,6,8,1),(18,7,1,10,2),(19,7,1,2,2),(20,8,2,3,2),(21,8,4,3,1),(22,9,3,3,1),(23,9,4,3,1),(24,9,3,2,1),(25,9,5,2,1),(26,9,4,5,1),(27,9,6,6,1),(28,10,3,7,1),(29,10,4,7,1),(30,10,3,2,1);
+INSERT INTO `stocks` VALUES (8,3,1,10,2),(9,3,1,2,2),(15,5,1,3,2),(16,6,4,8,1),(17,6,6,8,1),(20,8,2,3,2),(21,8,4,3,1),(22,9,3,3,1),(23,9,4,3,1),(24,9,3,2,1),(25,9,5,2,1),(26,9,4,5,1),(27,9,6,6,1),(28,10,3,7,1),(29,10,4,7,1),(30,10,3,2,1),(34,16,4,6,2),(35,16,4,4,2),(36,16,5,6,2),(37,16,5,4,2),(38,1,2,7,1),(39,1,5,9,2),(40,1,2,1,1),(41,1,4,9,2),(42,1,4,1,2),(60,17,4,4,2),(61,17,3,5,2),(62,17,4,6,1),(63,17,3,3,2),(72,4,3,1,2),(73,4,5,2,2),(74,4,6,7,1),(75,4,4,1,2),(76,4,6,8,2),(103,7,1,2,2),(104,7,1,10,2),(105,7,1,6,2),(107,23,1,2,3),(108,2,1,1,1),(109,2,1,8,2),(110,2,1,2,2);
 /*!40000 ALTER TABLE `stocks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -348,19 +297,19 @@ CREATE TABLE `users` (
   `number` int NOT NULL,
   `city` varchar(100) NOT NULL,
   `state_id` int NOT NULL,
-  `postalCode` int NOT NULL,
+  `postal_code` int NOT NULL,
   `phone` int NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `image` varchar(200) NOT NULL,
-  `acepTerms` tinyint NOT NULL,
-  `role_id` int NOT NULL,
+  `acept_terms` tinyint NOT NULL,
+  `role_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_639615f2-e250-40b7-9d3e-b42dfb2dc31e` (`state_id`),
   KEY `FK_b5c10322-842b-4473-8986-dd9b611e3241` (`role_id`),
   CONSTRAINT `FK_639615f2-e250-40b7-9d3e-b42dfb2dc31e` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`),
   CONSTRAINT `FK_b5c10322-842b-4473-8986-dd9b611e3241` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -369,7 +318,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Facundo Tissera','Pasteur',3333,'Villa Maria',7,22222,123123123,'facundotiss3333asorribas@hotmail.com','$2a$10$/BrRHcdifTt/4ZmMyO2YkuvHCfrDivzPZbaJxKJT799seuL0SLMv2','1630091072130_img.jpeg',1,1),(2,'Lucas Rivero','Cullen',81,'Moron',2,1708,1133172824,'lucas.rivero93@gmail.com','$2a$10$UjfCFw60CyZw6alP0UHflurm2lDT.c0A3dUsGRivFwZWHZPdBi3X6','1630776266699_img.jpg',1,1),(3,'Beatriz Hambeck','Juramento',4389,'Villa Urquiza',1,1430,1157003426,'bhambeck@gmail.com','2a$10$tEJkjxY.X4oACRh6KumvluXFEmohNTMRwf6bWmIxhTd.FGxMCmnNy','1630782162350_img.jpeg',1,1),(4,'Ariel Barreiro','Juramento',4389,'Villa Urquiza',1,1430,123456789,'abarrei@gmail.com','$2a$10$8FPco9pXaLbKNPlDGu.ZmOc4TTOTI4eH5QBbFb31a38fO2Nx4.MBe','1630796891230_img.jpeg',1,2),(5,'Duque el Perro','San Martin',1234,'Una Ciudad',12,33333,23445672,'duque@gmail.com','$2a$10$.je9idvhMSvg3/HQ3MJDzOW1ntNuKuxws8YppbvIrX62rXSL1Fh4K','1632018788607_img.jpeg',1,2);
+INSERT INTO `users` VALUES (1,'Facundo Tissera','Pasteur',3333,'Villa Maria',7,22222,123123123,'facundotiss3333asorribas@hotmail.com','$2a$10$/BrRHcdifTt/4ZmMyO2YkuvHCfrDivzPZbaJxKJT799seuL0SLMv2','1630091072130_img.jpeg',1,1),(2,'Lucas Rivero','Cullen',81,'Moron',2,1708,1133172824,'lucas.rivero93@gmail.com','$2a$10$UjfCFw60CyZw6alP0UHflurm2lDT.c0A3dUsGRivFwZWHZPdBi3X6','1630776266699_img.jpg',1,1),(3,'Beatriz Hambeck','Juramento',4389,'Villa Urquiza',1,1430,1157003426,'bhambeck@gmail.com','$2a$10$tEJkjxY.X4oACRh6KumvluXFEmohNTMRwf6bWmIxhTd.FGxMCmnNy','1630782162350_img.jpeg',1,1),(4,'Ariel Barreiro','Juramento',4389,'Villa Urquiza',1,1430,123456789,'abarrei@gmail.com','$2a$10$8FPco9pXaLbKNPlDGu.ZmOc4TTOTI4eH5QBbFb31a38fO2Nx4.MBe','1630796891230_img.jpeg',1,2),(5,'Duque el Perro','San Martin',1234,'Una Ciudad',12,33333,23445672,'duque@gmail.com','$2a$10$.je9idvhMSvg3/HQ3MJDzOW1ntNuKuxws8YppbvIrX62rXSL1Fh4K','1632018788607_img.jpeg',1,2),(6,'kdnflkd','xkcaskl',1,'dlkfj',4,222,333,'bea3333@gmail.com','$2a$10$JrfbzOjk6nq8FacTkfJ3QO.v5oDCwAe4xHZtXpfs5MZFZwn3Y8x/y','1633469014202_img.png',1,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,4 +335,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-18 23:41:27
+-- Dump completed on 2021-10-05 20:38:05

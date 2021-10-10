@@ -14,7 +14,7 @@
             <div class="imagenes-producto">
                 <div class="imagen-producto-principal">
                     <h2></h2>
-                    <img src="/images/prendas/<%= product.imagen %>" alt="<%= product.nombre %>" width="80%">
+                    <img src="/images/prendas/<%= producto.image %>" alt="<%= producto.name %>" width="80%">
                 </div>
                 <!-- <div class="imagenes-chicas">
                     <div>
@@ -34,38 +34,31 @@
             <div class="div-eleccion-producto">
                 <form action="/cart/productCart" method="GET" class="eleccion-producto">
                     
-                    <p><%= product.nombre %> <br><br>$ <%= product.precio %>  </p>
-
+                    <p><%= producto.name %> <br><br>$ <%= producto.price %>  </p>
+                    <p><%=producto.categorias.category%></p>
+                    
                     <fieldset>
                         <legend>Elige un color</legend>
-                        <label>
-                            <input type="radio" name="color" value="Blanco" class="color">Blanco
-                        </label>
-                        <label>
-                            <input type="radio" name="color" value="Natural" class="color">Natural
-                        </label>
-                        <label>
-                            <input type="radio" name="color" value="Negro" class="color">Negro
-                        </label>
-                        <label>
-                            <input type="radio" name="color" value="Suela" class="color">Suela
-                        </label>
+                        <% for (let i=0; i<producto.colores.length; i++){%>
+                            <label>
+                                <input type="radio" name="color" value="<%=producto.colores[i].color%>" class="color"><%=producto.colores[i].color%>
+                            </label>
+                        <% } %> 
                     </fieldset>
                     <fieldset>
                         <legend>Elige un talle</legend>
-                        <label>
-                            <input type="radio" name="talle" value="1"> 1
-                        </label>
-                        <label>
-                            <input type="radio" name="talle" value="2"> 2
-                        </label>
+                        <% for (let i=0; i<producto.talles.length; i++){%>
+                            <label>
+                                <input type="radio" name="talle" value="<%=producto.talles[i].size%>" class="talle"><%=producto.talles[i].size%>
+                            </label>
+                        <% } %> 
                     </fieldset>
                     <div class="agregar-carrito">
                         <button type="submit" class="agregar-carrito" > Agregar al carrito</button></a>
                     </div>
                     <div class="descripcion-del-producto">
                         <p>Descripción:</p>
-                        <p><%= product.descripcion %> 
+                        <p><%= producto.description %> 
                         </p>
                     </div>
                     
@@ -74,9 +67,9 @@
         </section>
         <section class="botones-editar-borrar">
 
-                    <a href="/admin/editar/<%=product.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
+                    <a href="/admin/editar/<%=producto.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
                     
-                    <form action="/admin/borrar/<%= product.id %>?_method=DELETE " method="POST">
+                    <form action="/admin/borrar/<%= producto.id %>?_method=DELETE " method="POST">
                         <button type="submit"class="borrar-producto">ELIMINAR</button> 
                     </form>
                         
