@@ -1,3 +1,11 @@
+## 9no WEEKLY STAND-UP: LUNES 11/10##
+Habiendo entregado el 6to sprint, nos dividimos las tareas del sprint nro 7. 
+Observamos que tenemos realizadas algunas vlaidaciones de sprints anteriores por lo que vamos a empezar de la siguiente forma:
+Facu actualizará las validaciones de usuarios a los requerimientos de este sprint
+Bea actualizará las de productos
+Lucas mientras tanto comenzará con las validaciones del front. 
+
+
 ## 8to WEEKLY STAND-UP: VIERNES 1/10##
 Ya teniendo terminado la parte de Producto nos juntamos para ver como resolvemos usuario ya que tuvimos muchos problemas en esta parte
 porque tuvimos muchos inconvenientes ya que ademas de tener que crear los usuarios hay que tener en cuenta las validaciones, sesiones, etc. Se nos hizo mas dificil de lo que pensabamos pero de a poco lo vamos completando.

@@ -1,3 +1,21 @@
+## Retro SPRING 6:
+## RETROSPECTIVA GENERAL:
+El sprint 6 fue cumplido en tiempo y forma aunque corrimos mucho para poder completarlo. 
+La comunicación sentimos que sigue siendo una parte relevante para que nuestro equipo continue avanzando.
+El tema base de datos + sequelize nos pareció largo para un solo sprint, y tuvimos que recurrir a material y profesionales por fuera de lo dado en el curso para poder completarlo de la manera que nos gustaba.
+Además decidimos que para este sprint era interesante trabajar los 3, en una nueva rama del proyecto que al finalizar pudimos  integrar a la master. 
+
+## START DOING
+Poder ver el proyecto en el estado que se encuentra al principio del sprint y ver si la estructura y trabajo realizado hasta el momento es funcional a lo solicitado.   
+## MORE OFF
+Comentar cada una de las partes realizadas, y estar en comunicación continua para comprender el trabajo que realizaron los compañeros en forma individual.
+## KEEP DOING
+Mantener la colaboración interna del equipo. 
+## LESS OFF
+Nada por acá.
+## STOP DOING
+Nada por acá. 
+
 ## Retro SPRING 5:
 ## RETROSPECTIVA GENERAL:
 El sprint 5 fue cumplido adecuadamente y sin mayores inconvenientes. A la vez de cumplir con los requisitos pudimos hacer una reorganización de archivos y carpetas y además limpiar un poco el código que ya no estábamos utilizando. Lo más complicado fue el tema session, y poder lograr cada nueva ruta y limitarla a que la pueda ver un usuario logueado.
