@@ -97,6 +97,26 @@ const adminController = {
 
     //modifica el producto put
     cambio: (req,res) =>{
+        const resultadosValidacion= validationResult(req)
+        console.log(resultadosValidacion.errors)
+        if(resultadosValidacion.errors.length >0){
+            let productoEditar=db.Producto.findByPk(req.params.id)
+            let listaCategorias=db.Categoria.findAll()
+            let listaColores=db.Color.findAll()
+            let listaTalles=db.Talle.findAll()
+            let stocks=db.Stock.findAll({
+                where: {
+                    product_id:req.params.id
+                  }
+            })
+            Promise.all([productoEditar,listaCategorias, listaColores, listaTalles, stocks])
+            .then(function([producto, categoria, color, talle, stock]){
+                return res.render('admin/editar', {title: 'Editar productos', producto:producto,categorias:categoria, colores:color, talles:talle,stocks:stock, errors:resultadosValidacion.mapped(),
+                oldData:req.body})
+            });
+        }
+        else {
+
         let datosProducto = {
             name:req.body.nombre,
             price:req.body.precio,
@@ -128,6 +148,7 @@ const adminController = {
                 Promise.all([combinacionesBorrar,promesas])
                 .then(() => res.redirect('/products/detalle/'+req.params.id))
             })
+        }
     },
 
     delete: (req, res) =>{

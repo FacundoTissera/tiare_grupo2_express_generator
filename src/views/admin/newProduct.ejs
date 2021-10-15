@@ -11,10 +11,11 @@
     <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO</legend>
       
       <form action="/admin/newProduct" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data" >
-        
+        <!-- nombre producto -->
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
-          <input type="text" 
+          <input 
+            type="text" 
             name="nombre" 
             id="nombre" 
             placeholder="Ej: REMERA MILÁN" 
@@ -27,22 +28,21 @@
             </div>
           <%}%>
         </div>
-
+        <!-- categoria  -->
         <div class="categoria-producto">
           <label for="categoria" class="titulo-formulario-producto">CATEGORIA DEL PRODUCTO:</label>
           <select 
             name="categoria" 
             id="categoria"
             class="eleccion-opciones <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
-
             <option value="">Elegí una categoría</option>
 
             <% for (let i=0; i < categorias.length; i++) { %> 
-              <option <%if (locals.oldData && locals.oldData.categoria) { %>
-                          <% if (locals.oldData.categoria == categorias[i].category) { %> 
+            <option <%if (locals.oldData && locals.oldData.categoria) { %>
+                        <% if (locals.oldData.categoria == categorias[i].id) { %> 
                           selected
                           <% } %> 
-                        <% } %> 
+                   <% } %> 
                 value="<%= categorias[i].id %>"><%=categorias[i].category%> 
             </option>
             <% } %>
@@ -74,7 +74,11 @@
 
         <div class="descripcion-producto">
           <label for="descripcion" class="titulo-formulario-producto">DESCRIPCIÓN</label>
-          <textarea rows="8" name="descripcion" id="descripcion"
+          <textarea 
+            rows="8" 
+            name="descripcion" 
+            id="descripcion"
+            class="input-nombre <%=locals.errors && errors.descripcion ? "is-invalid" :null %> "
           ><%= locals.oldData ? oldData.descripcion :null%></textarea>
 
           <%if (locals.errors && errors.descripcion){%>
@@ -112,9 +116,9 @@
             
                 <option value="">Elegí una opción</option>
 
-                <option <% if(locals.oldData && locals.oldData.sale =="si"){%>  selected <%}%>
+                <option <% if(locals.oldData && locals.oldData.sale =="1"){%>  selected <%}%>
                   value="1">Si</option>
-                <option <% if(locals.oldData && locals.oldData.sale =="no"){%>  selected <%}%>
+                <option <% if(locals.oldData && locals.oldData.sale =="0"){%>  selected <%}%>
                   value="0">No</option>
             </select>
             
@@ -135,13 +139,13 @@
                   <td>Combinación <%=i+1 %></td>
                   <td><select name="color[<%=i%>]" id="color" class="eleccion-opciones<%= locals.errors && errors.colores ? "is-invalid" : null %>">
                         <option value="">Color</option>
-                        <% for (let i=0; i < colores.length; i++) { %> 
+                        <% for (let j=0; j < colores.length; j++) { %> 
                         <option <%if (locals.oldData && locals.oldData.color && locals.oldData.color[i]) { %>
-                                <% if (locals.oldData.color[i] == colores[i].color) { %> 
+                                <% if (locals.oldData.color[i] == colores[j].id) { %> 
                                 selected
                                 <% } %> 
                               <% } %> 
-                         value="<%= colores[i].id %>"><%=colores[i].color%> 
+                         value="<%= colores[j].id %>"><%=colores[j].color%> 
                         </option>
                         <% } %>
                       </select>
@@ -153,17 +157,17 @@
                   </td>
                   <td><select name="talles[<%=i%>]" id="talles" class="eleccion-opciones<%= locals.errors && errors.talles ? "is-invalid" : null %>">
                     <option value="">Talle</option>
-                    <% for (let i=0; i < talles.length; i++) { %> 
-                    <option <%if (locals.oldData && locals.oldData.talle && locals.oldData.talle[i]) { %>
-                            <% if (locals.oldData.talle[i] == talles[i].size) { %> 
+                    <% for (let j=0; j < talles.length; j++) { %> 
+                    <option <%if (locals.oldData && locals.oldData.talles && locals.oldData.talles[i]) { %>
+                            <% if (locals.oldData.talles[i] == talles[j].id) { %> 
                             selected
                             <% } %> 
                           <% } %> 
-                     value="<%= talles[i].id %>"><%=talles[i].size%> 
+                     value="<%= talles[j].id %>"><%=talles[j].size%> 
                     </option>
                     <% } %>
                     </select>
-                    <%if (locals.errors && errors.talle){%>
+                    <%if (locals.errors && errors.talles){%>
                     <div class="text-danger">
                       <%=errors.talle.msg%>
                     </div>
@@ -172,13 +176,13 @@
                   <td>
                     <select name="stock[<%=i%>]" id="stock" class="eleccion-opciones<%= locals.errors && errors.stock ? "is-invalid" : null %>">
                       <option value="">Stock</option>
-                      <% for (let i=1; i < 5; i++) { %> 
+                      <% for (let j=1; j < 5; j++) { %> 
                       <option <%if (locals.oldData && locals.oldData.stock && locals.oldData.stock[i]) { %>
-                              <% if (locals.oldData.stock[i] == i) { %> 
+                              <% if (locals.oldData.stock[i] == j) { %> 
                               selected
                               <% } %> 
                             <% } %> 
-                       value="<%=i%>"><%=i%> 
+                       value="<%=j%>"><%=j%> 
                       </option>
                       <% } %>
                       </select>
