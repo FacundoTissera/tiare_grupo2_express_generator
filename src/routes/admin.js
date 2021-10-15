@@ -2,14 +2,14 @@ const express = require('express');
 const adminController = require('../controllers/adminController');
 const router = express.Router();
 const path = require('path');
-
+//requiere el filtro para vistas sin sesion
 const sinSessionMiddleware = require('../middlewares/sinSessionMiddleware');
-
 //requiere multer
 const multer = require ('multer');
-
 //requiere express validator
 const {body} = require ('express-validator');
+//requiere las validaciones
+const validations = require('../middlewares/productovalidator');
 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -20,32 +20,6 @@ let storage = multer.diskStorage({
     }
 }) 
 let upload = multer({ storage: storage })
-
-//constante con la validaciones
-const validations=[
-   body('nombre').notEmpty().withMessage('Debes completar este campo').bail()
-   .isLength({ min: 5}).withMessage('Este campo debe tener al menos 5 caracteres'),
-   body('precio').notEmpty().withMessage('Debes completar este campo').bail() 
-   .isInt() .withMessage ('Debes poner un número entero'),
-   body('categoria').notEmpty().withMessage('Debes completar este campo'),
-   body('descripcion').notEmpty().withMessage('Debes completar este campo').bail()
-   .isLength({ min: 20}).withMessage('Este campo debe tener al menos 20 caracteres'),
-   body('sale').notEmpty().withMessage('Debes completar este campo'),
-   body('fotoPrinc').custom((value, {req}) =>{
-     let file = req.file;
-     let extensionPermitida = ['.jpg', '.jpeg', '.png', '.gif'];
-     if (!file){
-         throw new Error ('Tienes que subir una imagen');
-        } else {
-            let extensiones = path.extname(file.originalname);
-           if (!extensionPermitida.includes(extensiones)){
-           throw new Error ('El archivo debe ser .jpg, .jpeg, .png o .gif');
-
-            }
-        }
-     return true;
- })
-]
 
 
 //rutas del admin

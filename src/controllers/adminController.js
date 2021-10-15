@@ -3,10 +3,10 @@ const fs = require('fs');
 const {validationResult} = require ('express-validator');
 //requiero el modelo de producto de la base de datos
 const db = require ('../database/models');
-const Producto = require('../database/models/Producto');
 
-const productsDatos = path.join(__dirname, '../data/datosProductos.json');
-let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
+//const Producto = require('../database/models/Producto');
+//const productsDatos = path.join(__dirname, '../data/datosProductos.json');
+//let prendas = JSON.parse(fs.readFileSync(productsDatos,'utf-8'));
 
 const adminController = {
     //menu administrador

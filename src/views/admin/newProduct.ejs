@@ -36,6 +36,7 @@
             id="categoria"
             class="eleccion-opciones <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
             <option value="">Elegí una categoría</option>
+            <option value="kjhhjg">categoria invalida</option>
 
             <% for (let i=0; i < categorias.length; i++) { %> 
             <option <%if (locals.oldData && locals.oldData.categoria) { %>
