@@ -71,17 +71,17 @@
             </div>
         </div>
 
-          <!--<div class="foto">
-            <i class="fas fa-camera"></i>
-          </div>
-          <div class="foto">
-            <i class="fas fa-camera"></i>
-          </div> -->
 
         <div class="descripcion-producto">
           <label for="descripcion" class="titulo-formulario-producto">DESCRIPCIÓN</label>
           <textarea rows="8" name="descripcion" id="descripcion"
           ><%= locals.oldData ? oldData.descripcion :null%></textarea>
+
+          <%if (locals.errors && errors.descripcion){%>
+            <div class="text-danger">
+              <%=errors.descripcion.msg%>
+            </div>
+          <%}%>
         </div>
 
         <div class="precio">

@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
 const bcryptjs = require('bcryptjs');
-const User = require ('../helpers/User'); //Traigo el modelo User para usarlo en este controlador
+//const User = require ('../helpers/User'); Traigo el modelo User para usarlo en este controlador
 const db = require("../database/models")  //Aca traigo los mopdelos de la base de datos.
 
 const userController = {

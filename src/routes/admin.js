@@ -23,10 +23,13 @@ let upload = multer({ storage: storage })
 
 //constante con la validaciones
 const validations=[
-   body('nombre').notEmpty().withMessage('Debes completar este campo'),
+   body('nombre').notEmpty().withMessage('Debes completar este campo').bail()
+   .isLength({ min: 5}).withMessage('Este campo debe tener al menos 5 caracteres'),
    body('precio').notEmpty().withMessage('Debes completar este campo').bail() 
    .isInt() .withMessage ('Debes poner un número entero'),
    body('categoria').notEmpty().withMessage('Debes completar este campo'),
+   body('descripcion').notEmpty().withMessage('Debes completar este campo').bail()
+   .isLength({ min: 20}).withMessage('Este campo debe tener al menos 20 caracteres'),
    body('sale').notEmpty().withMessage('Debes completar este campo'),
    body('fotoPrinc').custom((value, {req}) =>{
      let file = req.file;
@@ -63,7 +66,7 @@ router.delete('/borrar/:id', adminController.delete);
 
 /* edicion producto, formulario y put */
 router.get('/editar/:id', adminController.editar);
-router.put ('/editar/:id',upload.single('fotoPrinc'),adminController.cambio);
+router.put ('/editar/:id',upload.single('fotoPrinc'),validations,adminController.cambio);
 
 /*listar productos en admin*/
 router.get('/listaEdit',adminController.lista);
