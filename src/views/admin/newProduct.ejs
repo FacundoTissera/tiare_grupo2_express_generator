@@ -36,7 +36,7 @@
             id="categoria"
             class="eleccion-opciones <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
             <option value="">Elegí una categoría</option>
-            <option value="kjhhjg">categoria invalida</option>
+      
 
             <% for (let i=0; i < categorias.length; i++) { %> 
             <option <%if (locals.oldData && locals.oldData.categoria) { %>
@@ -211,5 +211,6 @@
       <p class="derechos-reservados">Todos los derechos reservados, desarrollado por Grupo_2_Tiare</p>
     </div>
 </footer> 
+<script src="/Js-front/validator-Front.js"></script>
 </body>
 </html>
