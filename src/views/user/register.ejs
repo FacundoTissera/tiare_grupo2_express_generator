@@ -10,31 +10,50 @@
 
     <main>
     
-        <form action="/user/register" method="POST" class="register-form" enctype="multipart/form-data">
+        <form action="/user/register" method="POST" class="register-form" enctype="multipart/form-data" id="formularioRegister">
             <fieldset>
                 <legend>¡REGISTRATE!</legend>
 
-                    <div class="datos-registro">
-                        <label for="nombre"class="label-nombre">Nombre y Apellido:</label> 
-                        <input type="text" name="nombre" id="nombre"  value="<%= locals.oldData ? oldData.nombre : null%>" >
+                    <div class=" formulario_grupo datos-registro" id="nombreApellido">
+                        <label for="nombre" class="formulario_label label-nombre">Nombre y Apellido:</label> 
+                        
+                    <div class="formulario__grupo-input">
+                        <input class="formulario__input" type="text" name="nombre" id="nombre"  value="<%= locals.oldData ? oldData.nombre : null%>" >
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                        <p class="formulario_input-error">El Nombre y Apellido no debe contener ni signos ni numeros</p>
+                        
+                        <!--validaciopn lado backend-->
                         <% if (locals.errors && errors.nombre) { %>
                         <div class="text-danger">
                             <%= errors.nombre.msg %> 
                         </div>
                         <% } %>
-
+                        
                     </div>
 
                     
-                    <div class="datos-registro">
+                    <div class="formulario_grupo  datos-registro" id="direccionUsuario">
                         <label for="direccion">Dirección:</label> 
-                        <input type="text" name="direccion" id="calle" placeholder="Calle" value="<%= locals.oldData ? oldData.direccion : null%>" >
+
+                        <div class="formulario__grupo-input">
+                            <input class="formulario__input" type="text" name="direccion" id="calle" placeholder="Calle" value="<%= locals.oldData ? oldData.direccion : null%>" >
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario_input-error">El nombre de la calle no debe contener ni signos ni numeros</p>
+                        
                         <% if (locals.errors && errors.direccion) { %>
                         <div class="text-danger">
                             <%= errors.direccion.msg %> 
                         </div>
                         <% } %>
-                        <input type="number" name="numero" id="numero-puerta" placeholder="Número" value="<%= locals.oldData ? oldData.numero : null%>" >
+
+                        <div >
+                            <input class="formulario__input" type="number" name="numero" id="numero-puerta" placeholder="Número" value="<%= locals.oldData ? oldData.numero : null%>" >
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario_input-error">El numero de la casa no debe contener ni letras,ni signos</p>
+                    
                         <% if (locals.errors && errors.numero) { %>
                         <div class="text-danger">
                             <%= errors.numero.msg %> 
@@ -44,9 +63,15 @@
                     </div>
                     
                     
-                    <div class="datos-registro">
+                    <div class="formulario_grupo datos-registro" id="ciudadUsuario">
                         <label for="ciudad">Ciudad:</label> 
-                        <input type="text" name="ciudad" id="ciudad" value="<%= locals.oldData ? oldData.ciudad : null%>" >
+
+                    <div class="formulario__grupo-input">
+                        <input class="formulario__input" type="text" name="ciudad" id="ciudad" value="<%= locals.oldData ? oldData.ciudad : null%>" >
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario_input-error">El Nombre del la ciudad no debe contener ni signos ni numeros</p>
+
                         <% if (locals.errors && errors.ciudad) { %>
                         <div class="text-danger">
                             <%= errors.ciudad.msg %> 
@@ -55,7 +80,7 @@
 
                     </div>
                     
-                    <div class="datos-registro">
+                    <div class="datos-registro" id="provinciaUsuario">
                         <label for="provincia">Provincia:</label> 
                         <select name="provincia" id="provincia"
                      class="eleccion-opciones"
@@ -79,9 +104,14 @@
                      </select>
                         </div>
                         
-                        <div class="datos-registro">
+                        <div class="formulario_grupo datos-registro" id="codigoPostalUsuario">
                             <label for="codigo-postal">Código Postal:</label> 
-                            <input type="number" name="codigoPostal" id="codigo-postal" value="<%= locals.oldData ? oldData.codigoPostal : null %>">
+                            
+                        <div class="formulario__grupo-input">
+                            <input class="formulario__input" type="number" name="codigoPostal" id="codigo-postal" value="<%= locals.oldData ? oldData.codigoPostal : null %>">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario_input-error">El codigo postal debe contener solo numeros y un maximo de 4 digitos</p>
 
                             <% if (locals.errors && errors.codigoPostal) { %>
                         <div class="text-danger">
@@ -91,9 +121,15 @@
 
                         </div>
                         
-                        <div class="datos-registro">
+                        <div class="formulario_grupo datos-registro" id="telefonoUsuario">
                             <label for="telefono">Teléfono:</label> 
-                            <input type="number" name="telefono" id="telefono" value="<%= locals.oldData ? oldData.telefono : null %>">
+                        
+                        <div class="formulario__grupo-input">
+                            <input class="formulario__input" type="number" name="telefono" id="telefono" value="<%= locals.oldData ? oldData.telefono : null %>">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario_input-error">El numero de telefono debe contener solo numeros y un maximo de 14 digitos.</p>
+
                             <% if (locals.errors && errors.telefono) { %>
                         <div class="text-danger">
                             <%= errors.telefono.msg %> 
@@ -102,9 +138,15 @@
 
                         </div>
                         
-                        <div class="datos-registro">
-                            <label for="email">Email:</label> 
-                            <input type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %> " required>
+                        <div class="formulario_grupo datos-registro" id="emailUsuario">
+                            <label for="email">Email:</label>
+                    
+                        <div class="formulario__grupo-input">
+                            <input class="formulario__input" type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %> " >
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div> 
+                        <p class="formulario_input-error">el correo solo puede contener letras, numero, puntos, guiones y guion bajo.</p>
+
                             <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
                             <%= errors.email.msg %> 
@@ -113,9 +155,14 @@
 
                         </div>
                         
-                        <div class="datos-registro">
+                        <div class="formulario_grupo datos-registro" id="contraseniaUsuario">
                             <label for="clave">Contraseña: </label> 
-                            <input type="password" name="password" id="password" placeholder="Introducir tu clave" >
+                            
+                        <div class="formulario__grupo-input">
+                            <input class="formulario__input" type="password" name="password" id="password" placeholder="Introducir tu clave" >
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario_input-error">la contraseña tiene que ser de 4 a 12 digitos</p>
 
                             <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
@@ -125,7 +172,7 @@
 
                         </div>
 
-                        <div class="datos-registro">
+                        <div class="datos-registro" >
                             <label >Imagen de perfil</label> 
                             <input type="file" name="avatar" id="avatar" >
                             <% if (locals.errors && errors.avatar) { %>
@@ -136,9 +183,16 @@
                     
                         </div>
                         
-                        <div class="acepto-newsletter">
-                            <input type="radio" name="aceptoTerminos" id="" value="1">
-                            <label for="acepto-terminos">Acepto terminos y condiciones</label>
+                        <div class=" formulario_grupo acepto-newsletter" id="aceptoTerminosUsuario">
+                            <div class="formulario__grupo-input">
+                            <label for="acepto-terminos">
+                                <input class="formulario__checkbox"  type="radio" name="aceptoTerminos" id="aceptoTerminos" value="1">
+                                Acepto terminos y condiciones
+                            </label>
+                            </div>
+
+                            
+                            
                             <% if (locals.errors && errors.aceptoTerminos) { %>
                         <div class="text-danger">
                             <%= errors.aceptoTerminos.msg %> 
@@ -151,9 +205,14 @@
                             <label for="newsletter">Quiero recibir ofertas y descuentos especiales </label>
                             
                         </div>
+
+                        <div class="formulario__mensaje" id="formulario__mensaje">
+                            <p><i class="fas fa-exclamation-triangle"></i><b>Por favor rellena el formulario correctamente.</b></p>
+                        </div>
                         
-                        <div class="enviar-registro">
-                            <button type="submit" class="enviar">ENVIAR</button>
+                        <div class="enviar-registro" >
+                            <button type="submit" class="enviar">ENVIAR</button> 
+                            <p class="formulario__mensaje-exito"> Formulario enviado con exito!</p>
                         </div>
                         
             </fieldset>
@@ -168,6 +227,7 @@
     </main>
     <!--footer del partial-->
 <%- include('../parciales/footer') %>
-
+<script src="/js/userValidatorFront.js"></script>
+<script src="https://kit.fontawesome.com/0cb7eac916.js" crossorigin="anonymous"></script>
 </body>
 </html>
