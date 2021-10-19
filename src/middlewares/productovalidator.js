@@ -21,18 +21,20 @@ const validations=[
     .isLength({ min: 20}).withMessage('Este campo debe tener al menos 20 caracteres'),
     body('sale').notEmpty().withMessage('Debes completar este campo'),
     body('fotoPrinc').custom((value, {req}) =>{
-      let file = req.file;
-      let extensionPermitida = ['.jpg', '.jpeg', '.png', '.gif'];
-      if (!file){
-          throw new Error ('Tienes que subir una imagen');
-         } else {
-             let extensiones = path.extname(file.originalname);
+        let file = req.file;
+        let extensionPermitida = ['.jpg', '.jpeg', '.png', '.gif'];
+        if (!file) {
+            if (req.method == 'POST') {
+                throw new Error ('Tienes que subir una imagen');
+            }
+        } 
+        else {
+            let extensiones = path.extname(file.originalname);
             if (!extensionPermitida.includes(extensiones)){
-            throw new Error ('El archivo debe ser .jpg, .jpeg, .png o .gif');
- 
-             }
-         }
-      return true;
+                throw new Error ('El archivo debe ser .jpg, .jpeg, .png o .gif');
+            }
+        }
+        return true;
   })
  ]
  module.exports = validations;

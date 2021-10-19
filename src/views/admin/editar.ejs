@@ -11,14 +11,30 @@
     <legend class="titulo-fieldset">Estás editando: <%=producto.name %></legend>
       
       <form action="/admin/editar/<%=producto.id%>?_method=PUT" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data">
+ <!-- nombre producto -->   
         <div class="nombre-producto">
           <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
-          <input type="text" name="nombre" id="producto" value= "<%=producto.name%>" required>
-        </div>
+          <input type="text" 
+          name="nombre" 
+          id="nombre" 
+          class="input-nombre <%=locals.errors && errors.nombre ? "is-invalid" :null %> "
+          value="<%= locals.oldData ? oldData.nombre : producto.name%>" required>
 
+          <%if (locals.errors && errors.nombre){%>
+            <div class="text-danger">
+              <%=errors.nombre.msg%>
+            </div>
+          <%}%>
+        </div>
+<!-- categoria -->
        <div class="categoria-producto">
           <label for="categoria" class="titulo-formulario-producto">CATEGORIA DEL PRODUCTO:</label>
-          <select name="categoria" id="categoria"required>
+          <select 
+            name="categoria" 
+            id="categoria"
+            class="eleccion-opciones <%= locals.errors && errors.categoria ?  "is-invalid" : null %>"
+            required>
+            <option value="22">categoría trucha</option>
             <% for (let i=0; i < categorias.length; i++) { %> 
               <% if (categorias[i].id== producto.category_id){ %> 
               <option value="<%=categorias[i].id%>" selected>
@@ -31,36 +47,79 @@
               <%}%> 
           <%}%> 
           </select>
+          <%if (locals.errors && errors.categoria){%>
+            <div class="text-danger">
+              <%=errors.categoria.msg%>
+            </div>
+          <%}%>
         </div>
-      
+          <!-- imagen del producto -->
         <div>
           <p class= titulo-formulario-producto>IMÁGEN DEL PRODUCTO:</p>
           <figure class="form-group">
               <img  class="foto-actual" src="/images/prendas/<%= producto.image%>" alt="articulo <%= producto.name%>">
           </figure>
          <input type="file" name="fotoPrinc" >
+         <%if (locals.errors && errors.fotoPrinc){%>
+          <div class="text-danger">
+            <%=errors.fotoPrinc.msg%>
+            <%}%>
 
         </div>
-
+ <!-- descripcion del producto -->
         <div class="descripcion-producto">
           <label for="descripcion" class="titulo-formulario-producto" >DESCRIPCIÓN</label>
-          <textarea rows="8" name="descripcion" id="descripcion"><%= producto.description%></textarea>
-        </div>
+          <textarea 
+            rows="8" 
+            name="descripcion" 
+            id="descripcion"
+            class="input-nombre <%=locals.errors && errors.descripcion ? "is-invalid" :null %> "
+            ><%=locals.oldData ? oldData.descripcion:producto.description%>
+          </textarea>
 
+          <%if (locals.errors && errors.descripcion){%>
+            <div class="text-danger">
+              <%=errors.descripcion.msg%>
+            </div>
+          <%}%>
+        </div>
+<!-- precio del producto -->
         <div class="precio">
           <label for="precio" class="titulo-formulario-producto">PRECIO</label>
-          <input type="tel" name="precio" id="precio" value="<%= producto.price%> " required>
+          <input 
+          type="tel" 
+          name="precio" 
+          id="precio" 
+          class="input-nombre <%=locals.errors && errors.precio ? "is-invalid" :null %> "
+          value="<%= locals.oldData ? oldData.precio :producto.price%>" required>
+          
+          <% if(locals.errors && errors.precio){%>
+            <div class="text-danger">
+              <%=errors.precio.msg%>
+            </div>
+              <% } %> 
+        
         </div>
+  <!-- publicar producto -->
         <div>
             <label for="sale">PUBLICAR</label> <br>
-            <select name="sale" id="sale">
-              <option value="1"<% if (producto.sale=='1') { %>
+            <select 
+              name="sale" 
+              id="sale"
+              class="eleccion-opciones <%= locals.errors && errors.sale ?  "is-invalid" : null %>">
+            
+            <option value="1"<% if (producto.sale=='1') { %>
               selected<% } %>>Si</option>
 
               <option value="0"<% if (producto.sale== '0') { %>
               
               selected<% } %>>No</option>
             </select>
+            <% if(locals.errors && errors.sale){%>
+              <div class="text-danger">
+                <%=errors.sale.msg%>
+              </div>
+                <% } %> 
           </div>
       <section class="opciones">
           <table  class="tabla-de-medidas">

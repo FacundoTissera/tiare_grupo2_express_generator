@@ -97,9 +97,11 @@ const adminController = {
 
     //modifica el producto put
     cambio: (req,res) =>{
+        //validaciones
+        
         const resultadosValidacion= validationResult(req)
         console.log(resultadosValidacion.errors)
-        if(resultadosValidacion.errors.length >0){
+         if(resultadosValidacion.errors.length >0){
             let productoEditar=db.Producto.findByPk(req.params.id)
             let listaCategorias=db.Categoria.findAll()
             let listaColores=db.Color.findAll()

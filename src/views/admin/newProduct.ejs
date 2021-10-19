@@ -36,7 +36,6 @@
             id="categoria"
             class="eleccion-opciones <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
             <option value="">Elegí una categoría</option>
-      
 
             <% for (let i=0; i < categorias.length; i++) { %> 
             <option <%if (locals.oldData && locals.oldData.categoria) { %>
@@ -55,7 +54,7 @@
             </div>
           <%}%>
         </div>
-      
+      <!-- imagen del producto -->
         <p class= titulo-formulario-producto>IMÁGEN DEL PRODUCTO</p>
         <div class="fotos-producto">
           <div class="foto"> 
@@ -72,7 +71,7 @@
             </div>
         </div>
 
-
+ <!-- descripcion del producto -->
         <div class="descripcion-producto">
           <label for="descripcion" class="titulo-formulario-producto">DESCRIPCIÓN</label>
           <textarea 
@@ -88,7 +87,7 @@
             </div>
           <%}%>
         </div>
-
+<!-- precio del producto -->
         <div class="precio">
           <label for="precio" class="titulo-formulario-producto">PRECIO</label>
           <input 
@@ -105,9 +104,7 @@
               <% } %> 
             
         </div>
-
-        
-
+   <!-- publicar producto -->
         <div class="publicar">
             <label for="sale" class= "titulo-formulario-producto">PUBLICAR:</label>
             <select 

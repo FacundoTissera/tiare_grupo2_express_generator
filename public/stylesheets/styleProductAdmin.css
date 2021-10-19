@@ -132,7 +132,7 @@ textarea{
 #precio input{
     width:35%;
 }
-#producto {
+#nombre {
     width:70%
 }
 #descripcion{
@@ -333,7 +333,7 @@ button{
         font-size: 22px;
     }
     
-    #producto{
+    #nombre{
         margin-top: 1px;
         font-size: 20px;
     }
