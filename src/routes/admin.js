@@ -9,7 +9,7 @@ const multer = require ('multer');
 //requiere express validator
 const {body} = require ('express-validator');
 //requiere las validaciones
-const validations = require('../middlewares/productovalidator');
+const validations = require('../middlewares/productoValidator');
 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
