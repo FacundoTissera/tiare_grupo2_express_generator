@@ -174,7 +174,8 @@
 
                         <div class="datos-registro" >
                             <label >Imagen de perfil</label> 
-                            <input type="file" name="avatar" id="avatar" >
+                            <input type="file" name="avatar" id="avatar">
+                            <div id="imagePreview"></div>
                             <% if (locals.errors && errors.avatar) { %>
                                 <div class="text-danger">
                                     <%= errors.avatar.msg %> 

@@ -9,7 +9,8 @@ const expresiones = {
 	password: /^.{4,12}$/, // 4 a 12 digitos.
 	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	numeros: /^\d{7,14}$/,// 7 a 14 numeros.
-	codigoPostal:/^\d{0,4}$/ 
+	codigoPostal:/^\d{0,4}$/,
+	imagen: /(\.jpg|\.jpeg|\.png|\.gif)$/
 };
 const camposForm = {
 	nombreApellido: false,
@@ -20,6 +21,7 @@ const camposForm = {
 	telefonoUsuario:false,
 	emailUsuario:false,
 	contraseniaUsuario:false,
+	// avatar:false
 }
 
 const validarFormulario = (e) => {
@@ -52,6 +54,10 @@ const validarFormulario = (e) => {
 			validarCampo(expresiones.password, e.target, "contraseniaUsuario");
 			break;
 	
+		case "avatar":
+			archivo();
+			break;
+	
 	
 		case "aceptoTerminos":
 			
@@ -61,6 +67,7 @@ const validarFormulario = (e) => {
 			break;
 	}
 }
+
 
 const validarCampo = (expresion, input, campo) =>{
 
@@ -80,17 +87,44 @@ const validarCampo = (expresion, input, campo) =>{
 		camposForm[campo] = false;
 	}
 }
+const archivo = function () {
 
+	
+		let fileInput = document.getElementById('avatar');
+	
+		let filePath = fileInput.value;
+	
+		let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+		
+			
+		if (!allowedExtensions.exec(filePath)) {
+			console.log('error');
+			fileInput.value = '';
+			return false;
+		}
+		
+		
+	}
 inputs.forEach((input)=>{
-    input.addEventListener('keyup', validarFormulario);
-    input.addEventListener('blur', validarFormulario);
-}),
+
+	if (input.type != 'file') {
+		input.addEventListener('keyup', validarFormulario);
+		input.addEventListener('blur', validarFormulario);
+
+	}else{
+		input.addEventListener('change', archivo);
+	}
+
+});
+
+
+
 
 formularioRegister.addEventListener('submit', (e)=>{
-	e.preventDefault();
-
+	
+	
 	const terminos = document.getElementById("aceptoTerminos")
-if (camposForm.nombreApellido && camposForm.telefonoUsuario && camposForm.emailUsuario && camposForm.direccionUsuario && camposForm.contraseniaUsuario && camposForm.codigoPostalUsuario && camposForm.ciudadUsuario && terminos.checked) {
+if (camposForm.nombreApellido && camposForm.telefonoUsuario && camposForm.emailUsuario && camposForm.direccionUsuario && camposForm.contraseniaUsuario && camposForm.codigoPostalUsuario && camposForm.ciudadUsuario && terminos.checked ) {
 	formularioRegister.reset();
 
 	// document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
@@ -98,7 +132,7 @@ if (camposForm.nombreApellido && camposForm.telefonoUsuario && camposForm.emailU
 		icono.classList.remove('formulario_grupo-correcto')
 	});
 }else{
-	document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+	document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');e.preventDefault();
 }
 	// let nombreApellido = document.querySelector('#nombre');
 	// 	if (nombreApellido.value == "") {
@@ -106,4 +140,3 @@ if (camposForm.nombreApellido && camposForm.telefonoUsuario && camposForm.emailU
 	// 	}
 	});
 });
-
