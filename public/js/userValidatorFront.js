@@ -119,7 +119,7 @@ window.addEventListener("load", function () {
   });
 
   formularioRegister.addEventListener("submit", (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     const terminos = document.getElementById("aceptoTerminos");
     if (
       camposForm.nombreApellido &&
