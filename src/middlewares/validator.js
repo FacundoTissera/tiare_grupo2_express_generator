@@ -9,7 +9,9 @@ const validaciones ={
     register : [
         body('nombre')
                         .notEmpty()
-                        .withMessage('Debes escribir tu Nombre y Apellido'),
+                        .withMessage('Debes escribir tu Nombre y Apellido')
+                        .bail()
+                        .isLength({ min: 2}).withMessage('Este campo debe tener al menos 2 caracteres'),
         body('direccion')
                         .notEmpty()
                         .withMessage('Debes escribir la direccion de tu domicilio'),
@@ -48,7 +50,9 @@ const validaciones ={
                         }),
         body('password')
                         .notEmpty()
-                        .withMessage('Debes escribir tu Contraseña'),
+                        .withMessage('Debes escribir tu Contraseña')
+                        .bail()
+                        .isLength({ min: 8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
         body('aceptoTerminos')
                         .notEmpty()
                         .withMessage('Debes aceptar terminos y condiciones'),
@@ -78,6 +82,13 @@ const validaciones ={
             .withMessage('Debes escribir un email')
             .bail().isEmail()
             .withMessage('Debes escribir un formato de correo valido'),
+            // .custom(value => {
+            //     return Usuario.findUserByEmail(value).then(user => {
+            //       if (!user) {
+            //         return Promise.reject('Este mail aún no está registrado');
+            //       }
+            //     });
+            //   }),
         body('password')
             .notEmpty()
             .withMessage('Debes escribir tu Contraseña'),
