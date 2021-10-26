@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!--head del partial-->
-<%- include('../parciales/head') %>
-
+    
+    <!--head del partial-->
+    <%- include('../parciales/head') %>
+    
+    <script src="/js/userValidatorFront.js"></script>
+    <script src="https://kit.fontawesome.com/0cb7eac916.js" crossorigin="anonymous"></script>
 <body>
 <!--header del partial -->
 <%- include('../parciales/header') %>
@@ -50,7 +52,7 @@
 
                         <div >
                             <input class="formulario__input" type="number" name="numero" id="numero-puerta" placeholder="Número" value="<%= locals.oldData ? oldData.numero : null%>" >
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            
                         </div>
                         <p class="formulario_input-error">El numero de la casa no debe contener ni letras,ni signos</p>
                     
@@ -228,7 +230,5 @@
     </main>
     <!--footer del partial-->
 <%- include('../parciales/footer') %>
-<script src="/js/userValidatorFront.js"></script>
-<script src="https://kit.fontawesome.com/0cb7eac916.js" crossorigin="anonymous"></script>
 </body>
 </html>
