@@ -100,7 +100,7 @@ const adminController = {
         //validaciones
         
         const resultadosValidacion= validationResult(req)
-        console.log(resultadosValidacion.errors)
+       
          if(resultadosValidacion.errors.length >0){
             let productoEditar=db.Producto.findByPk(req.params.id)
             let listaCategorias=db.Categoria.findAll()
@@ -133,9 +133,9 @@ const adminController = {
             { where: {id:req.params.id}})
             
             .then(function(){
-                let combinacionesBorrar = db.Stock.destroy(
-                 {where:{product_id: req.params.id}})
-                let promesas = []
+                db.Stock.destroy(
+                 {where:{product_id: req.params.id}}).then(function() {
+                    let promesas = []
                     for (let i=0; i<req.body.color.length; i++){
                         if(req.body.color[i]){
                             promesas.push(db.Stock.create({
@@ -147,8 +147,9 @@ const adminController = {
                         }
                     
                     }
-                Promise.all([combinacionesBorrar,promesas])
-                .then(() => res.redirect('/products/detalle/'+req.params.id))
+                    Promise.all([promesas])
+                    .then(() => res.redirect('/products/detalle/'+req.params.id))
+                 });
             })
         }
     },

@@ -34,7 +34,8 @@
           <select 
             name="categoria" 
             id="categoria"
-            class="eleccion-opciones <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
+            class="eleccion-opciones 
+            <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
             <option value="">Elegí una categoría</option>
 
             <% for (let i=0; i < categorias.length; i++) { %> 

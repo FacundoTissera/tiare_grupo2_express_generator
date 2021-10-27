@@ -1,3 +1,8 @@
+## 10 WEEKLY STAND-UP: LUNES 25/10##
+Avanzando sobre las validaciones, ya tenemos completas las de la parte de productos, tanto front y back y ahora estamos cerrando las validaciones de usuarios. 
+En el back teniamos todo bastante avanzado, pero igualmente las consignas del sprint nos obligaron a ajustarlas. Y tambien aprovechamos para limpiar codigo.
+En cuanto al front nos encontramos con algunos inconvenientes en la valiacion de las imagenes, ya que no fue facil encontrar material dentro de la cursada para poder aplicarlo. 
+
 ## 9no WEEKLY STAND-UP: LUNES 11/10##
 Habiendo entregado el 6to sprint, nos dividimos las tareas del sprint nro 7. 
 Observamos que tenemos realizadas algunas vlaidaciones de sprints anteriores por lo que vamos a empezar de la siguiente forma:

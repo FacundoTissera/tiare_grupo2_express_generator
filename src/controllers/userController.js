@@ -140,11 +140,14 @@ const userController = {
     modificarUsuario: async (req, res) =>{
         let provincias = await db.State.findAll()
         const resultadoValidaciones = validationResult(req);
+        //console.log(resultadoValidaciones);
         if (resultadoValidaciones.errors.length > 0){
+            let usuarioEditar = await db.Usuario.findByPk(req.params.id)
             return res.render('user/modificar',{
                 errors: resultadoValidaciones.mapped(),
                 oldData: req.body, 
-                provincias: provincias
+                provincias: provincias,
+                Usuario: usuarioEditar
             });
         };    
         
@@ -168,6 +171,7 @@ const userController = {
     
         .then(() => res.redirect('/user/detalle/'+req.params.id))
         },
+        
     logout:(req,res) =>{
             res.clearCookie('userEmail');
             req.session.destroy();
