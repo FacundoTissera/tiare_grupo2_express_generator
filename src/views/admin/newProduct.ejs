@@ -10,31 +10,30 @@
     <fieldset>
     <legend class="titulo-fieldset">AGREGAR UN NUEVO PRODUCTO</legend>
       
-      <form action="/admin/newProduct" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data" >
+      <form action="/admin/newProduct" method="POST"  class="formulario-nuevo-producto" enctype="multipart/form-data" id="formularioProducto">
         <!-- nombre producto -->
         <div class="nombre-producto">
-          <label for="producto" class="titulo-formulario-producto">NOMBRE DEL PRODUCTO:</label>
-          <input 
-            type="text" 
-            name="nombre" 
-            id="nombre" 
-            placeholder="Ej: REMERA MILÁN" 
-            class="input-nombre <%=locals.errors && errors.nombre ? "is-invalid" :null %> "
-            value="<%= locals.oldData ? oldData.nombre :null%>">
-
-          <%if (locals.errors && errors.nombre){%>
-            <div class="text-danger">
-              <%=errors.nombre.msg%>
-            </div>
+          <label for="nombre" class="titulo-formulario-producto formulario__label">NOMBRE DEL PRODUCTO:</label>
+          
+          <div class="formulario__grupo" id="grupo__nombreProducto">
+            <div class="formulario__grupo-input">
+            <input type="text" name="nombre" id="nombre" placeholder="Ej: REMERA MILÁN" class="formulario__input <%=locals.errors && errors.nombre ? "is-invalid" :null %> "value="<%= locals.oldData ? oldData.nombre :null%>">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El nombre del producto debe tener al menos 5 caracteres.</p>
+        </div>
+        <%if (locals.errors && errors.nombre){%>
+          <div class="text-danger">
+            <%=errors.nombre.msg%>
+          </div>
           <%}%>
         </div>
+        
         <!-- categoria  -->
-        <div class="categoria-producto">
-          <label for="categoria" class="titulo-formulario-producto">CATEGORIA DEL PRODUCTO:</label>
-          <select 
-            name="categoria" 
-            id="categoria"
-            class="eleccion-opciones <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
+        <div>
+          <div class="formulario__grupo-input">
+          <label for="categoria" class="titulo-formulario-producto formulario__label">CATEGORIA DEL PRODUCTO:</label>
+          <select  name="categoria"  id="categoria" class="eleccion-opciones  <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
             <option value="">Elegí una categoría</option>
 
             <% for (let i=0; i < categorias.length; i++) { %> 
@@ -54,6 +53,7 @@
             </div>
           <%}%>
         </div>
+      </div>
       <!-- imagen del producto -->
         <p class= titulo-formulario-producto>IMÁGEN DEL PRODUCTO</p>
         <div class="fotos-producto">
@@ -61,7 +61,7 @@
               <i class="fas fa-camera"></i>
           </div>
           <div class="input-foto">
-              <label for="foto-principal" name="fotoPrinc"class="titulo-imagen">IMAGEN PRINCIPAL</label>
+              <label for="foto-principal" name="fotoPrinc"class="titulo-imagen formulario__label">IMAGEN PRINCIPAL</label>
               <input type="file" class="foto-principal" name= "fotoPrinc" id="foto-principal">
               <%if (locals.errors && errors.fotoPrinc){%>
                 <div class="text-danger">
@@ -72,14 +72,17 @@
         </div>
 
  <!-- descripcion del producto -->
-        <div class="descripcion-producto">
-          <label for="descripcion" class="titulo-formulario-producto">DESCRIPCIÓN</label>
-          <textarea 
-            rows="8" 
-            name="descripcion" 
-            id="descripcion"
-            class="input-nombre <%=locals.errors && errors.descripcion ? "is-invalid" :null %> "
-          ><%= locals.oldData ? oldData.descripcion :null%></textarea>
+        
+          
+          <div class="formulario__grupo descripcion-producto" id="grupo__descripcion">
+          <label for="descripcion" class="titulo-formulario-producto formulario__label">DESCRIPCIÓN</label>
+
+          <div class="formulario__grupo-input">
+          <textarea rows="8"  name="descripcion"  id="descripcion" class="formulario__input<%=locals.errors && errors.descripcion ? "is-invalid" :null %> "><%= locals.oldData ? oldData.descripcion :null%> </textarea>
+          <i class="formulario__validacion-estadoDescripcion fas fa-times-circle"></i>
+          <p class="formulario__input-error">La descripcion del producto debe tener al menos 20 caracteres</p> 
+          </div>
+        
 
           <%if (locals.errors && errors.descripcion){%>
             <div class="text-danger">
@@ -89,14 +92,12 @@
         </div>
 <!-- precio del producto -->
         <div class="precio">
-          <label for="precio" class="titulo-formulario-producto">PRECIO</label>
-          <input 
-          type="tel" 
-          name="precio" 
-          id="precio"
-          class="input-nombre <%=locals.errors && errors.precio ? "is-invalid" :null %> "
-            value="<%= locals.oldData ? oldData.precio :null%>">
-            
+          <label for="precio" class="titulo-formulario-producto formulario__label">PRECIO</label>
+          
+          <div class="formulario__grupo" id="grupo__precio">
+          <input type="tel" name="precio" id="precio"class="formulario__input <%=locals.errors && errors.precio ? "is-invalid" :null %> " value="<%= locals.oldData ? oldData.precio :null%>">
+        </div>
+
           <% if(locals.errors && errors.precio){%>
             <div class="text-danger">
               <%=errors.precio.msg%>
@@ -106,7 +107,7 @@
         </div>
    <!-- publicar producto -->
         <div class="publicar">
-            <label for="sale" class= "titulo-formulario-producto">PUBLICAR:</label>
+            <label for="sale" class= "titulo-formulario-producto formulario__label">PUBLICAR:</label>
             <select 
                 name="sale" 
                 id="sale"
@@ -200,6 +201,10 @@
             <button class="agregar" type="submit">AGREGAR PRODUCTO</button>
         </div>
 
+        <div class="formulario__mensaje" id="formulario__mensaje">
+          <p class="colorMensaje"><i class="fas fa-exclamation-triangle"></i> <b> Error:</b> Por favor rellena el formulario correctamente.</p>
+      </div>
+
       </form>
     </fieldset> 
   </main> 
@@ -208,6 +213,6 @@
       <p class="derechos-reservados">Todos los derechos reservados, desarrollado por Grupo_2_Tiare</p>
     </div>
 </footer> 
-<script src="/Js-front/validator-Front.js"></script>
+<script src="/js/productValidatorFront.js"></script>
 </body>
 </html>
