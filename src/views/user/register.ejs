@@ -85,17 +85,13 @@
                     <div class="datos-registro" id="provinciaUsuario">
                         <label for="provincia">Provincia:</label> 
                         <select name="provincia" id="provincia"
-                     class="eleccion-opciones"
-                      <% if (locals.errors && errors.provincia) { %>
-                      class="text-danger">
-                            <%= errors.provincia.msg %> 
-                        <% } %>">
-
-                        <option value="">Elegí una opción</option>
-
-                        <% for (let i=0; i < provincias.length; i++) { %> 
+                     class="eleccion-opciones
+                     <%= locals.errors && errors.provincia ?  "is-invalid" : null %>">
+                     <option value="">Elegí una opción</option> 
+                   
+                     <% for (let i=0; i < provincias.length; i++) { %> 
                          <option <%if (locals.oldData && locals.oldData.provincia) { %>
-                          <% if (locals.oldData.provincia == provincias[i].state) { %> 
+                          <% if (locals.oldData.provincia == provincias[i].id) { %> 
                                     selected
                                      <% } %> 
                                  <% } %> 
@@ -104,6 +100,11 @@
                      <% } %>
 
                      </select>
+                     <%if (locals.errors && errors.provincia){%>
+                        <div class="text-danger">
+                          <%=errors.provincia.msg%>
+                        </div>
+                      <%}%>
                         </div>
                         
                         <div class="formulario_grupo datos-registro" id="codigoPostalUsuario">

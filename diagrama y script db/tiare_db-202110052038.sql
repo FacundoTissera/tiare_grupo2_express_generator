@@ -298,7 +298,7 @@ CREATE TABLE `users` (
   `city` varchar(100) NOT NULL,
   `state_id` int NOT NULL,
   `postal_code` int NOT NULL,
-  `phone` int NOT NULL,
+  `phone` varchar (100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `image` varchar(200) NOT NULL,

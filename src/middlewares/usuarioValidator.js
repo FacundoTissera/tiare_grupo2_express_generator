@@ -26,7 +26,7 @@ const validaciones ={
                         .withMessage('Debes seleccionar tu provincia'),
         body('codigoPostal')
                         .notEmpty()
-                        .withMessage('Debes escribir el codigo postad de tu ciudad'),
+                        .withMessage('Debes escribir el codigo postal de tu ciudad'),
         body('telefono')
                         .notEmpty()
                         .withMessage('Debes escribir tu numero telefonico'),
@@ -37,7 +37,9 @@ const validaciones ={
                         .isEmail()
                         .withMessage('Debes escribir un formato de correo valido')
                         .bail()
+                        
                         .custom(async (value, {req})=>{
+                            if (req.method == 'POST') {
                             let usuarioExistente = await db.Usuario.findOne({
                                 where: {
                                     email: req.body.email
@@ -47,22 +49,24 @@ const validaciones ={
                                 throw new Error ('Este email ya esta registrado')
                             }
                             return true;
-                        }),
+                        }}),
         body('password')
                         .notEmpty()
                         .withMessage('Debes escribir tu Contraseña')
                         .bail()
                         .isLength({ min: 8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
-        body('aceptoTerminos')
-                        .notEmpty()
-                        .withMessage('Debes aceptar terminos y condiciones'),
+        // body('aceptoTerminos')
+        //                 .notEmpty()
+        //                 .withMessage('Debes aceptar terminos y condiciones'),
         body('avatar')
                         .custom((value, { req })=>{
                                 let file = req.file;
                                 let acceptedExtensions = ['.jpg', '.png', '.gif', '.jpeg'];
                                 
                                 if (!file){
+                                    if (req.method == 'POST') {
                                     throw new Error (' Tienes que subir una imagen de perfil');
+                                    }
                                 }else{
                                     let fileExtension = path.extname(file.originalname);
                                     if (!acceptedExtensions.includes(fileExtension)) {
