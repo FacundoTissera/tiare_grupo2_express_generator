@@ -349,7 +349,7 @@ legend{
 .titulo-modificar{
     font-size: 14px;
 }
-
+/*estilos para validacion de register*/
 .formulario__grupo-input{
     position: relative;
 }
@@ -416,7 +416,7 @@ legend{
 .formulario__mensaje-exito-activo{
     display: block;
 }
-/*estilos para validacion de register*/
+
 .formulario_grupo-correcto .formulario__validacion-estado{
     color: #1ed12d;
     opacity: 1;

@@ -44,6 +44,7 @@ const userController = {
 
         db.Usuario.create(usuarioCreado)
         .then(function() {
+            console.log('gay');
             return res.redirect('/user');
         })    
     },
