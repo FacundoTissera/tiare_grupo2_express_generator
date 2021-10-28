@@ -30,12 +30,6 @@
         </div>
         
         <!-- categoria  -->
-<<<<<<< HEAD
-        <div>
-          <div class="formulario__grupo-input">
-          <label for="categoria" class="titulo-formulario-producto formulario__label">CATEGORIA DEL PRODUCTO:</label>
-          <select  name="categoria"  id="categoria" class="eleccion-opciones  <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
-=======
         <div class="categoria-producto">
           <label for="categoria" class="titulo-formulario-producto">CATEGORIA DEL PRODUCTO:</label>
           <select 
@@ -43,7 +37,6 @@
             id="categoria"
             class="eleccion-opciones 
             <%= locals.errors && errors.categoria ?  "is-invalid" : null %>">
->>>>>>> 9280d0bdf04f84965616574e649a7fd93b15a418
             <option value="">Elegí una categoría</option>
 
             <% for (let i=0; i < categorias.length; i++) { %> 
