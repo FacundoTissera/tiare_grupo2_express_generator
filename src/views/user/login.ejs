@@ -3,7 +3,7 @@
 
 <!--head del partial-->
 <%- include('../parciales/head') %>
-<script src="/js/loginUserValidator.js"></script>
+<script src="/js/loginUserValidator.js"></script> 
 <script src="https://kit.fontawesome.com/0cb7eac916.js" crossorigin="anonymous"></script>
 <body>
 <!--header del partial -->
@@ -15,20 +15,42 @@
                 <fieldset>
 
                     <legend>¡INGRESA!</legend>
-                    <div class="usuario">
+
+                    <!-- email usuario -->
+
+                    <div class="formulario_grupo usuario" id="grupo__email">
                         
-                            <label for="email"><b>Email:</b></label> <br>
-                            <input type="text" name="email" id="email" placeholder="Ingresa tu email de registro">
+                            <label class="formulario_label" for="email"><b>Email:</b></label> <br>
+
+                        <div class="formulario__grupo-input">
+
+                            <input class="formulario__input" type="email" name="email" id="email" placeholder="Ingresa tu email de registro">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+
+                        </div>
+
+                            <p class="formulario_input-error">el correo solo puede contener letras, numero, puntos, guiones y guion bajo.</p>
+
                             <% if (locals.errors && errors.email) { %>
                             <div class="text-danger">
                                 <%= errors.email.msg %> 
                             </div>
                             <% } %>
                     </div>
-                    <div class="contraseña">
+
+                    <!-- contraseña usuario -->
+
+                    <div class="formulario_grupo contraseña" id="grupo__password">
                     
                         <label for="password"><b>Contraseña:</b> </label> <br>
-                        <input type="password" name="password" id="password" placeholder="Introducir tu clave">
+
+                    <div class="formulario__grupo-input">
+
+                        <input  class="formulario__input" type="password" name="password" id="password" placeholder="Introducir tu clave">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+
+                    <p class="formulario_input-error">la contraseña tiene que ser de 8 a 12 digitos</p>
                         <% if (locals.errors && errors.password) { %>
                             <div class="text-danger">
                                 <%= errors.password.msg %> 
@@ -36,12 +58,16 @@
                         <% } %>
                     
                     </div>
-                    <p>
                     
-                        <div class="caja-recuerdame">
-                        <button type="submit" class="entrar">ENTRAR</button></div> 
+                    <div class="formulario__mensaje" id="formulario__mensaje">
+                        <p><i class="fas fa-exclamation-triangle"></i><b>Por favor rellena el formulario correctamente.</b></p>
+                    </div>
+                    
+                    <div class="caja-recuerdame">
+                        <button type="submit" class="entrar">ENTRAR</button>
+                    </div> 
 
-                    </p>
+                    
                     <p>
                         <a href="#">¿Olvidaste la Contraseña?</a>
                         
