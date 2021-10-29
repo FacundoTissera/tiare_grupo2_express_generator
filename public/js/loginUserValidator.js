@@ -5,7 +5,7 @@ window.addEventListener('load',function(){
     //console.log(inputs);
     const expresiones = {
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-        password: /^.{8,12}$/,
+        password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,//8 a 15 digitos tiene que tener una mayuscula y un numero minimo.
     };
     const validarFormulario = (e)=>{
         //console.log(e.target.name); 

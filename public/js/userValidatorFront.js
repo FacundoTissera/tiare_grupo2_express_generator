@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
   const expresiones = {
     //usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    password: /^.{8,12}$/, // 4 a 12 digitos.
+    password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,//8 a 15 digitos tiene que tener una mayuscula y un numero minimo.
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     numeros: /^\d{7,14}$/, // 7 a 14 numeros.
     codigoPostal: /^\d{0,4}$/,
@@ -27,6 +27,7 @@ window.addEventListener("load", function () {
 
   const validarFormulario = (e) => {
     //identifico los name de el register console.log(e.target.name);
+    //console.log(e.target.password);
     switch (e.target.name) {
       //llamo al name de cada input
       case "nombre":
@@ -68,6 +69,7 @@ window.addEventListener("load", function () {
   };
 
   const validarCampo = (expresion, input, campo) => {
+    console.log(input.value);
     if (expresion.test(input.value)) {
       document
         .getElementById(`${campo}`)
