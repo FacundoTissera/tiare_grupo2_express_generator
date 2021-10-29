@@ -133,7 +133,7 @@ textarea{
     width:35%;
 }
 #nombre {
-    width:70%
+    width:100%
 }
 #descripcion{
     width:100%;
@@ -293,20 +293,20 @@ button{
 }
 .formulario__validacion-estado{
     position: absolute;
-    left: 1150px;
+    left: 95%;
     bottom: 15px;
     z-index: 100;
     font-size: 16px;
     opacity: 0;
 }
-.formulario__validacion-estadoDescripcion{
+/* .formulario__validacion-estadoDescripcion{
     position: absolute;
     left: 1650px;
     bottom: 20px;
     z-index: 100;
     font-size: 16px;
     opacity: 0;
-}
+} */
 .formulario__mensaje{
     grid-template-columns: span 2;
     height: 45px;
@@ -337,10 +337,7 @@ button{
     color: #bb2929;
     opacity: 1;
 }
-.formulario__grupo-incorrecto .formulario__validacion-estadoDescripcion{
-    color: #bb2929;
-    opacity: 1;
-}
+
 .formulario__grupo-incorrecto .formulario__input{
     border: 3px solid #bb2929;
 }

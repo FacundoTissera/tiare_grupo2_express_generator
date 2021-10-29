@@ -81,10 +81,10 @@
           <label for="descripcion" class="titulo-formulario-producto formulario__label">DESCRIPCIÓN</label>
 
           <div class="formulario__grupo-input">
-          <textarea rows="8"  name="descripcion"  id="descripcion" class="formulario__input<%=locals.errors && errors.descripcion ? "is-invalid" :null %> "><%= locals.oldData ? oldData.descripcion :null%> </textarea>
-          <i class="formulario__validacion-estadoDescripcion fas fa-times-circle"></i>
-          <p class="formulario__input-error">La descripcion del producto debe tener al menos 20 caracteres</p> 
-          </div>
+          <input rows="8"  name="descripcion"  id="descripcion" class="formulario__input<%=locals.errors && errors.descripcion ? "is-invalid" :null %> "><%= locals.oldData ? oldData.descripcion :null%> </input>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">La descripcion del producto debe tener al menos 20 caracteres</p> 
         
 
           <%if (locals.errors && errors.descripcion){%>
