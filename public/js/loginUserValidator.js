@@ -2,6 +2,7 @@ window.addEventListener('load',function(){
     
     const formularioLogin = document.querySelector('#formularioLogin');
     const inputs = document.querySelectorAll('#formularioLogin input')
+    const  showPassword = document.querySelector('.show-password');
     //console.log(inputs);
     const expresiones = {
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -44,6 +45,18 @@ window.addEventListener('load',function(){
                 break;
         } 
     }
+
+    showPassword.addEventListener('click', ()=>{
+        password1 = document.querySelector('.password1');
+        if ( password1.type === "text" ) {
+            password1.type = "password"
+            showPassword.classList.remove('fa-eye-slash');
+        }else{
+            password1.type = "text"
+            showPassword.classList.toggle("fa-eye-slash");
+        }
+    })
+
     inputs.forEach((input)=>{
         input.addEventListener('keyup', validarFormulario);
         input.addEventListener('blur', validarFormulario);

@@ -108,7 +108,7 @@ window.addEventListener("load", function () {
     if (!allowedExtensions.exec(filePath)) {
       console.log("error");
       fileInput.value = "";
-      return false;
+      return alert('Los formatos de imagen admitidos son .jpg| .jpeg| .png| .gif');
     }
   };
   inputs.forEach((input) => {

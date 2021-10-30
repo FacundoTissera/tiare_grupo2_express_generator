@@ -244,6 +244,14 @@ legend{
     color: #5E5236;
     font-weight: bold;
 }
+.password-icon {
+    float: right;
+    position: relative;
+    margin: -31px 36px 0 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
 #email, #password{
     width: 100%;
     padding:8px;
