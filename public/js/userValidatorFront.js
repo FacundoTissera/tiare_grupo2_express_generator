@@ -133,8 +133,8 @@ window.addEventListener("load", function () {
       camposForm.ciudadUsuario &&
       terminos.checked
     ) {
-      formularioRegister.submit();
     } else {
+      e.preventDefault();
       document
         .getElementById("formulario__mensaje")
         .classList.add("formulario__mensaje-activo");
