@@ -1,3 +1,7 @@
+## 11 WEEKLY STAND-UP: VIERNES 29/10##
+Esta semana aprovechamos para terminar las validaciones de los formularios, el login desde el front fue el ultimo.
+Finalmente el archivo tiene todas las validaciones que el sprint nos exigía y estamos conformes con el resultado. 
+
 ## 10 WEEKLY STAND-UP: LUNES 25/10##
 Avanzando sobre las validaciones, ya tenemos completas las de la parte de productos, tanto front y back y ahora estamos cerrando las validaciones de usuarios. 
 En el back teniamos todo bastante avanzado, pero igualmente las consignas del sprint nos obligaron a ajustarlas. Y tambien aprovechamos para limpiar codigo.
