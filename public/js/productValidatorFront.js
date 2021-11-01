@@ -6,8 +6,9 @@ window.addEventListener('load', function() {
     console.log(inputsProduct);
     
     const expresiones = {
-        usuario: /^[a-zA-Z0-9\_\-]{5,16}$/, // Letras, numeros, guion y guion_bajo
-        descripcion: /^[a-zA-ZÀ-ÿ\s]{20,100}$/, // Letras y espacios, pueden llevar acentos.
+        usuario: /^[a-zA-Z0-9\_\-]{4,100}$/, // Letras, numeros, guion y guion_bajo
+        nombre: /^[a-zA-ZÀ-ÿ\s]{5,100}$/, // Letras y espacios, pueden llevar acentos.
+        descripcion: /^[a-zA-ZÀ-ÿ\s]{20,1000}$/, // Letras y espacios, pueden llevar acentos.
         password: /^.{4,12}$/, // 4 a 12 digitos.
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         numeros: /^\d{7,14}$/,// 7 a 14 numeros.
@@ -19,7 +20,7 @@ window.addEventListener('load', function() {
             switch (e.target.name) {
             case 'nombre':
                 //validarCampo(expresiones.nombre, e.target, 'nombreProducto');
-                if(expresiones.usuario.test(e.target.value)){
+                if(expresiones.nombre.test(e.target.value)){
                     document.getElementById("grupo__nombreProducto").classList.remove('formulario__grupo-incorrecto');
                     document.getElementById("grupo__nombreProducto").classList.add('formulario__grupo-correcto');
                     document.querySelector("#grupo__nombreProducto i").classList.add('fa-check-circle');

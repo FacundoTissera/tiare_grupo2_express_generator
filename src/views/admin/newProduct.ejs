@@ -20,7 +20,7 @@
             <input type="text" name="nombre" id="nombre" placeholder="Ej: REMERA MILÁN" class="formulario__input <%=locals.errors && errors.nombre ? "is-invalid" :null %> "value="<%= locals.oldData ? oldData.nombre :null%>">
             <i class="formulario__validacion-estado fas fa-times-circle"></i>
           </div>
-          <p class="formulario__input-error">El nombre del producto debe tener al menos 5 caracteres.</p>
+          <p class="formulario__input-error">El nombre del producto debe tener al menos 5 caracteres, solo se permiten letras.</p>
         </div>
         <%if (locals.errors && errors.nombre){%>
           <div class="text-danger">
