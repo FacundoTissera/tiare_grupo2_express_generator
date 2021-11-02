@@ -12,13 +12,18 @@ const methodOverride = require ('method-override');
 
 //requiere la funcion middleware de usuario logueado para manejar las vistas y barras de navegacion
 const usuarioLogMiddleware = require ('./src/middlewares/usuarioLogMiddleware');
-//requiere  las rutas de diferentes archivos
 
+//requiere  las rutas de diferentes archivos
 const productsRouter = require('./src/routes/products');
 const indexRouter = require('./src/routes/index');
 const userRouter = require('./src/routes/user');
 const cartRouter = require('./src/routes/cart')
 const adminRouter = require ('./src/routes/admin');
+
+//requiere las rutas de las APIs
+const productsApiRouter= require ('./src/routes/api/productApiRouter');
+const userApiRouter= require('./src/routes/api/userApiRouter');
+
 
 const app = express();
 //ACA HAGO USO DE SESSION ↓
@@ -55,6 +60,10 @@ app.use('/products',productsRouter);
 app.use('/user',userRouter);
 app.use('/cart',cartRouter);
 app.use('/admin', adminRouter);
+
+//RUTAS de las APIs
+app.use('/api/products', productsApiRouter);
+//app.use('/api/users', userApiRouter );
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
