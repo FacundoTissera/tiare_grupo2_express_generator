@@ -8,6 +8,12 @@ window.addEventListener('load',function(){
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,//8 a 15 digitos tiene que tener una mayuscula y un numero minimo.
     };
+
+    const camposForm = {
+        grupo__email: false,
+        grupo__password: false
+    };
+
     const validarFormulario = (e)=>{
         //console.log(e.target.name); 
         switch (e.target.name) {
@@ -18,12 +24,14 @@ window.addEventListener('load',function(){
                     document.querySelector('#grupo__email i').classList.remove('fa-times-circle');
                     document.querySelector('#grupo__email i').classList.add('fa-check-circle');
                     document.querySelector('#grupo__email .formulario_input-error').classList.remove('formulario_input-error-activo');
+                    camposForm['grupo__email'] = true;
                 }else{
                     document.getElementById('grupo__email').classList.add('formulario_grupo-incorrecto');
                     document.getElementById('grupo__email').classList.remove('formulario_grupo-correcto');
                     document.querySelector('#grupo__email i').classList.add('fa-times-circle');
                     document.querySelector('#grupo__email i').classList.remove('fa-check-circle');
-                    document.querySelector('#grupo__email .formulario_input-error').classList.add('formulario_input-error-activo')
+                    document.querySelector('#grupo__email .formulario_input-error').classList.add('formulario_input-error-activo');
+                    camposForm['grupo__email'] = false;
                 }
                 break;
             case 'password':
@@ -33,12 +41,14 @@ window.addEventListener('load',function(){
                     document.querySelector('#grupo__password i').classList.remove('fa-times-circle');
                     document.querySelector('#grupo__password i').classList.add('fa-check-circle');
                     document.querySelector('#grupo__password .formulario_input-error').classList.remove('formulario_input-error-activo');
+                    camposForm['grupo__password'] = true;
                 }else{
                     document.getElementById('grupo__password').classList.add('formulario_grupo-incorrecto');
                     document.getElementById('grupo__password').classList.remove('formulario_grupo-correcto');
                     document.querySelector('#grupo__password i').classList.add('fa-times-circle');
                     document.querySelector('#grupo__password i').classList.remove('fa-check-circle');
-                    document.querySelector('#grupo__password .formulario_input-error').classList.add('formulario_input-error-activo')
+                    document.querySelector('#grupo__password .formulario_input-error').classList.add('formulario_input-error-activo');
+                    camposForm['grupo__password'] = false;
                 }
         
             default:
@@ -64,7 +74,15 @@ window.addEventListener('load',function(){
     
 
     formularioLogin.addEventListener("submit",(e)=>{
-        formularioLogin.submit();
+        if (
+            camposForm.grupo__email &&
+            camposForm.grupo__password
+            ) 
+        {
+
+        }else{
+            e.preventDefault()
+        }
     })
 
 })
