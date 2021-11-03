@@ -75,7 +75,8 @@ const productApiController = {
                     description:producto.description, 
                     category:producto.categorias.category, 
                     sizes: arrayTalles,
-                    colors:arrayColores                
+                    colors:arrayColores, 
+                    image: '/images/prendas/'+producto.image          
                  }
                 return res.status(200).json({
                     
