@@ -1,3 +1,20 @@
+## Retro SPRING 7:
+## RETROSPECTIVA GENERAL:
+El sprint 7 fue cumplido con algunos contratiempos ya que el material disponible de validaciones no era lo suficientemente. 
+Seguimos destacando la comunicacion continua del equipo y estamos muy orgullosos de los resultados finales.
+
+## START DOING
+Nada por acá.  
+## MORE OFF
+Nada por acá.
+## KEEP DOING
+Mantener la colaboración interna del equipo ademas nos parece importante recurrir a material externo del curso.
+## LESS OFF
+Nada por acá.
+## STOP DOING
+Nada por acá. 
+
+
 ## Retro SPRING 6:
 ## RETROSPECTIVA GENERAL:
 El sprint 6 fue cumplido en tiempo y forma aunque corrimos mucho para poder completarlo. 
