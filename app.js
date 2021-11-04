@@ -22,7 +22,7 @@ const adminRouter = require ('./src/routes/admin');
 
 //requiere las rutas de las APIs
 const productsApiRouter= require ('./src/routes/api/productApiRouter');
-const userApiRouter= require('./src/routes/api/userApiRouter');
+//const userApiRouter= require('./src/routes/api/userApiRouter');
 
 
 const app = express();

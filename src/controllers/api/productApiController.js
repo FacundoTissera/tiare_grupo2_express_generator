@@ -1,6 +1,6 @@
 const db = require('../../database/models');
 const productsController = require('../productsController');
-const Op = db.Sequelize.Op
+//const Op = db.Sequelize.Op
 
 const productApiController = {
     //listado de todos los productos
@@ -10,7 +10,7 @@ const productApiController = {
                 include: ['categorias']
             })
             .then(productos => {
-                //console.log (productos[8].categorias.category) Para encontrar categoria
+                //console.log(productos[0].categorias.category)
                 let prodCateg = {};
                 for (let i = 0; i <productos.length; i++) {
                     let producto = productos[i];
@@ -73,15 +73,21 @@ const productApiController = {
                     id:producto.id, 
                     name:producto.name, 
                     description:producto.description, 
+                    price:producto.price,
                     category:producto.categorias.category, 
                     sizes: arrayTalles,
                     colors:arrayColores, 
                     image: '/images/prendas/'+producto.image          
                  }
                 return res.status(200).json({
+                      data:objeto  
                     
-                    data:objeto
                 });
+            })
+            .catch(function(error){
+                return res.status(400).json({
+                    error:"Id no encontrado"
+                })
             });
     }
 
