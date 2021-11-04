@@ -29,7 +29,7 @@ const productApiController = {
                        name:productos[i].name, 
                        description:productos[i].description, 
                        category:productos[i].categorias.category, 
-                       detail:'api/products/'+productos[i].id
+                       detail:'/api/products/'+productos[i].id
                     }
                 products.push(unProducto)  
                 }
@@ -39,7 +39,7 @@ const productApiController = {
                         status:200, 
                         count: productos.length,
                         countByCategory: prodCateg,
-                        url:'api/products/'
+                        url:'/api/products/'
                     },
                     
                     data:{
