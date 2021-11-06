@@ -1,4 +1,4 @@
-const Role = require("./Role");
+//const Role = require("./Role");
 
 module.exports = function(sequelize, dataTypes){
     let alias = 'Usuario';
@@ -54,6 +54,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         role_id:{
+            allowNull: false,
             type: dataTypes.INTEGER
         }
 
@@ -72,8 +73,8 @@ module.exports = function(sequelize, dataTypes){
         });
 
         Usuario.belongsTo(models.Role, {
-            as: "roles",
-            foreignKey: "role_id"
+            as: "role",
+            foreignKey:"role_id"
         });
     }
 

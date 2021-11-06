@@ -22,7 +22,7 @@ const adminRouter = require ('./src/routes/admin');
 
 //requiere las rutas de las APIs
 const productsApiRouter= require ('./src/routes/api/productApiRouter');
-//const userApiRouter= require('./src/routes/api/userApiRouter');
+const userApiRouter= require('./src/routes/api/userApiRouter');
 
 
 const app = express();
@@ -63,7 +63,7 @@ app.use('/admin', adminRouter);
 
 //RUTAS de las APIs
 app.use('/api/products', productsApiRouter);
-//app.use('/api/users', userApiRouter );
+app.use('/api/user', userApiRouter );
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

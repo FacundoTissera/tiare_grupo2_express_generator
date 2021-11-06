@@ -2,7 +2,7 @@ const db = require('../../database/models');
 const productsController = require('../productsController');
 //const Op = db.Sequelize.Op
 
-const productApiController = {
+const  productApiController = {
     //listado de todos los productos
     'list': (req, res) => {
         db.Producto
