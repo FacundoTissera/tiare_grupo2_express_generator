@@ -17,7 +17,7 @@ const userApiController = {
                     detail:'/api/user/'+ element.id
                 }
             
-                    users.push(unUsuario)
+                    users.push(unUsuario);
                 
             });
                 
@@ -40,6 +40,30 @@ const userApiController = {
     },
 
     detail:(req, res) => {
+        db.Usuario.findByPk(req.params.id)
+        .then(usuario =>{
+            let user = [];
+            usuario.forEach(element => {
+                let usuarioId = {
+                    id: element.id,
+                    name: element.name,
+                    email: element.email,
+                    image: '/images/avatars/'+element.image,
+                    detail:'/api/user/'+ element.id    
+                }
+                usuario.push(usuarioId);
+            })
+            return res.json({
+                meta:{
+                    status:200,
+                    url:'/api/user/'+usuario.id,
+                },
+                data:{
+                    user,
+                }
+            })
+        })
+
 
     }
 }
