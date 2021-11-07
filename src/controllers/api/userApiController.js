@@ -3,7 +3,7 @@ const db = require('../../database/models');
 
 const userApiController = {
 
-    'todos': (req, res) => {
+    todos: (req, res) => {
 
         db.Usuario.findAll()
         .then( usuarios => {
@@ -14,9 +14,11 @@ const userApiController = {
                     id: element.id,
                     name: element.name,
                     email: element.email,
-                    detail:'/api/user/'+element.id
+                    detail:'/api/user/'+ element.id
                 }
-                users.push(unUsuario)
+            
+                    users.push(unUsuario)
+                
             });
                 
 
@@ -35,6 +37,10 @@ const userApiController = {
             
         })
         
+    },
+
+    detail:(req, res) => {
+
     }
 }
 
