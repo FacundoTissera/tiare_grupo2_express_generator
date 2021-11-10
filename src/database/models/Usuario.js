@@ -54,7 +54,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         role_id:{
-            allowNull: false,
+            allowNull: true,
             type: dataTypes.INTEGER
         }
 
@@ -73,7 +73,7 @@ module.exports = function(sequelize, dataTypes){
         });
 
         Usuario.belongsTo(models.Role, {
-            as: "role",
+            as: "roles",
             foreignKey:"role_id"
         });
     }
