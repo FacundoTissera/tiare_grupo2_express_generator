@@ -42,19 +42,19 @@ const userApiController = {
     detail:(req, res) => {
         db.Usuario.findByPk(req.params.id)
         .then(usuario =>{
-            
-            
+
+
             let user = {
-                
+
                     id: usuario.id,
                     name: usuario.name,
                     email: usuario.email,
                     image: '/images/avatars/'+usuario.image,
-                    detail:'/api/user/'+ usuario.id    
-                
+                    detail:'/api/user/'+ usuario.id
+
             };
-            
-    
+
+
             return res.status(200).json({
                 data: user,
             })
