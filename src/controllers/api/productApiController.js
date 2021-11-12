@@ -89,6 +89,33 @@ const  productApiController = {
                     error:"Id no encontrado"
                 })
             });
+    },
+    todo: (req, res)=>{
+        // res.status(400).send('holis')
+        db.Producto.findAll()
+            .then(productos=>{
+                let producto =[];
+                productos.forEach(element => {
+                    let unProducto= {
+                        id: element.id,
+                        name: element.name,
+                        price: element.price,
+                        description: element.description,
+                        image: '/images/prendas/'+element.image
+                    }
+                    producto.push(unProducto)
+                });
+                return res.json({
+                    meta: {
+                        status:200,
+                        total:producto.length,
+                        url: 'api/products'
+                    },
+                    data: {
+                        producto
+                    }
+                })
+            })
     }
 
 }

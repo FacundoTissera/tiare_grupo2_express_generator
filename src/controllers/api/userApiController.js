@@ -42,25 +42,25 @@ const userApiController = {
     detail:(req, res) => {
         db.Usuario.findByPk(req.params.id)
         .then(usuario =>{
-            let user = [];
-            usuario.forEach(element => {
-                let usuarioId = {
-                    id: element.id,
-                    name: element.name,
-                    email: element.email,
-                    image: '/images/avatars/'+element.image,
-                    detail:'/api/user/'+ element.id    
-                }
-                usuario.push(usuarioId);
+            
+            
+            let user = {
+                
+                    id: usuario.id,
+                    name: usuario.name,
+                    email: usuario.email,
+                    image: '/images/avatars/'+usuario.image,
+                    detail:'/api/user/'+ usuario.id    
+                
+            };
+            
+    
+            return res.status(200).json({
+                data: user,
             })
-            return res.json({
-                meta:{
-                    status:200,
-                    url:'/api/user/'+usuario.id,
-                },
-                data:{
-                    user,
-                }
+        }).catch(function(error){
+            return res.status(400).json({
+                error:'usuario no encontrado'
             })
         })
 
