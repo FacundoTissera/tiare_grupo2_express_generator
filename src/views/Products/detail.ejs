@@ -66,12 +66,14 @@
             </div>
         </section>
         <section class="botones-editar-borrar">
+                    <%if (locals.isLogged){%>
 
                     <a href="/admin/editar/<%=producto.id %>" class="editar-producto" >EDITAR PRODUCTO</a>
                     
                     <form action="/admin/borrar/<%= producto.id %>?_method=DELETE " method="POST">
                         <button type="submit"class="borrar-producto">ELIMINAR</button> 
                     </form>
+                    <%}%>
                         
         </section>          
                 
