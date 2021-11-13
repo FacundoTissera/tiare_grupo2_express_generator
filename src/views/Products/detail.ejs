@@ -79,33 +79,86 @@
                 
         <section class="medidas">
             <table  name="tabla-de-medidas">
-                <tr>
-                    <th>MEDIDAS</th>
-                    <th>TALLE 1</th>
-                    <th>TALLE 2</th>
-                </tr>
-                    <td>Ancho de hombros</td>
-                    <td>13.5 cm</td>
-                    <td>15.5 cm</td>
-                <tr>
-                    <td>Contorno</td>
-                    <td>100 cm</td>
-                    <td>104 cm</td>
+                <%if (producto.categorias.id <=2){%>
+                    <tr>
+                        <th>MEDIDAS REFERENCIA TOP</th>
+                        <th>TALLE XS</th>
+                        <th>TALLE S</th>
+                        <th>TALLE M</th>
+                        <th>TALLE L</th>
+                        <th>TALLE XL</th>
+                    </tr>
+                        <td>Ancho de hombros</td>
+                        <td>13.5 cm</td>
+                        <td>14.5 cm</td>
+                        <td>15.5 cm</td>
+                        <td>16.5 cm</td>
+                        <td>18.5 cm</td>
+                        
+                    <tr>
+                        <td>Contorno</td>
+                        <td>100 cm</td>
+                        <td>104 cm</td>
+                        <td>106 cm</td>
+                        <td>110 cm</td>
+                        <td>114 cm</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Largo de manga</td>
+                        <td>64 cm</td>
+                        <td>66 cm</td>
+                        <td>67 cm</td>
+                        <td>68 cm</td>
+                        <td>70 cm</td>
+                    </tr>
+
+                    <tr>
+                        <td>Largo total</td>
+                        <td>70 cm</td>
+                        <td>74 cm</td>
+                        <td>76 cm</td>
+                        <td>76 cm</td>
+                        <td>78 cm</td>
                     
-                </tr>
+                    </tr>
+                <%}else if (producto.categorias.id ==3){%>
+                    <tr>
+                        <th>MEDIDAS REFERENCIA BOTTOM</th>
+                        <th>TALLE XS</th>
+                        <th>TALLE S</th>
+                        <th>TALLE M</th>
+                        <th>TALLE L</th>
+                        <th>TALLE XL</th>
+                    </tr>
+                        <td>Cintura</td>
+                        <td>65 cm</td>
+                        <td>75 cm</td>
+                        <td>85 cm</td>
+                        <td>100 cm</td>
+                        <td>110 cm</td>
+                        
+                    <tr>
+                        <td>Cadera</td>
+                        <td>105 cm</td>
+                        <td>115 cm</td>
+                        <td>120 cm</td>
+                        <td>130 cm</td>
+                        <td>140 cm</td>
+                        
+                    </tr>
 
-                <tr>
-                    <td>Largo de manga</td>
-                    <td>64 cm</td>
-                    <td>66 cm</td>
-                </tr>
+                    <tr>
+                        <td>Largo total</td>
+                        <td>85 cm</td>
+                        <td>88 cm</td>
+                        <td>92 cm</td>
+                        <td>100 cm</td>
+                        <td>105 cm</td>
+                    
+                    </tr>  
 
-                <tr>
-                    <td>Largo total</td>
-                    <td>70 cm</td>
-                    <td>74 cm</td>
-                
-                </tr>
+               <% }%>
             </table>
         </section>
        <!-- <section class="basado-en-tu-compra">
