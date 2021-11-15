@@ -115,6 +115,9 @@ window.addEventListener("load", function () {
     if (input.type != "file") {
       input.addEventListener("keyup", validarFormulario);
       input.addEventListener("blur", validarFormulario);
+      if (input.value && input.type != "password") {
+        input.dispatchEvent(new Event('blur'));
+      }
     } else {
       input.addEventListener("change", archivo);
     }
@@ -123,6 +126,7 @@ window.addEventListener("load", function () {
   formularioRegister.addEventListener("submit", (e) => {
     //e.preventDefault();
     const terminos = document.getElementById("aceptoTerminos");
+    console.log(camposForm);
     if (
       camposForm.nombreApellido &&
       camposForm.telefonoUsuario &&
